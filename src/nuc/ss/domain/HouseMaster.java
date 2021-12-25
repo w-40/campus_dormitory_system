@@ -8,14 +8,14 @@ package nuc.ss.domain;
 public class HouseMaster {
     private String id;  //工号
     private String name; //姓名
-    private Sex sex; //性别
+    private char sex; //性别
     private String dormitoryId; //管理的宿舍楼号
     private String phoneNumber; //联系电话
 
     public HouseMaster() {
     }
 
-    public HouseMaster(String id, String name, Sex sex, String dormitory_id, String phoneNumber) {
+    public HouseMaster(String id, String name, char sex, String dormitory_id, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.sex = sex;
@@ -39,11 +39,11 @@ public class HouseMaster {
         this.name = name;
     }
 
-    public Sex getSex() {
+    public char getSex() {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(char sex) {
         this.sex = sex;
     }
 
