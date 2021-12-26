@@ -4,18 +4,16 @@ package nuc.ss.view;
  * @description 登录界面
  */
 
+import nuc.ss.controller.SystemControllerLogin;
+
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JButton;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginFrame {
 
@@ -133,6 +131,28 @@ public class LoginFrame {
 		button.setForeground(new Color(75, 0, 130));
 		button.setBounds(366, 507, 154, 56);
 		frame.getContentPane().add(button);
+
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean flag = false;
+				if (r_3.isSelected()){
+					String username = usernameField.getText();
+					String password = passwordField.getText();
+					try {
+						flag = SystemControllerLogin.systemControllerLogin(username, password);
+					} catch (Exception exception) {
+						exception.printStackTrace();
+					}finally {
+						if (flag){
+							JOptionPane.showMessageDialog(frame,"登录成功");
+						}else{
+							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
+						}
+					}
+				}
+			}
+		});
 		
 		JLabel L_0 = new JLabel("欢迎来到校园宿舍管理系统！");
 		L_0.setForeground(new Color(0, 0, 139));
@@ -145,5 +165,6 @@ public class LoginFrame {
 		L_bg.setIcon(new ImageIcon(("images/背景图片.jpg")));
 		L_bg.setBounds(0, 0, 856, 616);
 		frame.getContentPane().add(L_bg);
+		frame.setVisible(true);
 	}
 }

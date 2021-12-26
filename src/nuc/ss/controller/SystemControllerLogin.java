@@ -1,10 +1,12 @@
 package nuc.ss.controller;
 
-import nuc.ss.view.LoginFrame;
+import nuc.ss.service.ServiceSystemControllerLogin;
+
 
 public class SystemControllerLogin {
-    public static void main(String[] args) {
-        LoginFrame lf = new LoginFrame();
+    public static boolean systemControllerLogin(String username, String password) throws Exception {
+        boolean flag = ServiceSystemControllerLogin.SystemControllerLogin(username, password);
+        return flag;
     }
 
 
