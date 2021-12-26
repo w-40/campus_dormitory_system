@@ -132,6 +132,7 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
+							ManageInterface manageInterface = new ManageInterface();
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}

@@ -1,4 +1,8 @@
 package nuc.ss.view;
+/**
+ * @author 韩思远
+ * @description 定义系统管理员表格
+ */
 
 import nuc.ss.domain.HouseMaster;
 

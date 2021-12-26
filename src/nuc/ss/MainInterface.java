@@ -5,7 +5,7 @@ import nuc.ss.view.LoginFrame;
 import java.awt.*;
 
 /**
- * @author wzk
+ * @author 王志凯
  * @description 程序主入口
  * @
  */
