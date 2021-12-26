@@ -4,7 +4,7 @@ package nuc.ss.view;
  * @description 登录界面
  */
 
-import nuc.ss.controller.SystemControllerLogin;
+import nuc.ss.controller.Login_Controller;
 
 import java.awt.EventQueue;
 
@@ -140,7 +140,7 @@ public class LoginFrame {
 					String username = usernameField.getText();
 					String password = passwordField.getText();
 					try {
-						flag = SystemControllerLogin.systemControllerLogin(username, password);
+						flag = Login_Controller.systemControllerLogin(username, password);
 					} catch (Exception exception) {
 						exception.printStackTrace();
 					}finally {

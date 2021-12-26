@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class JDBC_SystemController {
+public class Login_JDBC {
     public static boolean SystemControllerLogin(String username, String password) throws Exception {
         // 1.导入jar包
         // 2.注册驱动
@@ -25,8 +25,6 @@ public class JDBC_SystemController {
             if (rs.getString("账号").equals(username)&&rs.getString("密码").equals(password)){
                 return true;
             }
-            //System.out.println(rs.getString("账号") + "\t"
-            //        + rs.getString("密码"));
         }
         // 7.释放资源
         con.close();
