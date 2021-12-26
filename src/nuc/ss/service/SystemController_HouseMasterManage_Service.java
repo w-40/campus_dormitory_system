@@ -11,9 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SystemController_HouseMasterManage_Service {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        searchHouseMaster();
-    }
 
     public static ArrayList<HouseMaster> searchHouseMaster() throws SQLException, ClassNotFoundException {
         ArrayList<HouseMaster> houseMasterArrayList = new ArrayList<HouseMaster>();
