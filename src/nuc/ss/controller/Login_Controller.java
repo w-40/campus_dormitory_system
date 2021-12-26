@@ -9,7 +9,15 @@ import nuc.ss.service.Service_Login;
 
 public class Login_Controller {
     public static boolean systemControllerLogin(String username, String password) throws Exception {
-        boolean flag = Service_Login.SystemControllerLogin(username, password);
+        boolean flag = Service_Login.systemControllerLogin(username, password);
+        return flag;
+    }
+    public static boolean dormitoryControllerLogin(String username, String password) throws Exception {
+        boolean flag = Service_Login.dormitoryControllerLogin(username, password);
+        return flag;
+    }
+    public static boolean studentLogin(String username, String password) throws Exception {
+        boolean flag = Service_Login.studentLogin(username, password);
         return flag;
     }
 

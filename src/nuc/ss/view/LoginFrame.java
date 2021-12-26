@@ -21,21 +21,7 @@ public class LoginFrame {
 	private JTextField usernameField;
 	private JTextField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginFrame window = new LoginFrame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
@@ -136,11 +122,42 @@ public class LoginFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean flag = false;
-				if (r_3.isSelected()){
+				if (r_3.isSelected()){//系统管理员登录
 					String username = usernameField.getText();
 					String password = passwordField.getText();
 					try {
 						flag = Login_Controller.systemControllerLogin(username, password);
+					} catch (Exception exception) {
+						exception.printStackTrace();
+					}finally {
+						if (flag){
+							JOptionPane.showMessageDialog(frame,"登录成功");
+						}else{
+							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
+						}
+					}
+				}
+				if (r_1.isSelected()){//宿舍管理员登录
+					String username = usernameField.getText();
+					String password = passwordField.getText();
+					try {
+						flag = Login_Controller.dormitoryControllerLogin(username, password);
+					} catch (Exception exception) {
+						exception.printStackTrace();
+					}finally {
+						if (flag){
+							JOptionPane.showMessageDialog(frame,"登录成功");
+						}else{
+							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
+						}
+					}
+				}
+
+				if (r_2.isSelected()){//宿舍管理员登录
+					String username = usernameField.getText();
+					String password = passwordField.getText();
+					try {
+						flag = Login_Controller.studentLogin(username, password);
 					} catch (Exception exception) {
 						exception.printStackTrace();
 					}finally {

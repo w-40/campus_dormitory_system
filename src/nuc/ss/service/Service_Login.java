@@ -5,10 +5,21 @@ package nuc.ss.service;
  */
 import nuc.ss.dao.Login_JDBC;
 
+import java.sql.SQLException;
+
 
 public class Service_Login {
-    public static boolean SystemControllerLogin(String username, String password) throws Exception {
-        boolean flag = Login_JDBC.SystemControllerLogin(username, password);
+    public static boolean systemControllerLogin(String username, String password) throws Exception {
+        boolean flag = Login_JDBC.systemControllerLogin(username, password);
+        return flag;
+    }
+
+    public static boolean dormitoryControllerLogin(String username, String password) throws SQLException, ClassNotFoundException {
+        boolean flag = Login_JDBC.dormitoryControllerLogin(username, password);
+        return flag;
+    }
+    public static boolean studentLogin(String username, String password) throws SQLException, ClassNotFoundException {
+        boolean flag = Login_JDBC.studentLogin(username, password);
         return flag;
     }
 }
