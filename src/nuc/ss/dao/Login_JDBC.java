@@ -1,9 +1,16 @@
 package nuc.ss.dao;
+/**
+ * @author 王志凯
+ * @description 登录数据访问层
+ * systemControllerLogin(String username, String password)：查询并校验系统管理员账号密码数据
+ * dormitoryControllerLogin(String username, String password)：查询并校验速速管理员账号密码数据
+ * studentLogin(String username, String password)：查询并校验学生账号密码数据
+ * 并将执行结果返回到登录业务层
+ */
 
 import java.sql.*;
 
 public class Login_JDBC {
-
     public static boolean systemControllerLogin(String username, String password) throws Exception {
         // 1.导入jar包
         // 2.注册驱动
