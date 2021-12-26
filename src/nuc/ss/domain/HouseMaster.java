@@ -7,6 +7,7 @@ package nuc.ss.domain;
  */
 public class HouseMaster {
     private String id;  //工号
+    private String password;
     private String name; //姓名
     private char sex; //性别
     private String dormitoryId; //管理的宿舍楼号
@@ -15,11 +16,12 @@ public class HouseMaster {
     public HouseMaster() {
     }
 
-    public HouseMaster(String id, String name, char sex, String dormitory_id, String phoneNumber) {
+    public HouseMaster(String id, String password, String name, char sex, String dormitoryId, String phoneNumber) {
         this.id = id;
+        this.password = password;
         this.name = name;
         this.sex = sex;
-        this.dormitoryId = dormitory_id;
+        this.dormitoryId = dormitoryId;
         this.phoneNumber = phoneNumber;
     }
 
@@ -47,20 +49,28 @@ public class HouseMaster {
         this.sex = sex;
     }
 
-    public String getDormitory_id() {
-        return dormitoryId;
-    }
-
-    public void setDormitory_id(String dormitory_id) {
-        this.dormitoryId = dormitory_id;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDormitoryId() {
+        return dormitoryId;
+    }
+
+    public void setDormitoryId(String dormitoryId) {
+        this.dormitoryId = dormitoryId;
     }
 
     @Override
