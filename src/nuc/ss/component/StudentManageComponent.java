@@ -1,5 +1,8 @@
 package nuc.ss.component;
-
+/**
+ * @author 王志凯
+ * @description 学生管理页面
+ */
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.controller.SystemController_StudentManage_Controller;
 import nuc.ss.dao.SystemController_StudentManage_JDBC;

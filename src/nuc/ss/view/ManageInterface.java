@@ -8,16 +8,7 @@ package nuc.ss.view;
 import nuc.ss.component.DormitoryManageComponent;
 import nuc.ss.component.HouseMasterManageComponent;
 import nuc.ss.component.StudentManageComponent;
-import nuc.ss.controller.SystemController_DormitoryManage_Controller;
-import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
-import nuc.ss.controller.SystemController_StudentManage_Controller;
-import nuc.ss.dao.SystemController_DormitoryManage_JDBC;
-import nuc.ss.dao.SystemController_StudentManage_JDBC;
-import nuc.ss.dao.SystemController_HouseMasterManage_JDBC;
-import nuc.ss.domain.Dormitory;
-import nuc.ss.domain.HouseMaster;
-import nuc.ss.domain.Student;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
+
 
 import java.awt.*;
 import java.sql.SQLException;
