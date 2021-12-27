@@ -146,15 +146,29 @@ public class ManageInterface {
         frame.setJMenuBar(menuBar);
 
         JMenu mnNewMenu = new JMenu("设置");
-        mnNewMenu.setFont(new Font("楷书", Font.PLAIN, 25));
+        mnNewMenu.setFont(new Font("宋体", Font.PLAIN, 25));
         menuBar.add(mnNewMenu);
 
         JMenuItem mntmNewMenuItem = new JMenuItem("返回");
-        mntmNewMenuItem.setFont(new Font("楷书", Font.PLAIN, 25));
+        mntmNewMenuItem.setFont(new Font("宋体", Font.PLAIN, 25));
         mnNewMenu.add(mntmNewMenuItem);
+        mntmNewMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                new LoginFrame();
+            }
+        });
 
         JMenuItem mntmNewMenuItem_1 = new JMenuItem("退出");
-        mntmNewMenuItem_1.setFont(new Font("楷书", Font.PLAIN, 25));
+        mntmNewMenuItem_1.setFont(new Font("宋体", Font.PLAIN, 25));
+        mntmNewMenuItem_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        mnNewMenu.addSeparator();
         mnNewMenu.add(mntmNewMenuItem_1);
         frame.setVisible(true);
     }
