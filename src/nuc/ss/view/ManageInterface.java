@@ -28,6 +28,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import static javafx.scene.input.KeyCode.J;
 import static nuc.ss.view.AdminTable.adminModel;
 import static nuc.ss.view.AdminTable.tableData;
 
@@ -73,7 +74,7 @@ public class ManageInterface {
     private void initialize() {
 
         frame = new JFrame();
-        frame.setTitle("响应宿舍管理系统_系统管理员主界面");
+        frame.setTitle("校园宿舍管理系统_系统管理员主界面");
         frame.getContentPane().setBackground(new Color(135, 206, 235));
         frame.setBounds(100, 100, 1600, 915);
         frame.setLocationRelativeTo(null);
@@ -87,14 +88,17 @@ public class ManageInterface {
         DefaultMutableTreeNode t4 = new DefaultMutableTreeNode("宿舍管理");
         DefaultMutableTreeNode t5 = new DefaultMutableTreeNode("宿舍房间管理");
         DefaultMutableTreeNode t6 = new DefaultMutableTreeNode("学生服务管理");
-        DefaultMutableTreeNode t7 = new DefaultMutableTreeNode("密码修改");
+        //DefaultMutableTreeNode t7 = new DefaultMutableTreeNode("密码修改");
         Color color = new Color(135, 206, 235);
         tree.setBackground(new Color(135, 206, 235));
         DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
         cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
         cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
-        //tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
-        tree.setFont(new Font("Courier", Font.PLAIN, 30));
+        tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
+
+        tree.setRowHeight(60);//设置结点高度
+
+        //tree.setFont(new Font("Courier", Font.PLAIN, 30));
         tree.setModel(new DefaultTreeModel(
                 new DefaultMutableTreeNode("系统管理员") {
                     {
@@ -104,11 +108,11 @@ public class ManageInterface {
                         t4.add(t5);
                         t4.add(t6);
                         add(t4);
-                        add(t7);
+                        //add(t7);
                     }
                 }
         ));
-        tree.setBounds(0, 0, 350, 428);
+        tree.setBounds(0, 0, 350, 828);
         tree.setCellRenderer(cellRenderer);
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             //当条目选中变化后，这个方法会执行
@@ -255,7 +259,6 @@ public class ManageInterface {
                     JOptionPane.showMessageDialog(frame, "请选中一个条目");
                 }
 
-
                 try {
                     String tid = tableData.get(row).get(0);//取得tid
                     SystemController_HouseMasterManage_Controller.updateHouseMaster(val, tid, tableHeadList, column);
@@ -266,6 +269,7 @@ public class ManageInterface {
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
                 }
+                JOptionPane.showMessageDialog(frame, "修改成功");
             }
         });
 

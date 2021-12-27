@@ -3,7 +3,7 @@ package nuc.ss.domain;
 /**
  * @author 王志凯
  * @description 学生基本信息：
- * 学生基本信息包括学号、姓名、性别、年级、宿舍楼号、宿舍号、床位、联系电话
+ * 学生基本信息包括学号、密码、姓名、性别、年级、宿舍楼号、宿舍号、床位、联系电话
  */
 public class Student {
     private String id;//学号
