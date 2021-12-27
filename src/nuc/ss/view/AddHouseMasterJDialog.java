@@ -16,8 +16,7 @@ import javax.swing.*;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;
 
-import static nuc.ss.view.AdminTable.adminTable;
-import static nuc.ss.view.AdminTable.tableData;
+import static nuc.ss.view.AdminTable.*;
 
 public class AddHouseMasterJDialog extends JDialog{
 	
@@ -26,12 +25,14 @@ public class AddHouseMasterJDialog extends JDialog{
     private JRadioButton r_male, r_female;
     private JButton b_add,b_reset;
 	Frame frame;
+
     
     public AddHouseMasterJDialog(Frame frame, String title, boolean modal) {
 		//super(frame, title, modal);
 		this.setTitle("添加宿管信息");
 		this.setSize(350, 450);
 		this.setLocation(300,200);
+		this.setLocationRelativeTo(null);
 		init();
 		this.setVisible(true);
 	}
@@ -71,8 +72,9 @@ public class AddHouseMasterJDialog extends JDialog{
     		public void actionPerformed(ActionEvent arg0) {
 				boolean flag = addHouseMaster();
 				if (flag == true){
-					JOptionPane.showMessageDialog(frame,"添加成功");
+					JOptionPane.showMessageDialog(frame,"添加成功，请点击查询按钮刷新表格");
 					dispose();
+
 				}else {
 					JOptionPane.showMessageDialog(frame,"添加失败");
 				}
