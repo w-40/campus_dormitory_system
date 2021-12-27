@@ -93,7 +93,8 @@ public class ManageInterface {
         DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
         cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
         cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
-        tree.setFont(new Font("隶书", Font.PLAIN, 30));
+        //tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
+        tree.setFont(new Font("Courier", Font.PLAIN, 30));
         tree.setModel(new DefaultTreeModel(
                 new DefaultMutableTreeNode("系统管理员") {
                     {
