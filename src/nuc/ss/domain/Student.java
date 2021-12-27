@@ -3,7 +3,7 @@ package nuc.ss.domain;
 /**
  * @author 王志凯
  * @description 学生基本信息：
- * 学生基本信息包括学号、密码、姓名、性别、年级、宿舍楼号、宿舍号、床位、联系电话
+ * 学生基本信息包括学号、姓名、性别、年级、宿舍楼号、宿舍号、床位、联系电话
  */
 public class Student {
     private String id;//学号
@@ -11,7 +11,8 @@ public class Student {
     private String name;//姓名
     private char sex;//性别
     private String grade;//年级
-    private String dormitoryId;//宿舍号
+    private String dormitoryId;//宿舍楼号
+    private String apartmentId;
     private int bed;//床位
     private String phoneNumber;
 
@@ -19,7 +20,7 @@ public class Student {
     }
 
 
-    public Student(String id, String password, String name, char sex, String grade, String dormitoryId, int bed, String phoneNumber) {
+    public Student(String grade, String id, String name, String password, char sex, String dormitoryId, String apartmentId,int bed, String phoneNumber) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -28,6 +29,15 @@ public class Student {
         this.dormitoryId = dormitoryId;
         this.bed = bed;
         this.phoneNumber = phoneNumber;
+        this.apartmentId=apartmentId;
+    }
+
+    public String getApartmentId() {
+        return apartmentId;
+    }
+
+    public void setApartmentId(String apartmentId) {
+        this.apartmentId = apartmentId;
     }
 
     public String getPassword() {
