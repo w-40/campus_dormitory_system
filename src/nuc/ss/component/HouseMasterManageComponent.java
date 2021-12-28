@@ -3,6 +3,7 @@ package nuc.ss.component;
  * @author 王志凯
  * @description 宿管管理页面
  */
+
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;
 import nuc.ss.dialog.AddHouseMasterJDialog;
@@ -86,7 +87,6 @@ public class HouseMasterManageComponent extends Box {
         adminTable.getTableHeader().setDefaultRenderer(thr);
 
 
-
         JPanel btnPanel = new JPanel();
 
         JButton b1 = new JButton("查询");
@@ -127,16 +127,19 @@ public class HouseMasterManageComponent extends Box {
                     JOptionPane.showMessageDialog(frame, "请选中一个条目");
                 }
 
-
+                boolean flag = false;
                 try {
                     String tid = tableData.get(row).get(0);//取得tid
-                    SystemController_HouseMasterManage_Controller.updateHouseMaster(val, tid, tableHeadList, column);
+                    flag = SystemController_HouseMasterManage_Controller.updateHouseMaster(val, tid, tableHeadList, column);
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
+                }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "修改成功");
                 }
             }
         });
@@ -150,13 +153,20 @@ public class HouseMasterManageComponent extends Box {
             public void actionPerformed(ActionEvent e) {
                 int row = adminTable.getSelectedRow();//获取被选中的行
                 String tid = tableData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
+                boolean flag = false;
                 try {
-                    SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
+                    flag = SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
                 }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "删除成功");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "删除失败");
+                }
+
                 tableData.remove(row);//从表格中移出一行
                 //更新整个表格数据，删掉的那条记录将不再显示
                 adminTable.validate();
@@ -177,7 +187,7 @@ public class HouseMasterManageComponent extends Box {
 
 
         jsp.setDividerLocation(900);
-        adminTable.setBounds(350,70,900,775);
+        adminTable.setBounds(350, 70, 900, 775);
 
         tablepanel.add(adminTable.getTableHeader());
         tablePane = new JScrollPane(adminTable);

@@ -3,6 +3,7 @@ package nuc.ss.component;
  * @author 王志凯
  * @description 学生违纪管理页面
  */
+
 import nuc.ss.controller.HouseMasterManager_StudentViolatinOfDiscipline_Controller;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.StudentViolationOfDiscipline;
@@ -155,16 +156,19 @@ public class StudentViolatinOfDisciplineComponent extends Box {
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
                     JOptionPane.showMessageDialog(frame, "请选中一个条目");
                 }
-
+                boolean flag = false;
                 try {
                     String tid = studentViolatinOfDisciplineData.get(row).get(0);//取得tid
-                    HouseMasterManager_StudentViolatinOfDiscipline_Controller.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
+                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
+                }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "修改成功");
                 }
             }
         });
@@ -177,21 +181,27 @@ public class StudentViolatinOfDisciplineComponent extends Box {
             public void actionPerformed(ActionEvent e) {
                 int row = studentViolatinOfDisciplineTable.getSelectedRow();//获取被选中的行
                 String tid;
+                boolean flag = false;
                 try {
                     tid = studentViolatinOfDisciplineData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
-                    SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
+                    flag = SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
-                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                    JOptionPane.showMessageDialog(frame,"请选择一个项目");
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选择一个项目");
                 }
 
                 try {
                     studentViolatinOfDisciplineData.remove(row);//从表格中移出一行
-                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
+                }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "删除成功");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "删除失败");
                 }
 
 

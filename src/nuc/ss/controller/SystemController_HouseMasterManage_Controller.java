@@ -23,8 +23,9 @@ public class SystemController_HouseMasterManage_Controller {
     }
 
 
-    public static void deleteHouseMaster(String tid) throws SQLException, ClassNotFoundException {
+    public static boolean deleteHouseMaster(String tid) throws SQLException, ClassNotFoundException {
         SystemController_HouseMasterManage_Service.deleteHouseMaster(tid);
+        return true;
     }
     public static boolean updateHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
         SystemController_HouseMasterManage_Service.updateHouseMaster(val,tid,tableHeadList,column);

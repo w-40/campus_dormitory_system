@@ -143,13 +143,22 @@ public class DormitoryManageComponent extends Box {
             public void actionPerformed(ActionEvent e) {
                 int row = dormitoryTable.getSelectedRow();//获取被选中的行
                 String tid = dormitoryTableData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
+                boolean flag = false;
                 try {
-                    SystemController_DormitoryManage_Controller.deleteDormitory(tid);
+                    flag = SystemController_DormitoryManage_Controller.deleteDormitory(tid);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
                 }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame,"删除成功");
+                }else {
+                    JOptionPane.showMessageDialog(frame,"删除失败");
+                }
+
+
+
                 dormitoryTableData.remove(row);//从表格中移出一行
                 //更新整个表格数据，删掉的那条记录将不再显示
                 dormitoryTable.validate();

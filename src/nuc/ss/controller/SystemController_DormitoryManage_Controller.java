@@ -24,8 +24,9 @@ public class SystemController_DormitoryManage_Controller {
     }
 
 
-    public static void deleteDormitory(String tid) throws SQLException, ClassNotFoundException {
+    public static boolean deleteDormitory(String tid) throws SQLException, ClassNotFoundException {
         SystemController_DormitoryManage_Service.deleteDormitory(tid);
+        return true;
     }
     public static boolean updateDormitory(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
         SystemController_DormitoryManage_Service.updateDormitory(val,tid,tableHeadList,column);
