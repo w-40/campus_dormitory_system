@@ -4,6 +4,7 @@ package nuc.ss.view;
  * @description 宿舍管理员主页面
  */
 
+import nuc.ss.component.StudentMessageComponent;
 import nuc.ss.component.StudentViolatinOfDisciplineComponent;
 import nuc.ss.informationtable.AdminTable;
 
@@ -156,9 +157,9 @@ public class HouseMasterInterface {
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
                 } else if (studentMessageManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("学生留言管理", JLabel.CENTER);
-                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(rightLabel);
+                    //JLabel rightLabel = new JLabel("学生留言管理", JLabel.CENTER);
+                    //rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(new StudentMessageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (individualAccountManage.equals(lastPathComponent)) {
                     JLabel rightLabel = new JLabel("个人账户管理", JLabel.CENTER);

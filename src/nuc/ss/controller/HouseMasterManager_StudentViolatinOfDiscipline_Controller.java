@@ -2,7 +2,7 @@ package nuc.ss.controller;
 
 /**
  * @author 籍乃博
- * @description 学生违纪管理控制层
+ * @description 学生违纪管理控制层，王志凯修复bug
  */
 
 import java.sql.SQLException;
@@ -17,8 +17,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Controller {
         return svod;
     }
 
-    public static void deleteStudentViolatinOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
+    public static boolean deleteStudentViolatinOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
     	HouseMasterManager_StudentViolatinOfDiscipline_Service.deleteStudentViolatinOfDiscipline(tid);
+        return true;
     }
     public static boolean updateStudentViolatinOfDiscipline(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
     	HouseMasterManager_StudentViolatinOfDiscipline_Service.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);

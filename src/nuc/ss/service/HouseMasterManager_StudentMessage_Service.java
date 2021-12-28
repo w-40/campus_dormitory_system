@@ -1,6 +1,6 @@
 package nuc.ss.service;
 /**
- * @author 籍乃博
+ * @author 籍乃博，王志凯修复bug
  * @description 学生留言管理业务层
  * 
  */
@@ -17,8 +17,8 @@ public class HouseMasterManager_StudentMessage_Service {
 	        return stl;
 	    }
 	 
-	    public static String deleteStudentMessage(String tid) throws SQLException, ClassNotFoundException {
-	    	HouseMasterManager_StudentMessage_JDBC.deleteStudentMessage(tid);
+	    public static String deleteStudentMessage(String tid,String message) throws SQLException, ClassNotFoundException {
+	    	HouseMasterManager_StudentMessage_JDBC.deleteStudentMessage(tid,message);
 	    	return tid;
 	    }
 }

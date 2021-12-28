@@ -184,7 +184,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
                 boolean flag = false;
                 try {
                     tid = studentViolatinOfDisciplineData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
-                    flag = SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
+                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.deleteStudentViolatinOfDiscipline(tid);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {

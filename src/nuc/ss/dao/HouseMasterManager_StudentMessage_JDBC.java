@@ -46,14 +46,16 @@ public class HouseMasterManager_StudentMessage_JDBC {
 	        return stl;
 	    }
 	 
-	    public static boolean deleteStudentMessage(String tid) throws SQLException, ClassNotFoundException {
+	    public static boolean deleteStudentMessage(String tid,String message) throws SQLException, ClassNotFoundException {
 	        // 注册驱动
 	        Class.forName("com.mysql.jdbc.Driver");
 	        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
 	        Connection con = DriverManager.getConnection(url, "jnb", "2013040432");
-	        String sql = "DELETE FROM 留言管理 WHERE 学号=?";
+	        //String sql = "DELETE FROM 留言管理 WHERE 学号=?";
+	        String sql = "DELETE FROM 留言管理 WHERE 学号=? AND 留言=?";
 	        PreparedStatement pstmt = con.prepareStatement(sql);
 	        pstmt.setString(1, tid);
+	        pstmt.setString(2, message);
 	        pstmt.executeUpdate();//执行删除SQL语句，数据库中即删掉一条记录
 	        // 释放资源
 	        con.close();
