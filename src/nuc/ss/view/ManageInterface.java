@@ -122,14 +122,14 @@ public class ManageInterface {
         DefaultMutableTreeNode studentManage = new DefaultMutableTreeNode("学生管理");
         DefaultMutableTreeNode dormitoryManage = new DefaultMutableTreeNode("宿舍楼管理");
         DefaultMutableTreeNode dormManage = new DefaultMutableTreeNode("宿舍管理");
-        DefaultMutableTreeNode roomManage = new DefaultMutableTreeNode("宿舍房间管理");
-        DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("学生服务管理");
+        //DefaultMutableTreeNode roomManage = new DefaultMutableTreeNode("宿舍房间管理");
+        //DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("学生服务管理");
 
         root.add(houseMasterManage);
         root.add(studentManage);
         root.add(dormitoryManage);
-        dormManage.add(roomManage);
-        dormManage.add(studentServiceManage);
+        //dormManage.add(roomManage);
+        //dormManage.add(studentServiceManage);
         root.add(dormManage);
         JTree tree = new JTree(root);
 
