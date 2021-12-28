@@ -9,6 +9,7 @@ import nuc.ss.view.AddHouseMasterJDialog;
 import nuc.ss.view.AdminTable;
 import nuc.ss.view.DormitoryTable;
 import nuc.ss.view.StudentTable;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -80,6 +81,13 @@ public class HouseMasterManageComponent extends Box {
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(JLabel.CENTER);
         adminTable.setDefaultRenderer(Object.class, tcr);
+
+        //表头内容居中
+        DefaultTableCellHeaderRenderer thr = new DefaultTableCellHeaderRenderer();
+        thr.setHorizontalAlignment(JLabel.CENTER);
+        adminTable.getTableHeader().setDefaultRenderer(thr);
+
+
 
         JPanel btnPanel = new JPanel();
 
