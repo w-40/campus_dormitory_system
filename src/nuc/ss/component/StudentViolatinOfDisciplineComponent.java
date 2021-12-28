@@ -178,15 +178,25 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         b4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int row = studentViolatinOfDisciplineTable.getSelectedRow();//获取被选中的行
-                String tid = studentViolatinOfDisciplineData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
+                String tid;
                 try {
+                    tid = studentViolatinOfDisciplineData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
                     SystemController_HouseMasterManage_Controller.deleteHouseMaster(tid);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
+                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame,"请选择一个项目");
                 }
-                studentViolatinOfDisciplineData.remove(row);//从表格中移出一行
+
+                try {
+                    studentViolatinOfDisciplineData.remove(row);//从表格中移出一行
+                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+
+                }
+
+
                 //更新整个表格数据，删掉的那条记录将不再显示
                 studentViolatinOfDisciplineTable.validate();
                 studentViolatinOfDisciplineTable.updateUI();
