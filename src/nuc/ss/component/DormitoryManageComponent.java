@@ -5,10 +5,10 @@ package nuc.ss.component;
  */
 
 import nuc.ss.controller.SystemController_DormitoryManage_Controller;
-import nuc.ss.controller.SystemController_StudentManage_Controller;
 import nuc.ss.dao.SystemController_DormitoryManage_JDBC;
+import nuc.ss.dialog.AddDormitoryJDialog;
 import nuc.ss.domain.Dormitory;
-import nuc.ss.view.*;
+import nuc.ss.informationtable.DormitoryTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
@@ -21,8 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import static nuc.ss.view.DormitoryTable.dormitoryModel;
-import static nuc.ss.view.StudentTable.studentModel;
+import static nuc.ss.informationtable.DormitoryTable.dormitoryModel;
 
 public class DormitoryManageComponent extends Box {
 

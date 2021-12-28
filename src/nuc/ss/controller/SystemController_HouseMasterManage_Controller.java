@@ -8,10 +8,8 @@ package nuc.ss.controller;
  * addHouseMaster(HouseMaster houseMaster)：接收图形化用户界面数据，传递到宿舍管理业务层
  */
 
-import nuc.ss.dao.SystemController_HouseMasterManage_JDBC;
 import nuc.ss.domain.HouseMaster;
 import nuc.ss.service.SystemController_HouseMasterManage_Service;
-import nuc.ss.view.AddHouseMasterJDialog;
 
 
 import java.sql.SQLException;

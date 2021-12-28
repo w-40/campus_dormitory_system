@@ -5,10 +5,8 @@ package nuc.ss.component;
  */
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;
-import nuc.ss.view.AddHouseMasterJDialog;
-import nuc.ss.view.AdminTable;
-import nuc.ss.view.DormitoryTable;
-import nuc.ss.view.StudentTable;
+import nuc.ss.dialog.AddHouseMasterJDialog;
+import nuc.ss.informationtable.AdminTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
@@ -21,7 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import static nuc.ss.view.AdminTable.adminModel;
+import static nuc.ss.informationtable.AdminTable.adminModel;
 
 public class HouseMasterManageComponent extends Box {
     private JFrame frame;

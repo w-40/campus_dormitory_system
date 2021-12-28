@@ -4,14 +4,10 @@ package nuc.ss.view;
  * @description 宿舍管理员主页面
  */
 
-import nuc.ss.component.HouseMasterManageComponent;
 import nuc.ss.component.StudentViolatinOfDisciplineComponent;
-import nuc.ss.controller.HouseMasterManager_StudentViolatinOfDiscipline_Controller;
-import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
-import nuc.ss.domain.StudentViolationOfDiscipline;
+import nuc.ss.informationtable.AdminTable;
 
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.*;
@@ -20,15 +16,10 @@ import javax.swing.event.TreeSelectionListener;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.tree.DefaultTreeModel;
 
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
-
-import static nuc.ss.view.AdminTable.adminModel;
 
 
 public class HouseMasterInterface {

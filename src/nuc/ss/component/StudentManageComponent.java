@@ -3,13 +3,12 @@ package nuc.ss.component;
  * @author 王志凯
  * @description 学生管理页面
  */
-import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.controller.SystemController_StudentManage_Controller;
 import nuc.ss.dao.SystemController_StudentManage_JDBC;
 import nuc.ss.domain.Student;
 
-import nuc.ss.view.AddStudentJDialog;
-import nuc.ss.view.StudentTable;
+import nuc.ss.dialog.AddStudentJDialog;
+import nuc.ss.informationtable.StudentTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
@@ -22,8 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import static nuc.ss.view.AdminTable.adminModel;
-import static nuc.ss.view.StudentTable.studentModel;
+import static nuc.ss.informationtable.StudentTable.studentModel;
 
 public class StudentManageComponent extends Box {
 

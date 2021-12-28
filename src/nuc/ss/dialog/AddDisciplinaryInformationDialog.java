@@ -1,4 +1,4 @@
-package nuc.ss.view;
+package nuc.ss.dialog;
 /**
  * @author 籍乃博
  * @description 添加学生违纪信息对话框

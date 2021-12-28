@@ -1,4 +1,4 @@
-package nuc.ss.view;
+package nuc.ss.dialog;
 /**
  * @author 娄靖彬，王志凯
  * @description 添加宿舍管理员对话框
@@ -8,15 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Vector;
 
 import javax.swing.*;
 
 import nuc.ss.controller.SystemController_StudentManage_Controller;
 import nuc.ss.domain.Student;
-
-import static nuc.ss.view.AdminTable.*;
 
 public class AddStudentJDialog extends JDialog{
 	

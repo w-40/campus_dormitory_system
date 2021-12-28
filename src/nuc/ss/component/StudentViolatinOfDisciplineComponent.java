@@ -6,9 +6,8 @@ package nuc.ss.component;
 import nuc.ss.controller.HouseMasterManager_StudentViolatinOfDiscipline_Controller;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.StudentViolationOfDiscipline;
-import nuc.ss.view.AddDisciplinaryInformationDialog;
-import nuc.ss.view.AdminTable;
-import nuc.ss.view.StudentViolatinOfDisciplineTable;
+import nuc.ss.dialog.AddDisciplinaryInformationDialog;
+import nuc.ss.informationtable.StudentViolatinOfDisciplineTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
@@ -21,8 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import static nuc.ss.view.AdminTable.adminModel;
-import static nuc.ss.view.StudentViolatinOfDisciplineTable.studentViolatinOfDisciplineModel;
+import static nuc.ss.informationtable.StudentViolatinOfDisciplineTable.studentViolatinOfDisciplineModel;
 
 
 public class StudentViolatinOfDisciplineComponent extends Box {

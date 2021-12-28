@@ -1,4 +1,4 @@
-package nuc.ss.view;
+package nuc.ss.informationtable;
 /**
  * @author 韩思远
  * @description 定义系统管理员表格

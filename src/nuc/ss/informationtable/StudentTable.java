@@ -1,4 +1,4 @@
-package nuc.ss.view;
+package nuc.ss.informationtable;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

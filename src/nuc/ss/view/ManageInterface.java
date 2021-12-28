@@ -8,10 +8,10 @@ package nuc.ss.view;
 import nuc.ss.component.DormitoryManageComponent;
 import nuc.ss.component.HouseMasterManageComponent;
 import nuc.ss.component.StudentManageComponent;
+import nuc.ss.informationtable.AdminTable;
 
 
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -21,19 +21,12 @@ import javax.swing.event.TreeSelectionListener;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.tree.DefaultTreeModel;
 
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import static nuc.ss.view.AdminTable.adminModel;
-import static nuc.ss.view.StudentTable.studentModel;
-import static nuc.ss.view.DormitoryTable.dormitoryModel;
-
-//import static nuc.ss.view.AdminTable.tableData;
+//import static nuc.ss.informationtable.AdminTable.tableData;
 
 
 public class ManageInterface {
