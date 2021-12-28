@@ -1,6 +1,6 @@
 package nuc.ss.view;
 /**
- * @author 王志凯，韩思远
+ * @author 王志凯、韩思远，王志凯重构
  * @description 系统管理员主页面
  */
 
@@ -163,12 +163,6 @@ public class ManageInterface {
 
             }
         });
-
-//        tablepanel.setBackground(new Color(135, 206, 235));
-//        tablepanel.setForeground(new Color(224, 255, 255));
-//        tablepanel.setBounds(350, 0, 900, 800);
-//        frame.getContentPane().add(tablepanel);
-
 
 
         sp.setLeftComponent(tree);

@@ -1,7 +1,7 @@
 package nuc.ss.component;
 /**
  * @author 王志凯
- * @description 宿管楼管理页面
+ * @description 宿管管理页面
  */
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;

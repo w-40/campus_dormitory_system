@@ -1,5 +1,8 @@
 package nuc.ss.component;
-
+/**
+ * @author 王志凯
+ * @description 学生违纪管理页面
+ */
 import nuc.ss.controller.HouseMasterManager_StudentViolatinOfDiscipline_Controller;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.StudentViolationOfDiscipline;
@@ -21,10 +24,7 @@ import java.util.Vector;
 import static nuc.ss.view.AdminTable.adminModel;
 import static nuc.ss.view.StudentViolatinOfDisciplineTable.studentViolatinOfDisciplineModel;
 
-/**
- * @author 王志凯
- * @description 学生违纪管理界面
- */
+
 public class StudentViolatinOfDisciplineComponent extends Box {
 
 

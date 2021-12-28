@@ -1,6 +1,6 @@
 package nuc.ss.view;
 /**
- * @author 籍乃博
+ * @author 籍乃博，王志凯重构
  * @description 宿舍管理员主页面
  */
 
