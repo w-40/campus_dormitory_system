@@ -9,6 +9,7 @@ import nuc.ss.informationtable.AdminTable;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -20,6 +21,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 
 
 public class HouseMasterInterface {
@@ -31,6 +34,7 @@ public class HouseMasterInterface {
     private AdminTable adminTable;
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
+
     /**
      * Launch the application.
      */
@@ -121,7 +125,6 @@ public class HouseMasterInterface {
         root.add(individualAccountManage);
         JTree tree = new JTree(root);
 
-
         Color color = new Color(135, 206, 235);
         tree.setBackground(new Color(135, 206, 235));
         DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
@@ -132,7 +135,7 @@ public class HouseMasterInterface {
         tree.setBounds(0, 0, 350, 428);
         tree.setCellRenderer(cellRenderer);
 
-        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择",JLabel.CENTER);
+        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
         rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 
         sp.setRightComponent(rightLabel);
@@ -147,18 +150,18 @@ public class HouseMasterInterface {
                 if (studentViolatinOfDisciplineManage.equals(lastPathComponent)) {
                     sp.setRightComponent(new StudentViolatinOfDisciplineComponent(frame));
                     sp.setDividerLocation(350);
-                }else if (visitorInformationManage.equals(lastPathComponent)){
-                    JLabel rightLabel = new JLabel("访客信息管理",JLabel.CENTER);
+                } else if (visitorInformationManage.equals(lastPathComponent)) {
+                    JLabel rightLabel = new JLabel("访客信息管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
-                }else if (studentMessageManage.equals(lastPathComponent)){
-                    JLabel rightLabel = new JLabel("学生留言管理",JLabel.CENTER);
+                } else if (studentMessageManage.equals(lastPathComponent)) {
+                    JLabel rightLabel = new JLabel("学生留言管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
-                } else if (individualAccountManage.equals(lastPathComponent)){
-                    JLabel rightLabel = new JLabel("个人账户管理",JLabel.CENTER);
+                } else if (individualAccountManage.equals(lastPathComponent)) {
+                    JLabel rightLabel = new JLabel("个人账户管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
@@ -169,17 +172,7 @@ public class HouseMasterInterface {
 
         sp.setLeftComponent(tree);
 
-//        tablepanel.setBackground(new Color(135, 206, 235));
-//        tablepanel.setForeground(new Color(224, 255, 255));
-//        tablepanel.setBounds(350, 0, 900, 800);
-//        //tablepanel.add(adminTable.getTableHeader());
-//        frame.getContentPane().add(tablepanel);
-
-
-
         frame.add(sp);
         frame.setVisible(true);
     }
-
-
 }

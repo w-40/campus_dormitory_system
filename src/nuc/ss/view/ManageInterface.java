@@ -13,6 +13,7 @@ import nuc.ss.informationtable.AdminTable;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Vector;
 
 import javax.swing.*;
@@ -25,12 +26,15 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 
 //import static nuc.ss.informationtable.AdminTable.tableData;
 
 
 public class ManageInterface {
-    private JFrame frame;;
+    private JFrame frame;
+    ;
 
     //手工添加
     private ArrayList<String> tableHeadList;
@@ -126,6 +130,9 @@ public class ManageInterface {
         root.add(dormManage);
         JTree tree = new JTree(root);
 
+
+        expandAll(tree, new TreePath(root), true);//默认展开JTree所有结点
+
         tree.setBackground(new Color(135, 206, 235));
         DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
         cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
@@ -136,7 +143,7 @@ public class ManageInterface {
         tree.setCellRenderer(cellRenderer);
         //tree.setSelectionRow(2);
 
-        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择",JLabel.CENTER);
+        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
         rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 
         sp.setRightComponent(rightLabel);
@@ -159,12 +166,12 @@ public class ManageInterface {
                     sp.setRightComponent(new DormitoryManageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (roomManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("宿舍房间管理",JLabel.CENTER);
+                    JLabel rightLabel = new JLabel("宿舍房间管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
-                } else if (studentServiceManage.equals(lastPathComponent)){
-                    JLabel rightLabel = new JLabel("学生服务管理",JLabel.CENTER);
+                } else if (studentServiceManage.equals(lastPathComponent)) {
+                    JLabel rightLabel = new JLabel("学生服务管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
@@ -181,15 +188,19 @@ public class ManageInterface {
     }
 
 
-
-
-    public void init3() {
-
-
-
-
-
-
-
+    private static void expandAll(JTree tree, TreePath parent, boolean expand) {
+        TreeNode node = (TreeNode) parent.getLastPathComponent();
+        if (node.getChildCount() >= 0) {
+            for (Enumeration e = node.children(); e.hasMoreElements(); ) {
+                TreeNode n = (TreeNode) e.nextElement();
+                TreePath path = parent.pathByAddingChild(n);
+                expandAll(tree, path, expand);
+            }
+        }
+        if (expand) {
+            tree.expandPath(parent);
+        } else {
+            tree.collapsePath(parent);
+        }
     }
 }
