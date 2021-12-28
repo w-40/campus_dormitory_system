@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class AdminTable extends JTable {
-	//public static Vector<Vector<String>> tableData=new Vector<Vector<String>>();
+
 	public static DefaultTableModel adminModel;
 	public AdminTable(TableModel dm) {
 		super(dm);

@@ -84,7 +84,6 @@ public class HouseMasterManageComponent extends Box {
         JPanel btnPanel = new JPanel();
 
         JButton b1 = new JButton("查询");
-        //b1.setBounds(1320, 90, 200, 50);
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
 
@@ -96,7 +95,6 @@ public class HouseMasterManageComponent extends Box {
         });
 
         JButton b2 = new JButton("添加");
-        //b2.setBounds(1320, 180, 200, 50);
         b2.setFont(new Font("宋体", Font.BOLD, 25));
 
         b2.addActionListener(new ActionListener() {

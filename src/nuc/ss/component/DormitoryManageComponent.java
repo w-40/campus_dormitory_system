@@ -86,7 +86,6 @@ public class DormitoryManageComponent extends Box {
         JPanel btnPanel = new JPanel();
 
         JButton b1 = new JButton("查询");
-        b1.setBounds(1320, 90, 200, 50);
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
 
@@ -98,7 +97,6 @@ public class DormitoryManageComponent extends Box {
         });
 
         JButton b2 = new JButton("添加");
-        b2.setBounds(1320, 180, 200, 50);
         b2.setFont(new Font("宋体", Font.BOLD, 25));
 
         b2.addActionListener(new ActionListener() {
@@ -110,7 +108,6 @@ public class DormitoryManageComponent extends Box {
 
 
         JButton b3 = new JButton("修改");
-        b3.setBounds(1320, 270, 200, 50);
         b3.setFont(new Font("宋体", Font.BOLD, 25));
 
         b3.addActionListener(new ActionListener() {
@@ -141,7 +138,6 @@ public class DormitoryManageComponent extends Box {
 
 
         JButton b4 = new JButton("删除");
-        b4.setBounds(1320, 360, 200, 50);
         b4.setFont(new Font("宋体", Font.BOLD, 25));
 
         b4.addActionListener(new ActionListener() {
