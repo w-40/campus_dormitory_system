@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: nuc.ss.MainInterface
-Class-Path: mysql-connector-java-5.1.37-bin.jar
-

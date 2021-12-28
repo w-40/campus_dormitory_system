@@ -31,5 +31,15 @@ public class SystemController_Student_Service {
 		SystemController_Student_JDBC.addMessage(st);
         return true;
     }
+	
+	public static boolean updatePassword(String username,String password) throws SQLException, ClassNotFoundException {
+		SystemController_Student_JDBC.updatePassword(username, password);
+        return true;
+    }
+	
+	public static boolean updateNum(String username,String num) throws SQLException, ClassNotFoundException {
+		SystemController_Student_JDBC.updateNum(username, num);
+        return true;
+    }
 
 }

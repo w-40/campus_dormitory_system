@@ -6,7 +6,7 @@ package nuc.ss.domain;
  */
 public class Dormitory {
     private String id; //宿舍楼号
-    private String name; //宿舍名称
+    private String name; //宿舍楼名称
 
     public Dormitory() {
     }

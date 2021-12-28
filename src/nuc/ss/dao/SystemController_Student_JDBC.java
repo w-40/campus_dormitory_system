@@ -23,7 +23,7 @@ public class SystemController_Student_JDBC {
 	    String name;//姓名
 	    char sex;//性别
 	    String grade;//年级
-	    String apartmentId;//宿舍楼号
+	    String dormitoryBudingId;//宿舍楼号
 	    String dormitoryId;//宿舍号
 	    int bed;//床位
 	    String phoneNumber;//联系电话
@@ -48,11 +48,11 @@ public class SystemController_Student_JDBC {
         	name = rs.getString("姓名");
         	sex = rs.getString("性别").charAt(0);
         	grade = rs.getString("年级");
-            apartmentId = rs.getString("宿舍楼号");
+        	dormitoryBudingId = rs.getString("宿舍楼号");
         	dormitoryId = rs.getString("宿舍号");
         	bed = rs.getInt("床位");
         	phoneNumber = rs.getString("联系电话");
-        	st = new Student(id,password,name,sex,grade,dormitoryId,apartmentId,bed,phoneNumber);
+        	st = new Student(id,password,name,sex,grade,dormitoryBudingId,dormitoryId,bed,phoneNumber);
         }
        
         // 7.释放资源
@@ -110,6 +110,32 @@ public class SystemController_Student_JDBC {
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, message);
+        pstmt.executeUpdate();
+        conn.close();
+        return true;
+    }
+    
+    public static boolean updatePassword(String username,String password) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
+        String sql = "UPDATE 学生基本信息 SET 密码 = ? WHERE 学号 = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, password);
+        pstmt.setString(2, username);
+        pstmt.executeUpdate();
+        conn.close();
+        return true;
+    }
+    
+    public static boolean updateNum(String username,String num) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
+        String sql = "UPDATE 学生基本信息 SET 联系电话 = ? WHERE 学号 = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, num);
+        pstmt.setString(2, username);
         pstmt.executeUpdate();
         conn.close();
         return true;
