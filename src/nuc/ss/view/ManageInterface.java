@@ -115,14 +115,14 @@ public class ManageInterface {
         DefaultMutableTreeNode studentManage = new DefaultMutableTreeNode("学生管理");
         DefaultMutableTreeNode dormitoryManage = new DefaultMutableTreeNode("宿舍楼管理");
         DefaultMutableTreeNode dormManage = new DefaultMutableTreeNode("宿舍管理");
-        //DefaultMutableTreeNode roomManage = new DefaultMutableTreeNode("宿舍房间管理");
-        //DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("学生服务管理");
+        DefaultMutableTreeNode roomManage = new DefaultMutableTreeNode("宿舍房间管理");
+        DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("学生服务管理");
 
         root.add(houseMasterManage);
         root.add(studentManage);
         root.add(dormitoryManage);
-        //dormManage.add(roomManage);
-        //dormManage.add(studentServiceManage);
+        dormManage.add(roomManage);
+        dormManage.add(studentServiceManage);
         root.add(dormManage);
         JTree tree = new JTree(root);
 
@@ -134,7 +134,13 @@ public class ManageInterface {
 
         tree.setBounds(0, 0, 350, 428);
         tree.setCellRenderer(cellRenderer);
-        tree.setSelectionRow(2);
+        //tree.setSelectionRow(2);
+
+        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择",JLabel.CENTER);
+        rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+
+        sp.setRightComponent(rightLabel);
+        sp.setDividerLocation(350);
 
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             //当条目选中变化后，这个方法会执行
@@ -151,6 +157,16 @@ public class ManageInterface {
 
                 } else if (dormitoryManage.equals(lastPathComponent)) {
                     sp.setRightComponent(new DormitoryManageComponent(frame));
+                    sp.setDividerLocation(350);
+                } else if (roomManage.equals(lastPathComponent)) {
+                    JLabel rightLabel = new JLabel("宿舍房间管理",JLabel.CENTER);
+                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(rightLabel);
+                    sp.setDividerLocation(350);
+                } else if (studentServiceManage.equals(lastPathComponent)){
+                    JLabel rightLabel = new JLabel("学生服务管理",JLabel.CENTER);
+                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);
                 }
 

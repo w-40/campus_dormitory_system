@@ -127,12 +127,17 @@ public class HouseMasterInterface {
         DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
         cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
         cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
-        //tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
-        tree.setFont(new Font("Courier", Font.PLAIN, 30));
-
+        tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
 
         tree.setBounds(0, 0, 350, 428);
         tree.setCellRenderer(cellRenderer);
+
+        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择",JLabel.CENTER);
+        rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+
+        sp.setRightComponent(rightLabel);
+        sp.setDividerLocation(350);
+
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             //当条目选中变化后，这个方法会执行
             @Override
@@ -142,12 +147,23 @@ public class HouseMasterInterface {
                 if (studentViolatinOfDisciplineManage.equals(lastPathComponent)) {
                     sp.setRightComponent(new StudentViolatinOfDisciplineComponent(frame));
                     sp.setDividerLocation(350);
+                }else if (visitorInformationManage.equals(lastPathComponent)){
+                    JLabel rightLabel = new JLabel("访客信息管理",JLabel.CENTER);
+                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(rightLabel);
+                    sp.setDividerLocation(350);
+                }else if (studentMessageManage.equals(lastPathComponent)){
+                    JLabel rightLabel = new JLabel("学生留言管理",JLabel.CENTER);
+                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(rightLabel);
+                    sp.setDividerLocation(350);
+                } else if (individualAccountManage.equals(lastPathComponent)){
+                    JLabel rightLabel = new JLabel("个人账户管理",JLabel.CENTER);
+                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(rightLabel);
+                    sp.setDividerLocation(350);
                 }
-//	                    else if(bookManage.equals(lastPathComponent)){
-//	                    //sp.setRightComponent(new JLabel("这里进行图书管理..."));
-//	                    sp.setRightComponent(new BookManageComponent(jf));
-//	                    sp.setDividerLocation(150);
-//
+
             }
         });
 
