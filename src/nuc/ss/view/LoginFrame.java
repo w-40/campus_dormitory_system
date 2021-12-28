@@ -5,6 +5,8 @@ package nuc.ss.view;
  */
 
 import nuc.ss.controller.Login_Controller;
+import nuc.ss.controller.SystemController_Student_Controller;
+import nuc.ss.domain.Student;
 
 import java.awt.EventQueue;
 
@@ -14,6 +16,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class LoginFrame {
 
@@ -165,8 +168,18 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
+
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
+						}
+						if(flag) {
+							try {
+								String name = SystemController_Student_Controller.Studentname(username);
+								new StudentLoginFrame(name,username);
+							} catch (ClassNotFoundException | SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 					}
 				}

@@ -1,6 +1,6 @@
 package nuc.ss.dao;
 /**
- * @author 王志凯
+ * @author 王志凯,段福泉
  * @description 登录数据访问层
  * systemControllerLogin(String username, String password)：查询并校验系统管理员账号密码数据
  * dormitoryControllerLogin(String username, String password)：查询并校验速速管理员账号密码数据
@@ -9,6 +9,10 @@ package nuc.ss.dao;
  */
 
 import java.sql.*;
+import java.util.ArrayList;
+
+import nuc.ss.domain.HouseMaster;
+import nuc.ss.domain.Student;
 
 public class Login_JDBC {
     public static boolean systemControllerLogin(String username, String password) throws Exception {
@@ -43,7 +47,7 @@ public class Login_JDBC {
         // 2.注册驱动
         Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -70,7 +74,7 @@ public class Login_JDBC {
         // 2.注册驱动
         Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -89,5 +93,34 @@ public class Login_JDBC {
         stat.close();
         rs.close();
         return false;
+    }
+    
+    public static String studentName(String username) throws SQLException, ClassNotFoundException {
+    	String name = null;
+        // 1.导入jar包
+        // 2.注册驱动
+        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        // 3.获取连接
+        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "dfq", "2013040428");
+
+        // 4.获取执行者对象
+        Statement stat = con.createStatement();
+
+        // 5. 执行sql语句，并且接收结果
+        String sql = "select 姓名 from 学生基本信息 where 学号=?";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();//执行SQL查询语句
+        //6.处理结果
+        while (rs.next()) {
+        	name = rs.getString("姓名");
+        }
+       
+        // 7.释放资源
+        con.close();
+        stat.close();
+        rs.close();
+		return name ;
+        
     }
 }

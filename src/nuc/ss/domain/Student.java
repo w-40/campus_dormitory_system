@@ -12,7 +12,7 @@ public class Student {
     private char sex;//性别
     private String grade;//年级
     private String dormitoryId;//宿舍号
-    private String apartmentId;
+    private String apartmentId;//楼号
     private int bed;//床位
     private String phoneNumber; //电话
     private String message;
@@ -20,9 +20,14 @@ public class Student {
     public Student() {
     }
 
+
     public Student(String id, String message) {
     	this.id = id;
     	this.message = message;
+    }
+
+    public Student(String name) {
+        this.name = name;
     }
 
     public Student(String grade, String id, String name, String password, char sex, String dormitoryId, String apartmentId,int bed, String phoneNumber) {
@@ -35,6 +40,31 @@ public class Student {
         this.bed = bed;
         this.phoneNumber = phoneNumber;
         this.apartmentId=apartmentId;
+    }
+
+    public Student(String id, String password, String name, char sex, String grade, String dormitoryId, String apartmentId, int bed, String phoneNumber) {
+        this.id = id;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
+        this.grade = grade;
+        this.dormitoryId = dormitoryId;
+        this.apartmentId = apartmentId;
+        this.bed = bed;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Student(String id, String password, String name, char sex, String grade, String dormitoryId, String apartmentId, int bed, String phoneNumber, String message) {
+        this.id = id;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
+        this.grade = grade;
+        this.dormitoryId = dormitoryId;
+        this.apartmentId = apartmentId;
+        this.bed = bed;
+        this.phoneNumber = phoneNumber;
+        this.message = message;
     }
 
     public String getApartmentId() {
@@ -107,6 +137,14 @@ public class Student {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
