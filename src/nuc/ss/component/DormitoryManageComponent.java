@@ -199,7 +199,7 @@ public class DormitoryManageComponent extends Box {
     private void getDormitoryInfo() {//获取数据
         try {
             dormitoryTableData.clear();
-            ArrayList<Dormitory> dormitorys = SystemController_DormitoryManage_JDBC.searchDormitory();
+            ArrayList<Dormitory> dormitorys = SystemController_DormitoryManage_Controller.searchDormitory();
             for (int i = 0; i < dormitorys.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 2; j++) {
