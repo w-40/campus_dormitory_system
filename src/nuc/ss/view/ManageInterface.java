@@ -37,8 +37,6 @@ import static nuc.ss.view.DormitoryTable.dormitoryModel;
 
 
 public class ManageInterface {
-
-
     private JFrame frame;;
 
     //手工添加
@@ -47,11 +45,6 @@ public class ManageInterface {
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
 
 
-
-
-    /**
-     * Launch the application.
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -65,9 +58,7 @@ public class ManageInterface {
         });
     }
 
-    /**
-     * Create the application.
-     */
+
     public ManageInterface() {
         initialize();
     }

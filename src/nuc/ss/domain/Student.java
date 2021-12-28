@@ -11,14 +11,19 @@ public class Student {
     private String name;//姓名
     private char sex;//性别
     private String grade;//年级
-    private String dormitoryId;//宿舍楼号
+    private String dormitoryId;//宿舍号
     private String apartmentId;
     private int bed;//床位
-    private String phoneNumber;
+    private String phoneNumber; //电话
+    private String message;
 
     public Student() {
     }
 
+    public Student(String id, String message) {
+    	this.id = id;
+    	this.message = message;
+    }
 
     public Student(String grade, String id, String name, String password, char sex, String dormitoryId, String apartmentId,int bed, String phoneNumber) {
         this.id = id;

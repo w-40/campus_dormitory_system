@@ -148,13 +148,14 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
+							HouseMasterInterface houseMasterInterface = new HouseMasterInterface();
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}
 					}
 				}
 
-				if (r_2.isSelected()){//宿舍管理员登录
+				if (r_2.isSelected()){//学生登录
 					String username = usernameField.getText();
 					String password = passwordField.getText();
 					try {

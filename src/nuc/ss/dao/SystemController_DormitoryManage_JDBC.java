@@ -25,7 +25,7 @@ public class SystemController_DormitoryManage_JDBC {
         // 2.注册驱动
         Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();

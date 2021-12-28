@@ -1,4 +1,4 @@
-package domain;
+package nuc.ss.domain;
 
 /**
  * 
@@ -10,14 +10,26 @@ package domain;
 public class StudentViolationOfDiscipline {
 
 	private String id; //学号
+	private String name; //姓名
+	private int dormId; //宿舍号
 	private String content; //违纪内容
 	private String time; //违纪时间
 	
 	public StudentViolationOfDiscipline() {}
-
+	
 	public StudentViolationOfDiscipline(String id, String content, String time) {
 		super();
 		this.id = id;
+		this.content = content;
+		this.time = time;
+	}
+
+
+	public StudentViolationOfDiscipline(String id, String name, int dormId, String content, String time) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dormId = dormId;
 		this.content = content;
 		this.time = time;
 	}
@@ -46,9 +58,28 @@ public class StudentViolationOfDiscipline {
 		this.time = time;
 	}
 
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getDormId() {
+		return dormId;
+	}
+
+	public void setDormId(int dormId) {
+		this.dormId = dormId;
+	}
+
 	@Override
 	public String toString() {
-		return "StudentViolationOfDiscipline [id=" + id + ", content=" + content + ", time=" + time + "]";
+		return "StudentViolationOfDiscipline [id=" + id + ", name=" + name + ", dormitoryId=" + dormId
+				+ ", content=" + content + ", time=" + time + "]";
 	}
 
 }
