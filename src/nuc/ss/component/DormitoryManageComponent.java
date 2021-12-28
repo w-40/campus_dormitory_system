@@ -120,10 +120,10 @@ public class DormitoryManageComponent extends Box {
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
                     JOptionPane.showMessageDialog(frame, "请选中一个条目");
                 }
-
+                boolean flag = false;
                 try {
                     String tid = dormitoryTableData.get(row).get(0);//取得tid
-                    SystemController_DormitoryManage_Controller.updateDormitory(val, tid, tableHeadList, column);
+                    flag = SystemController_DormitoryManage_Controller.updateDormitory(val, tid, tableHeadList, column);
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 } catch (SQLException throwables) {
@@ -131,7 +131,10 @@ public class DormitoryManageComponent extends Box {
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
                 }
-                JOptionPane.showMessageDialog(frame, "修改成功");
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "修改成功");
+                }
+
             }
         });
 

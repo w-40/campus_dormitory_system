@@ -6,6 +6,7 @@ package nuc.ss.view;
 
 import nuc.ss.component.StudentMessageComponent;
 import nuc.ss.component.StudentViolatinOfDisciplineComponent;
+import nuc.ss.component.VisitorComponent;
 import nuc.ss.informationtable.AdminTable;
 
 import java.awt.*;
@@ -152,9 +153,9 @@ public class HouseMasterInterface {
                     sp.setRightComponent(new StudentViolatinOfDisciplineComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (visitorInformationManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("访客信息管理", JLabel.CENTER);
-                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(rightLabel);
+                    //JLabel rightLabel = new JLabel("访客信息管理", JLabel.CENTER);
+                    //rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+                    sp.setRightComponent(new VisitorComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (studentMessageManage.equals(lastPathComponent)) {
                     //JLabel rightLabel = new JLabel("学生留言管理", JLabel.CENTER);

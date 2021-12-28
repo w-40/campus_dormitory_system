@@ -27,12 +27,12 @@ public class Visitor {
 	
 	public Visitor() {}
 
-	public Visitor(String name, String tel, String visitMatters, String identity, String time) {
+	public Visitor(String name, String tel, String time, String visitMatters, String identity) {
 		this.name = name;
 		this.tel = tel;
+		this.time = time;
 		this.visitMatters = visitMatters;
 		this.identity = identity;
-		this.time = time;
 	}
 
 	public String getName() {
