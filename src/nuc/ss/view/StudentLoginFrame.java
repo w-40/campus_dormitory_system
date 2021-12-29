@@ -120,9 +120,7 @@ public class StudentLoginFrame extends JFrame{
 	    	
 	    	this.add(p7);
 	    	this.add(p8);
-	    	
-	    	
-	    	
+
 	    	Object[][] rowData = null;
 	    	try {
 	    		ArrayList<StudentViolationOfDiscipline> stlist = SystemController_Student_Controller.violation(username);

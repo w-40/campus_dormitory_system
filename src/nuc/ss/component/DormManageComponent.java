@@ -26,6 +26,7 @@ import static nuc.ss.informationtable.DormTable.DormModel;
 /**
  * @author hsystart
  * @create 2021-12-28 18:32
+ * @description 宿舍房间管理
  */
 public class DormManageComponent extends Box {
 
@@ -179,6 +180,23 @@ public class DormManageComponent extends Box {
             }
         });
 
+
+        JButton b5 = new JButton("查询有空余床位的宿舍");
+        b5.setFont(new Font("宋体", Font.BOLD, 25));
+
+
+        b5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getDormInfo();
+            }
+        });
+
+
+
+
+
+
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
@@ -188,6 +206,8 @@ public class DormManageComponent extends Box {
         vBox.add(b3);
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b4);
+        vBox.add(Box.createVerticalStrut(80));
+        vBox.add(b5);
         btnPanel.add(vBox);
 
 

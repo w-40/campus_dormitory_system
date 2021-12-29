@@ -8,9 +8,9 @@ import java.util.Vector;
 /**
  * @author hsystart
  * @create 2021-12-27 15:52
+ * @description 学生信息表格
  */
 public class StudentTable extends JTable {
-//    public static Vector<Vector<String>> studentData=new Vector<Vector<String>>();
     public static DefaultTableModel studentModel;
     public StudentTable(TableModel dm) {
         super(dm);
