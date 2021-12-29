@@ -90,6 +90,18 @@ public class SystemController_HouseMasterManage_JDBC {
         conn.close();
         return true;
     }
+    public static boolean updateSetHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
+        String sql = "UPDATE 宿管信息表 SET " + tableHeadList.get(column) + " = ? WHERE 工号 = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, val);
+        pstmt.setString(2, tid);
+        pstmt.executeUpdate();
+        conn.close();
+        return true;
+    }
 
     public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException {
         String id = houseMaster.getId();

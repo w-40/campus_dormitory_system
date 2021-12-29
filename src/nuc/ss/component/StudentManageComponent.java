@@ -87,7 +87,6 @@ public class StudentManageComponent extends Box {
         studentTable.getColumnModel().getColumn(6).setPreferredWidth(500);
         studentTable.getColumnModel().getColumn(7).setPreferredWidth(300);
         studentTable.getColumnModel().getColumn(8).setPreferredWidth(700);
-
         //表格内容居中
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(JLabel.CENTER);
@@ -134,8 +133,8 @@ public class StudentManageComponent extends Box {
                     column = studentTable.getSelectedColumn();//获取选中的列
                     val = studentData.get(row).get(column);//被选中的列的值
 
-                    if (column == 5 || column == 6){
-                        JOptionPane.showMessageDialog(frame,"修改失败，修改宿舍信息请到学生服务管理中进行(点击查询进行刷新)");
+                    if (column == 5 || column == 6) {
+                        JOptionPane.showMessageDialog(frame, "修改失败，修改宿舍信息请到学生服务管理中进行(点击查询进行刷新)");
                         return;
                     }
 
@@ -188,6 +187,37 @@ public class StudentManageComponent extends Box {
                 studentTable.updateUI();
             }
         });
+        JButton b5 = new JButton("重置密码");
+        b5.setFont(new Font("宋体", Font.BOLD, 25));
+
+        b5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int row = studentTable.getSelectedRow();//获取选中的行
+                int column = 0;
+                String val = "";
+                try {
+                    column = 3;//获取选中的列
+                    val = "123456";//被选中的列的值
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+
+                }
+                boolean flag = false;
+                try {
+                    String tid = studentData.get(row).get(1);//取得tid
+                    flag = SystemController_StudentManage_Controller.updateStudent(val, tid, tableHeadList, column);
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException classNotFoundException) {
+                    classNotFoundException.printStackTrace();
+                }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "重置成功");
+                }
+            }
+        });
 
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
@@ -198,6 +228,8 @@ public class StudentManageComponent extends Box {
         vBox.add(b3);
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b4);
+        vBox.add(Box.createVerticalStrut(80));
+        vBox.add(b5);
         btnPanel.add(vBox);
 
 

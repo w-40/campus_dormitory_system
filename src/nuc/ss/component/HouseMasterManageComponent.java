@@ -143,6 +143,38 @@ public class HouseMasterManageComponent extends Box {
                 }
             }
         });
+        JButton b5 = new JButton("重置密码");
+        b5.setBounds(1320, 270, 200, 50);
+        b5.setFont(new Font("宋体", Font.BOLD, 25));
+
+        b5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int row = adminTable.getSelectedRow();//获取选中的行
+                int column = 0;
+                String val = "";
+                try {
+                    column = 3;//获取选中的列
+                    val = "123456";//被选中的列的值
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+                }
+
+                boolean flag = false;
+                try {
+                    String tid = tableData.get(row).get(0);//取得tid
+                    flag = SystemController_HouseMasterManage_Controller.updateHouseMaster(val, tid, tableHeadList, column);
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException classNotFoundException) {
+                    classNotFoundException.printStackTrace();
+                }
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "重置成功");
+                }
+            }
+        });
 
 
         JButton b4 = new JButton("删除");
@@ -183,6 +215,8 @@ public class HouseMasterManageComponent extends Box {
         vBox.add(b3);
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b4);
+        vBox.add(Box.createVerticalStrut(80));
+        vBox.add(b5);
         btnPanel.add(vBox);
 
 

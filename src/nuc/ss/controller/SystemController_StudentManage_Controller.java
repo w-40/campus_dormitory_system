@@ -28,6 +28,10 @@ public class SystemController_StudentManage_Controller {
         SystemController_StudentManage_Service.updateStudent(val,tid,tableHeadList,column);
         return true;
     }
+    public static boolean updateSet(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_StudentManage_Service.updateStudent(val,tid,tableHeadList,column);
+        return true;
+    }
 
     public static boolean addStudent(Student Student) throws SQLException, ClassNotFoundException{
         SystemController_StudentManage_Service.addStudent(Student);

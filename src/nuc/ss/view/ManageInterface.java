@@ -118,7 +118,7 @@ public class ManageInterface {
         DefaultMutableTreeNode dormitoryManage = new DefaultMutableTreeNode("宿舍楼管理");
         DefaultMutableTreeNode dormManage = new DefaultMutableTreeNode("宿舍管理");
         DefaultMutableTreeNode roomManage = new DefaultMutableTreeNode("宿舍房间管理");
-        DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("用户服务管理");
+        DefaultMutableTreeNode studentServiceManage = new DefaultMutableTreeNode("学生服务管理");
 
         root.add(houseMasterManage);
         root.add(studentManage);
