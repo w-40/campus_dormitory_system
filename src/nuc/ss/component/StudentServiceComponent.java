@@ -25,7 +25,7 @@ import static nuc.ss.informationtable.DormTable.DormModel;
 
 /**
  * @author 王志凯
- * @description 宿舍房间管理
+ * @description 学生服务管理，查看未满宿舍，为学生分配宿舍
  */
 public class StudentServiceComponent extends Box {
 
@@ -91,7 +91,6 @@ public class StudentServiceComponent extends Box {
         JButton b1 = new JButton("查询未满宿舍");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
-
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -105,7 +104,7 @@ public class StudentServiceComponent extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddDormJDialog(frame, "添加宿舍信息", true).setVisible(true);
+               // new AddDormJDialog(frame, "添加宿舍信息", true).setVisible(true);
             }
         });
 
