@@ -87,6 +87,7 @@ public class StudentManageComponent extends Box {
         studentTable.getColumnModel().getColumn(6).setPreferredWidth(500);
         studentTable.getColumnModel().getColumn(7).setPreferredWidth(300);
         studentTable.getColumnModel().getColumn(8).setPreferredWidth(700);
+
         //表格内容居中
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(JLabel.CENTER);
@@ -96,6 +97,10 @@ public class StudentManageComponent extends Box {
         DefaultTableCellHeaderRenderer thr = new DefaultTableCellHeaderRenderer();
         thr.setHorizontalAlignment(JLabel.CENTER);
         studentTable.getTableHeader().setDefaultRenderer(thr);
+
+
+
+
 
         JPanel btnPanel = new JPanel();
 
@@ -132,12 +137,6 @@ public class StudentManageComponent extends Box {
                 try {
                     column = studentTable.getSelectedColumn();//获取选中的列
                     val = studentData.get(row).get(column);//被选中的列的值
-
-                    if (column == 5 || column == 6) {
-                        JOptionPane.showMessageDialog(frame, "修改失败，修改宿舍信息请到学生服务管理中进行(点击查询进行刷新)");
-                        return;
-                    }
-
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
                     JOptionPane.showMessageDialog(frame, "请选中一个条目");
 

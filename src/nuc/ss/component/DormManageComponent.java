@@ -24,7 +24,7 @@ import static javax.swing.BoxLayout.*;
 import static nuc.ss.informationtable.DormTable.DormModel;
 
 /**
- * @author hsystart
+ * @author hsystart，王志凯
  * @create 2021-12-28 18:32
  * @description 宿舍房间管理
  */
@@ -181,14 +181,14 @@ public class DormManageComponent extends Box {
         });
 
 
-        JButton b5 = new JButton("查询有空余床位的宿舍");
+        JButton b5 = new JButton("查未满宿舍");
         b5.setFont(new Font("宋体", Font.BOLD, 25));
 
 
         b5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getDormInfo();
+                getNotFullDormInfo();
             }
         });
 
@@ -248,6 +248,32 @@ public class DormManageComponent extends Box {
         DormTable.validate();
         DormTable.updateUI();
 
+    }
+
+
+    private void getNotFullDormInfo() {//获取数据
+        DormTableData.clear();
+        ArrayList<Dorm> NotFullDorms = null;
+        try {
+            NotFullDorms = SystemController_DormManage_Controller.searchNotFullDorm();
+            for (int i = 0; i < NotFullDorms.size(); i++) {
+                Vector<String> record = new Vector<String>();
+                for (int j = 0; j < 3; j++) {
+                    record.add(NotFullDorms.get(i).getId() + "");
+                    record.add(NotFullDorms.get(i).getDormitoryId());
+                    record.add(NotFullDorms.get(i).getNum() + "");
+                }
+                DormTableData.add(record);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        DormTable.validate();
+        DormTable.updateUI();
     }
 
 }

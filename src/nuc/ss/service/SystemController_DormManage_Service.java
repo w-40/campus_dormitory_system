@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @author hsystart
+ * @author hsystart，王志凯
  * @create 2021-12-28 18:34
  */
 public class SystemController_DormManage_Service {
@@ -31,5 +31,11 @@ public class SystemController_DormManage_Service {
     public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException{
         SystemController_DormManage_JDBC.addDorm(Dorm);
         return true;
+    }
+
+    public static ArrayList<Dorm> searchNotFullDorm() throws SQLException, ClassNotFoundException {
+        ArrayList<Dorm> NotFullDormArrayList = new ArrayList<Dorm>();
+        NotFullDormArrayList = SystemController_DormManage_JDBC.searchNotFullDorm();
+        return NotFullDormArrayList;
     }
 }
