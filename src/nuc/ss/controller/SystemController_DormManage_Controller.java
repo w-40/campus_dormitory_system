@@ -33,10 +33,4 @@ public class SystemController_DormManage_Controller {
         SystemController_DormManage_Service.addDorm(Dorm);
         return true;
     }
-
-    public static ArrayList<Dorm> searchNotFullDorm() throws SQLException, ClassNotFoundException {
-        ArrayList<Dorm> NotFullDormArrayList = new ArrayList<Dorm>();
-        NotFullDormArrayList = SystemController_DormManage_Service.searchNotFullDorm();
-        return NotFullDormArrayList;
-    }
 }

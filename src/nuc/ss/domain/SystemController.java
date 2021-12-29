@@ -1,5 +1,8 @@
 package nuc.ss.domain;
 
+/**
+ * @author 王志凯
+ */
 public class SystemController {
     private String username; //账号
     private String password; //密码

@@ -5,10 +5,7 @@ package nuc.ss.view;
  */
 
 
-import nuc.ss.component.DormManageComponent;
-import nuc.ss.component.DormitoryManageComponent;
-import nuc.ss.component.HouseMasterManageComponent;
-import nuc.ss.component.StudentManageComponent;
+import nuc.ss.component.*;
 import nuc.ss.informationtable.AdminTable;
 
 
@@ -170,9 +167,7 @@ public class ManageInterface {
                     sp.setRightComponent(new DormManageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (studentServiceManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("用户服务管理", JLabel.CENTER);
-                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(rightLabel);
+                    sp.setRightComponent(new StudentServiceComponent(frame));
                     sp.setDividerLocation(350);
                 }
 

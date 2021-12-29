@@ -4,12 +4,14 @@ package nuc.ss.view;
  * @description 宿舍管理员主页面
  */
 
+import nuc.ss.component.HouseMasterSelfComponent;
 import nuc.ss.component.StudentMessageComponent;
 import nuc.ss.component.StudentViolatinOfDisciplineComponent;
 import nuc.ss.component.VisitorComponent;
 import nuc.ss.informationtable.AdminTable;
 
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -37,33 +39,23 @@ public class HouseMasterInterface {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    HouseMasterInterface window = new HouseMasterInterface();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
 
     /**
      * Create the application.
      */
-    public HouseMasterInterface() {
+    /*public HouseMasterInterface() {
         initialize();
+    }*/
+
+    public HouseMasterInterface(String username) {
+        initialize(username);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize(String username) {
 
         frame = new JFrame();
         frame.setTitle("校园宿舍管理系统_宿舍管理员主界面");
@@ -163,12 +155,15 @@ public class HouseMasterInterface {
                     sp.setRightComponent(new StudentMessageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (individualAccountManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("个人账户管理", JLabel.CENTER);
-                    rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(rightLabel);
+                    try {
+                        sp.setRightComponent(new HouseMasterSelfComponent(frame, username));
+                    } catch (ClassNotFoundException classNotFoundException) {
+                        classNotFoundException.printStackTrace();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
                     sp.setDividerLocation(350);
                 }
-
             }
         });
 

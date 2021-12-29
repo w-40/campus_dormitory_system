@@ -1,17 +1,13 @@
 package nuc.ss.component;
 /**
- * @author hsystart，王志凯
- * @create 2021-12-28 18:32
- * @description 宿舍房间管理
+ * @author 王志凯
  */
+
 import nuc.ss.controller.SystemController_DormManage_Controller;
-import nuc.ss.controller.SystemController_DormitoryManage_Controller;
+import nuc.ss.controller.SystemController_StudentServiceManage_Controller;
 import nuc.ss.dialog.AddDormJDialog;
-import nuc.ss.dialog.AddDormitoryJDialog;
 import nuc.ss.domain.Dorm;
-import nuc.ss.domain.Dormitory;
 import nuc.ss.informationtable.DormTable;
-import nuc.ss.informationtable.DormitoryTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
@@ -24,13 +20,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import static javax.swing.BoxLayout.*;
+import static javax.swing.BoxLayout.X_AXIS;
 import static nuc.ss.informationtable.DormTable.DormModel;
 
+/**
+ * @author 王志凯
+ * @description 宿舍房间管理
+ */
+public class StudentServiceComponent extends Box {
 
-public class DormManageComponent extends Box {
-
-    public DormManageComponent(JFrame frame) {
+    public StudentServiceComponent(JFrame frame) {
         super(X_AXIS);
         init();
     }
@@ -87,21 +86,20 @@ public class DormManageComponent extends Box {
         thr.setHorizontalAlignment(JLabel.CENTER);
         DormTable.getTableHeader().setDefaultRenderer(thr);
 
-
         JPanel btnPanel = new JPanel();
 
-        JButton b1 = new JButton("查询");
+        JButton b1 = new JButton("查询未满宿舍");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
 
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getDormInfo();
+                getNotFullDormInfo();
             }
         });
 
-        JButton b2 = new JButton("添加");
+        JButton b2 = new JButton("分配宿舍");
         b2.setFont(new Font("宋体", Font.BOLD, 25));
 
         b2.addActionListener(new ActionListener() {
@@ -111,87 +109,13 @@ public class DormManageComponent extends Box {
             }
         });
 
-
-        JButton b3 = new JButton("修改");
-        b3.setFont(new Font("宋体", Font.BOLD, 25));
-
-        b3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int row = DormTable.getSelectedRow();//获取选中的行
-                int column = 0;
-                String val = "";
-                try {
-                    column = DormTable.getSelectedColumn();//获取选中的列
-                    val = DormTableData.get(row).get(column);//被选中的列的值
-
-                    if (column == 0 || column == 1) {
-                        JOptionPane.showMessageDialog(frame, "修改失败，宿舍号和宿舍所在楼号不允许修改(点击查询进行刷新)");
-                        return;
-                    }
-
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
-                }
-                boolean flag = false;
-                try {
-                    String tid = DormTableData.get(row).get(0);//取得tid
-                    flag = SystemController_DormManage_Controller.updateDorm(val, tid, tableHeadList, column);
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
-                }
-                if (flag) {
-                    JOptionPane.showMessageDialog(frame, "修改成功");
-                }
-
-            }
-        });
-
-
-        JButton b4 = new JButton("删除");
-        b4.setFont(new Font("宋体", Font.BOLD, 25));
-
-        b4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int row = DormTable.getSelectedRow();//获取被选中的行
-                String tid = DormTableData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
-                boolean flag = false;
-                try {
-                    flag = SystemController_DormManage_Controller.deleteDorm(tid);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
-                }
-                if (flag) {
-                    JOptionPane.showMessageDialog(frame, "删除成功");
-                } else {
-                    JOptionPane.showMessageDialog(frame, "删除失败");
-                }
-
-
-                DormTableData.remove(row);//从表格中移出一行
-                //更新整个表格数据，删掉的那条记录将不再显示
-                DormTable.validate();
-                DormTable.updateUI();
-            }
-        });
-
-
-
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b2);
-        vBox.add(Box.createVerticalStrut(80));
-        vBox.add(b3);
-        vBox.add(Box.createVerticalStrut(80));
-        vBox.add(b4);
         btnPanel.add(vBox);
+
 
         jsp.setDividerLocation(900);
         DormTable.setBounds(350, 70, 900, 775);
@@ -212,29 +136,31 @@ public class DormManageComponent extends Box {
         this.repaint();
     }
 
-    private void getDormInfo() {//获取数据
+    private void getNotFullDormInfo() {//获取数据
+        DormTableData.clear();
+        ArrayList<Dorm> NotFullDorms = null;
         try {
-            DormTableData.clear();
-            ArrayList<Dorm> Dorms = SystemController_DormManage_Controller.searchDorm();
-            for (int i = 0; i < Dorms.size(); i++) {
+            NotFullDorms = SystemController_StudentServiceManage_Controller.searchNotFullDorm();
+            for (int i = 0; i < NotFullDorms.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 3; j++) {
-                    record.add(Dorms.get(i).getId() + "");
-                    record.add(Dorms.get(i).getDormitoryId());
-                    record.add(Dorms.get(i).getNum() + "");
+                    record.add(NotFullDorms.get(i).getId() + "");
+                    record.add(NotFullDorms.get(i).getDormitoryId());
+                    record.add(NotFullDorms.get(i).getNum() + "");
                 }
                 DormTableData.add(record);
             }
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
         DormTable.validate();
         DormTable.updateUI();
-
     }
 
 }
+
 

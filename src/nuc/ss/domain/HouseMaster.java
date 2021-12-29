@@ -25,6 +25,14 @@ public class HouseMaster {
         this.phoneNumber = phoneNumber;
     }
 
+    public HouseMaster(String id, String name, char sex, String dormitoryId, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.dormitoryId = dormitoryId;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getId() {
         return id;
     }

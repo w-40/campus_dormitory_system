@@ -151,7 +151,8 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
-							HouseMasterInterface houseMasterInterface = new HouseMasterInterface();
+							@SuppressWarnings("unused")
+							HouseMasterInterface houseMasterInterface = new HouseMasterInterface(username);
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}
