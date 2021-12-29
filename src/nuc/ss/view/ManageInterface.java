@@ -170,7 +170,7 @@ public class ManageInterface {
                     sp.setRightComponent(new DormManageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (studentServiceManage.equals(lastPathComponent)) {
-                    JLabel rightLabel = new JLabel("学生服务管理", JLabel.CENTER);
+                    JLabel rightLabel = new JLabel("用户服务管理", JLabel.CENTER);
                     rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
                     sp.setRightComponent(rightLabel);
                     sp.setDividerLocation(350);

@@ -193,10 +193,6 @@ public class DormManageComponent extends Box {
         });
 
 
-
-
-
-
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
