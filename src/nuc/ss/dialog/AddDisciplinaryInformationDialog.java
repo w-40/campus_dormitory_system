@@ -25,7 +25,7 @@ public class AddDisciplinaryInformationDialog extends JDialog{
     
     public AddDisciplinaryInformationDialog(Frame frame, String title, boolean modal) {
 		//super(frame, title, modal);
-		this.setTitle("添加宿管信息");
+		this.setTitle("添加违纪信息");
 		this.setSize(350, 350);
 		this.setLocation(300,200);
 		this.setLocationRelativeTo(null);
