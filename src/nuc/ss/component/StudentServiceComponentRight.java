@@ -102,36 +102,7 @@ public class StudentServiceComponentRight extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int row = studentTable.getSelectedRow();//获取选中的行
-                int column = 0;
-                String val = "";
-                try {
-                    column = studentTable.getSelectedColumn();//获取选中的列
-                    val = studentData.get(row).get(column);//被选中的列的值
-
-                    if (column == 0 || column == 1) {
-                        JOptionPane.showMessageDialog(frame, "修改失败，修改宿舍信息请到学生管理中进行(点击刷新进行刷新)");
-                        return;
-                    }
-
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
-
-                }
-                boolean flag = false;
-                try {
-                    String tid = studentData.get(row).get(1);//取得tid
-                    flag = SystemController_StudentServiceManage_Controller.updateStudentDrom(val, tid, tableHeadList, column);
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-
-                } /*catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
-                }*/
-                if (flag) {
-                    JOptionPane.showMessageDialog(frame, "分配成功");
-                }
+                //待写
             }
         });
         JButton b3 = new JButton("刷新");
