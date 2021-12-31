@@ -132,13 +132,16 @@ public class ManageInterface {
         expandAll(tree, new TreePath(root), true);//默认展开JTree所有结点
 
         tree.setBackground(new Color(135, 206, 235));
-        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
-        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
-        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
+//        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
+//        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
+//        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
+        MyRenderer myRenderer=new MyRenderer();
+        myRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
+        myRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
         tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
 
         tree.setBounds(0, 0, 350, 428);
-        tree.setCellRenderer(cellRenderer);
+        tree.setCellRenderer(myRenderer);
         tree.setSelectionRow(2);
 
         JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统，",JLabel.CENTER);
@@ -187,6 +190,50 @@ public class ManageInterface {
         frame.setVisible(true);
     }
 
+    public class MyRenderer extends DefaultTreeCellRenderer {
+        private ImageIcon rootIcon = new ImageIcon("images/home.png");
+        private ImageIcon houseMasterManageIcon = new ImageIcon("images/profile.png");
+        private ImageIcon studentManageIcon = new ImageIcon("images/recommend.png");
+        private ImageIcon dormitoryManageIcon = new ImageIcon("images/loaction.png");
+        private ImageIcon dormManageIcon = new ImageIcon("images/tag.png");
+        private ImageIcon roomManageIcon = new ImageIcon("images/favorites.png");
+        private ImageIcon studentServiceManageIcon = new ImageIcon("images/game.png");
+
+
+        //当绘制树的每个结点时，都会调用这个方法
+        @Override
+        public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+            //使用默认绘制
+            super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+
+            ImageIcon image = null;
+            switch (row) {
+                case 0:
+                    image = rootIcon;
+                    break;
+                case 1:
+                    image = houseMasterManageIcon;
+                    break;
+                case 2:
+                    image = studentManageIcon;
+                    break;
+                case 3:
+                    image = dormitoryManageIcon;
+                    break;
+                case 4:
+                    image = dormManageIcon;
+                    break;
+                case 5:
+                    image = roomManageIcon;
+                    break;
+                case 6:
+                    image = studentServiceManageIcon;
+                    break;
+            }
+            this.setIcon(image);
+            return this;
+        }
+    }
 
     private static void expandAll(JTree tree, TreePath parent, boolean expand) {
         TreeNode node = (TreeNode) parent.getLastPathComponent();
