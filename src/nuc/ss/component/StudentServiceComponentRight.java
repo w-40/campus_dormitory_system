@@ -153,7 +153,7 @@ public class StudentServiceComponentRight extends Box {
                     record.add(students.get(i).getSex() + "");
                     record.add(students.get(i).getDormitoryId());
                     record.add(students.get(i).getApartmentId());
-                    record.add(students.get(i).getBed() + " ");
+                    record.add(students.get(i).getBed() + "");
                 }
                 studentData.add(record);
             }

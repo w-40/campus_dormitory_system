@@ -144,7 +144,7 @@ public class ManageInterface {
         tree.setCellRenderer(myRenderer);
         tree.setSelectionRow(2);
 
-        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统，",JLabel.CENTER);
+        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统",JLabel.CENTER);
         JLabel bottomLabel = new JLabel("  请从左侧JTree进行业务选择", JLabel.CENTER);
         topLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
         bottomLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
