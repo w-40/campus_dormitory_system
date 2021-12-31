@@ -139,15 +139,15 @@ public class ManageInterface {
 
         tree.setBounds(0, 0, 350, 428);
         tree.setCellRenderer(cellRenderer);
-        //tree.setSelectionRow(2);
+        tree.setSelectionRow(2);
 
-        JLabel topLabel = new JLabel("      欢迎来到校园宿舍管理系统，",JLabel.CENTER);
+        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统，",JLabel.CENTER);
         JLabel bottomLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
         topLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
         bottomLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 
-
         Box vBox = Box.createVerticalBox();
+        vBox.setBackground(new Color(50,250,50));
         vBox.add(Box.createVerticalStrut(180));
         vBox.add(topLabel);
         vBox.add(Box.createVerticalStrut(180));
@@ -176,13 +176,11 @@ public class ManageInterface {
                     sp.setRightComponent(new DormManageComponent(frame));
                     sp.setDividerLocation(350);
                 } else if (studentServiceManage.equals(lastPathComponent)) {
-                    sp.setRightComponent(new StudentServiceComponent(frame));
+                    sp.setRightComponent(new StudentServiceComponentLeft(frame));
                     sp.setDividerLocation(350);
                 }
             }
         });
-
-
         sp.setLeftComponent(tree);
 
         frame.add(sp);

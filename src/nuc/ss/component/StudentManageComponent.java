@@ -255,7 +255,7 @@ public class StudentManageComponent extends Box {
     private void getStudentInfo() {//获取数据
         try {
             studentData.clear();
-            ArrayList<Student> students = SystemController_StudentManage_JDBC.searchStudent();
+            ArrayList<Student> students = SystemController_StudentManage_Controller.searchStudent();
             for (int i = 0; i < students.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 9; j++) {

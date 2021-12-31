@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @create 2021-12-27 19:38
  */
 public class SystemController_StudentManage_Controller {
-    public static ArrayList<Student> searchStudentMaster() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Student> searchStudent() throws SQLException, ClassNotFoundException {
         ArrayList<Student> studentsArrayList = new ArrayList<Student>();
         studentsArrayList = SystemController_StudentManage_Service.searchStudent();
         return studentsArrayList;

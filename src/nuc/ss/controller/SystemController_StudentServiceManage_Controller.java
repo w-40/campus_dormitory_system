@@ -5,6 +5,7 @@ package nuc.ss.controller;
  */
 
 import nuc.ss.domain.Dorm;
+import nuc.ss.domain.Student;
 import nuc.ss.service.SystemController_DormManage_Service;
 import nuc.ss.service.SystemController_StudentServiceManage_Service;
 
@@ -16,5 +17,11 @@ public class SystemController_StudentServiceManage_Controller {
         ArrayList<Dorm> NotFullDormArrayList = new ArrayList<Dorm>();
         NotFullDormArrayList = SystemController_StudentServiceManage_Service.searchNotFullDorm();
         return NotFullDormArrayList;
+    }
+
+    public static ArrayList<Student> searchNotHaveDormStudent() throws SQLException, ClassNotFoundException {
+        ArrayList<Student> NotHaveDormStudent = new ArrayList<Student>();
+        NotHaveDormStudent = SystemController_StudentServiceManage_Service.searchNotHaveDormStudent();
+        return NotHaveDormStudent;
     }
 }
