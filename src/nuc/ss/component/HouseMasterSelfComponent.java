@@ -40,7 +40,6 @@ public class HouseMasterSelfComponent extends Box {
     
     public void init(String username) throws ClassNotFoundException, SQLException {
 
-    	//this.setLayout(null);
         
     	HouseMaster hm = new HouseMaster();
     	hm = HouseMasterManager_HouseMasterSelf_Controller.searchHouseMasterSelf(username);
