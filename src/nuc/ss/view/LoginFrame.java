@@ -18,6 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
+
 public class LoginFrame {
 
 	private JFrame frame;
@@ -136,6 +138,12 @@ public class LoginFrame {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
 							ManageInterface manageInterface = new ManageInterface();
+							try {
+								frame.dispose();
+								return;
+							} catch (Exception exception) {
+								exception.printStackTrace();
+							}
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}
@@ -151,8 +159,13 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
-							@SuppressWarnings("unused")
 							HouseMasterInterface houseMasterInterface = new HouseMasterInterface(username);
+							try {
+								frame.dispose();
+								return;
+							} catch (Exception exception) {
+								exception.printStackTrace();
+							}
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}
@@ -169,7 +182,12 @@ public class LoginFrame {
 					}finally {
 						if (flag){
 							JOptionPane.showMessageDialog(frame,"登录成功");
-
+							try {
+								frame.dispose();
+								return;
+							} catch (Exception exception) {
+								exception.printStackTrace();
+							}
 						}else{
 							JOptionPane.showMessageDialog(frame,"登录失败，账号或密码错误");
 						}
@@ -184,7 +202,7 @@ public class LoginFrame {
 						}
 					}
 				}
-				else {
+				else{
 					JOptionPane.showMessageDialog(frame,"请选择身份！");
 				}
 			}
