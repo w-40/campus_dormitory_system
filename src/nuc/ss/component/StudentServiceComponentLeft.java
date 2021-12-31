@@ -18,7 +18,7 @@ import java.util.Vector;
 import static javax.swing.BoxLayout.X_AXIS;
 import static nuc.ss.informationtable.DormTable.DormModel;
 
-public class StudentServiceComponentLeft extends Box{
+public class StudentServiceComponentLeft extends Box {
     public StudentServiceComponentLeft(JFrame frame) {
         super(X_AXIS);
         init();
@@ -81,6 +81,9 @@ public class StudentServiceComponentLeft extends Box{
         JButton b1 = new JButton("查询未满宿舍");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
+        JLabel tips = new JLabel("s开头为女生宿舍");
+        tips.setFont(new Font("宋体", Font.PLAIN, 25));
+
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,6 +92,7 @@ public class StudentServiceComponentLeft extends Box{
         });
 
         btnPanel.add(b1);
+        btnPanel.add(tips);
 
         jsp.setDividerLocation(625);
         DormTable.setBounds(350, 70, 625, 775);
