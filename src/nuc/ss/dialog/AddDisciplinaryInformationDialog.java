@@ -32,22 +32,18 @@ public class AddDisciplinaryInformationDialog extends JDialog{
 		init();
 		this.setVisible(true);
 	}
-    
-    
-    
+
     public void init() {
     	this.setLayout(new GridLayout(4,2,5,5));
     	
     	l_id = new JLabel("学号",JLabel.CENTER);
         l_content = new JLabel("违纪内容",JLabel.CENTER);
     	l_time = new JLabel("违纪时间",JLabel.CENTER);
-    	
-    	
+
     	t_id = new JTextField();
         t_content = new JTextField();
         t_time = new JTextField();
-    	
-    	
+
     	b_add = new JButton("添加");
     	b_add.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent arg0) {
