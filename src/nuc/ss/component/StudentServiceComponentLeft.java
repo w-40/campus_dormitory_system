@@ -81,7 +81,7 @@ public class StudentServiceComponentLeft extends Box {
         JButton b1 = new JButton("查询未满宿舍");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
-        JLabel tips = new JLabel("s开头为女生宿舍");
+        JLabel tips = new JLabel("（s开头为女生宿舍）");
         tips.setFont(new Font("宋体", Font.PLAIN, 25));
 
         b1.addActionListener(new ActionListener() {
