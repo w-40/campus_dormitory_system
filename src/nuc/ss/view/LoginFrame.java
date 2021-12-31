@@ -78,10 +78,10 @@ public class LoginFrame {
 		usernameField.setColumns(10);
 		usernameField.setFont(new Font("楷体", Font.BOLD, 30));
 		
-		passwordField = new JTextField();
+		passwordField = new JPasswordField();
 		passwordField.setBounds(296, 302, 381, 63);
 		passwordField.setColumns(10);
-		passwordField.setFont(new Font("楷体", Font.BOLD, 30));
+		passwordField.setFont(new Font("", Font.BOLD, 30));
 		
 		JLabel L_2 = new JLabel("密码");
 		L_2.setForeground(new Color(255, 255, 255));
