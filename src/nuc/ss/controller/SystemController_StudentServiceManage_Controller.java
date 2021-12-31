@@ -24,4 +24,9 @@ public class SystemController_StudentServiceManage_Controller {
         NotHaveDormStudent = SystemController_StudentServiceManage_Service.searchNotHaveDormStudent();
         return NotHaveDormStudent;
     }
+
+    public static boolean updateStudentDrom(String val, String tid, ArrayList<String> tableHeadList, int column) {
+        SystemController_StudentServiceManage_Service.updateStudentDrom(val, tid, column);
+        return true;
+    }
 }

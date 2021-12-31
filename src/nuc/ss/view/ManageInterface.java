@@ -109,7 +109,7 @@ public class ManageInterface {
         //支持连续布局
         sp.setContinuousLayout(true);
         sp.setDividerLocation(350);
-        sp.setDividerSize(7);
+        sp.setDividerSize(1);
 
         //设置左侧内容
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("系统管理员");
@@ -142,7 +142,7 @@ public class ManageInterface {
         tree.setSelectionRow(2);
 
         JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统，",JLabel.CENTER);
-        JLabel bottomLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
+        JLabel bottomLabel = new JLabel("  请从左侧JTree进行业务选择", JLabel.CENTER);
         topLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
         bottomLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 

@@ -16,5 +16,10 @@ public class HouseMasterManager_HouseMasterSelf_Controller {
         hm = HouseMasterManager_HouseMasterSelf_Service.searchHouseMasterSelf(id);
         return hm;
     }
+    
+    public static boolean updateHouseMasterPassWord(String id,String passWord) throws SQLException, ClassNotFoundException{
+    	HouseMasterManager_HouseMasterSelf_Service.updateHouseMasterPassWord(id, passWord);
+		return true; 	
+    }
 
 }

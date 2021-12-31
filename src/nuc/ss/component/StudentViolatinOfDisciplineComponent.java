@@ -75,7 +75,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         //支持连续布局
         jsp.setContinuousLayout(true);
         jsp.setDividerLocation(900);
-        jsp.setDividerSize(7);
+        jsp.setDividerSize(0);
 
         tableHeadList = new ArrayList<String>();
         tableHeadList.add("学号");

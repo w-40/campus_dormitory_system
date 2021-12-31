@@ -11,5 +11,11 @@ public class HouseMasterManager_HouseMasterSelf_Service {
 	        HouseMaster hm = new HouseMaster();
 	        hm = HouseMasterManager_HouseMasterSelf_JDBC.searchStudentMessage(id) ;
 	        return hm;
-	    } 
+	    }
+	 
+	 public static boolean updateHouseMasterPassWord(String tid, String newPassWord)throws SQLException, ClassNotFoundException{
+		 HouseMasterManager_HouseMasterSelf_JDBC.updateHouseMasterPassWord(tid, newPassWord);
+		 return true;
+		 
+	 }
 }

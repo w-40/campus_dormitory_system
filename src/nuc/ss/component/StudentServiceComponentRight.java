@@ -20,7 +20,7 @@ import java.util.Vector;
 
 import static nuc.ss.informationtable.StudentTable.studentModel;
 
-public class StudentServiceComponentRight extends Box{
+public class StudentServiceComponentRight extends Box {
 
     public StudentServiceComponentRight(JFrame frame) {
         super(BoxLayout.X_AXIS);
@@ -37,15 +37,11 @@ public class StudentServiceComponentRight extends Box{
     private Vector<Vector<String>> studentData = new Vector<Vector<String>>();
 
 
-
-
-
     public void init() {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
         jsp.setContinuousLayout(true);
-        jsp.setDividerSize(7);
 
         tableHeadList = new ArrayList<String>();
         tableHeadList.add("学号");
@@ -55,7 +51,6 @@ public class StudentServiceComponentRight extends Box{
         tableHeadList.add("床位");
 
         Vector<String> titles = new Vector<>(tableHeadList);//创建存放表头的Vector
-
 
 
         studentModel = new DefaultTableModel(studentData, titles);
@@ -96,22 +91,62 @@ public class StudentServiceComponentRight extends Box{
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getStudentInfo();
+                getNotHaveDormStudentInfo();
             }
         });
 
         JButton b2 = new JButton("分配宿舍");
         b2.setFont(new Font("宋体", Font.BOLD, 25));
 
+
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // new AddDormJDialog(frame, "添加宿舍信息", true).setVisible(true);
+                int row = studentTable.getSelectedRow();//获取选中的行
+                int column = 0;
+                String val = "";
+                try {
+                    column = studentTable.getSelectedColumn();//获取选中的列
+                    val = studentData.get(row).get(column);//被选中的列的值
+
+                    if (column == 0 || column == 1) {
+                        JOptionPane.showMessageDialog(frame, "修改失败，修改宿舍信息请到学生管理中进行(点击刷新进行刷新)");
+                        return;
+                    }
+
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+
+                }
+                boolean flag = false;
+                try {
+                    String tid = studentData.get(row).get(1);//取得tid
+                    flag = SystemController_StudentServiceManage_Controller.updateStudentDrom(val, tid, tableHeadList, column);
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+
+                } /*catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException classNotFoundException) {
+                    classNotFoundException.printStackTrace();
+                }*/
+                if (flag) {
+                    JOptionPane.showMessageDialog(frame, "分配成功");
+                }
+            }
+        });
+        JButton b3 = new JButton("刷新");
+        b3.setFont(new Font("宋体", Font.BOLD, 25));
+
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getNotHaveDormStudentInfo();
             }
         });
 
         btnPanel.add(b1);
         btnPanel.add(b2);
+        btnPanel.add(b3);
 
         jsp.setDividerLocation(900);
         studentTable.setBounds(350, 70, 625, 775);
@@ -136,8 +171,7 @@ public class StudentServiceComponentRight extends Box{
     }
 
 
-
-    private void getStudentInfo() {//获取数据
+    private void getNotHaveDormStudentInfo() {//获取数据
         try {
             studentData.clear();
             ArrayList<Student> students = SystemController_StudentServiceManage_Controller.searchNotHaveDormStudent();

@@ -184,6 +184,9 @@ public class LoginFrame {
 						}
 					}
 				}
+				else {
+					JOptionPane.showMessageDialog(frame,"请选择身份！");
+				}
 			}
 		});
 		
