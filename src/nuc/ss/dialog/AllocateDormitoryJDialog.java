@@ -25,7 +25,7 @@ public class AllocateDormitoryJDialog extends JDialog {
 		//super(frame, title, modal);
 		this.setTitle("正在分配" + username + "的宿舍");
 		this.setSize(350, 251);
-		this.setLocation(300,200);
+		this.setLocationRelativeTo(null);
 		init(username);
 		this.setVisible(true);
 	}
