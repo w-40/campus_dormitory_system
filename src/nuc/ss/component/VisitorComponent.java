@@ -79,11 +79,11 @@ public class VisitorComponent extends Box {
         visitorTable.setSelectionBackground(new Color(216, 133, 222));//设置单元格选中的背景色
         visitorTable.setBackground(new Color(214, 203, 238, 255));
 
-        visitorTable.getColumnModel().getColumn(0).setPreferredWidth(400);//设置列的宽度
-        visitorTable.getColumnModel().getColumn(1).setPreferredWidth(700);
-        visitorTable.getColumnModel().getColumn(2).setPreferredWidth(400);
+        visitorTable.getColumnModel().getColumn(0).setPreferredWidth(350);//设置列的宽度
+        visitorTable.getColumnModel().getColumn(1).setPreferredWidth(450);
+        visitorTable.getColumnModel().getColumn(2).setPreferredWidth(500);
         visitorTable.getColumnModel().getColumn(3).setPreferredWidth(500);
-        visitorTable.getColumnModel().getColumn(4).setPreferredWidth(300);
+        visitorTable.getColumnModel().getColumn(4).setPreferredWidth(700);
 
         //表格内容居中
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();

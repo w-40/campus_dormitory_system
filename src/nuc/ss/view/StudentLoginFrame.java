@@ -6,12 +6,15 @@ package nuc.ss.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 import nuc.ss.controller.SystemController_Student_Controller;
@@ -27,20 +30,19 @@ public class StudentLoginFrame extends JFrame{
 	 private JTextField t_message;
 	 private JButton add;
 	 public static JPanel t = new JPanel();
-	 
 
 	    
 	    public StudentLoginFrame(String name,String username) throws ClassNotFoundException, SQLException,NullPointerException {
 	    	this.setTitle(name +  "的个人信息界面");
-	    	this.setSize(600, 500);
+	    	this.setSize(1600, 915);
+			this.setLocationRelativeTo(null);
 	    	init(username);
-	    	this.setLocation(350, 100);
 	    	this.setVisible(true);
 	    }
 	    
 	    public void init(String username) throws ClassNotFoundException, SQLException {
 	    	
-	    	this.setLayout(new GridLayout(6, 2));
+	    	this.setLayout(new GridLayout(1, 1));
 	    	
 	    	l_id = new JLabel("学号:");
 	    	l_name = new JLabel("姓名:");
@@ -62,35 +64,53 @@ public class StudentLoginFrame extends JFrame{
 	    	t_bed = new JLabel(SystemController_Student_Controller.student(username).getBed() + "");
 	    	t_phoneNumber = new JLabel(SystemController_Student_Controller.student(username).getPhoneNumber());
 	    	
+	    	Font font = new Font("宋体",Font.PLAIN,30);
+	    	l_id.setFont(font);
+	    	l_name.setFont(font);
+	    	l_sex.setFont(font);
+	    	l_grade.setFont(font);
+	    	l_dormitoryBudingId.setFont(font);
+	    	l_dormitoryId.setFont(font);
+	    	l_bed.setFont(font);
+	    	l_phoneNumber.setFont(font);
+	    	t_id.setFont(font);
+	    	t_name.setFont(font);
+	    	t_sex.setFont(font);
+	    	t_grade.setFont(font);
+	    	t_dormitoryId.setFont(font);
+	    	t_dormitoryBudingId.setFont(font);
+	    	t_bed.setFont(font);
+	    	t_phoneNumber.setFont(font);
+	    	
+	    	Box b_info1 = Box.createVerticalBox();
+	    	Box b_table = Box.createVerticalBox();
+	    	Box b_bigBox = Box.createHorizontalBox();
 	    	
 	    	JPanel p1 = new JPanel();
 	    	p1.add(l_id);
 	    	p1.add(t_id);
 	    	p1.setBackground(Color.white);
-	    	p1.setPreferredSize(new Dimension(2, 2));
 	    	
 	    	JPanel p2 = new JPanel();
 	    	p2.add(l_name);
 	    	p2.add(t_name);
 	    	p2.setBackground(Color.white);
-	    	p2.setPreferredSize(new Dimension(2, 2));
 	    	
 	    	JPanel p3 = new JPanel();
 	    	p3.add(l_sex);
 	    	p3.add(t_sex);
 	    	p3.setBackground(Color.white);
-	    	p3.setPreferredSize(new Dimension(2, 2));
 	    	
 	    	JPanel p4 = new JPanel();
 	    	p4.add(l_grade);
 	    	p4.add(t_grade);
 	    	p4.setBackground(Color.white);
-	    	p4.setPreferredSize(new Dimension(2, 2));
 	    	
 	    	JPanel p5 = new JPanel();
 	    	p5.add(l_dormitoryBudingId);
 	    	p5.add(t_dormitoryBudingId);
 	    	p5.setBackground(Color.white);
+	    	
 	    	
 	    	JPanel p6 = new JPanel();
 	    	p6.add(l_dormitoryId);
@@ -108,18 +128,18 @@ public class StudentLoginFrame extends JFrame{
 	    	p8.setBackground(Color.white);
 	    	
 	    	
-	    	
-	    	this.add(p1);
-	    	this.add(p2);
-	    	
-	    	this.add(p3);
-	    	this.add(p4);
-	    	
-	    	this.add(p5);
-	    	this.add(p6);
-	    	
-	    	this.add(p7);
-	    	this.add(p8);
+            b_info1.add(p1);
+            b_info1.add(p2);
+            b_info1.add(p3);
+            b_info1.add(p4);
+            b_info1.add(p5);
+            b_info1.add(p6);
+            b_info1.add(p7);
+            b_info1.add(p8);
+            
+            b_bigBox.add(b_info1);
+            b_bigBox.add(Box.createHorizontalStrut(20));
+            
 
 	    	Object[][] rowData = null;
 	    	try {
@@ -136,24 +156,25 @@ public class StudentLoginFrame extends JFrame{
 				
 			}
 	    	Object[] columnNames = {"违纪内容", "违纪时间"};
-	    	JTable table = new JTable(rowData, columnNames);
-	    	table.setSize(200, 20);
 	    	
-	    	TableColumn column = table.getColumnModel().getColumn( 0 );
-	    	column.setPreferredWidth( 100 );
-	    	table.setRowHeight(20);
+	    	DefaultTableModel defaultTableModel = new DefaultTableModel(rowData, columnNames);
 	    	
+	    	JTable table = new JTable(defaultTableModel);
+	    	JTableHeader head = table.getTableHeader();
+	    	head.setFont(font);
+            table.setRowHeight(100);
+            table.setFont(font);
+	    	table.setFillsViewportHeight(true);
 	    	
+	    	JScrollPane jsp = new JScrollPane(table);
 	    	
-	    	t.add(table.getTableHeader(), BorderLayout.NORTH);
-	    	t.add(table, BorderLayout.CENTER);
-	    	t.add(table);
-	    	t.setBackground(Color.white);
-	    	t.setPreferredSize(new Dimension(200,100));
-	    	this.add(t);
-	    	
+	    	b_table.add(jsp);
+	    	b_table.add(Box.createVerticalStrut(20));
 	    	l_message = new JLabel("如有需要，请在下方留言");
 	    	t_message = new JTextField();
+	    	
+	    	l_message.setFont(font);
+	    	t_message.setFont(font);
 	    	
 	    	add = new JButton("提交");
 	    	add.addActionListener(new ActionListener() {
@@ -165,21 +186,28 @@ public class StudentLoginFrame extends JFrame{
 	            }
 	        }); 
 	    	
+	    	add.setFont(font);
+	    	
 	    	JPanel p9 = new JPanel();
 	    	p9.add(l_message);
 	    	p9.setBackground(Color.white);
-	    	this.add(p9);
+	    	b_table.add(p9);
 	    	
 	    	t_message.setBackground(Color.white);
 	    	t_message.setPreferredSize(new Dimension (100,30));
-	    	this.add(t_message);
+	    	b_table.add(t_message);
 	    	
 	    	
 	    	JPanel p11 = new JPanel();
 	    	p11.add(add);
 	    	p11.setBackground(Color.white);
 	    	
-	    	this.add(p11);
+	    	b_table.add(p11);
+	    	
+	    	b_bigBox.add(b_table);
+	    	b_bigBox.setLocation(0, 0);
+	    	
+	    	this.add(b_bigBox);
 	    	
 	    	JMenuBar menuBar = new JMenuBar();
 	        menuBar.setBackground(Color.pink);

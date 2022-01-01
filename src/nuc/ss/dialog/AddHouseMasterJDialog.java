@@ -17,7 +17,8 @@ import nuc.ss.domain.HouseMaster;
 public class AddHouseMasterJDialog extends JDialog{
 	
 	private JLabel l_id, l_name, l_password, l_sex,l_dormitoryId,l_phoneNumber;
-    private JTextField t_id, t_name,t_password, t_dormitoryId, t_phoneNumber;
+    private JTextField t_id, t_name, t_dormitoryId, t_phoneNumber;
+    private JPasswordField t_password;
     private JRadioButton r_male, r_female;
     private JButton b_add,b_reset;
 	Frame frame;
@@ -39,19 +40,28 @@ public class AddHouseMasterJDialog extends JDialog{
     	this.setLayout(new GridLayout(7,2,5,5));
     	
     	l_id = new JLabel("工号",JLabel.CENTER);
+    	l_id.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	l_name = new JLabel("姓名",JLabel.CENTER);
+    	l_name.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	l_password = new JLabel("密码",JLabel.CENTER);
+    	l_password.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	l_sex = new JLabel("性别",JLabel.CENTER);
+    	l_sex.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	l_dormitoryId  = new JLabel("管理宿舍楼号",JLabel.CENTER);
+    	l_dormitoryId.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	l_phoneNumber = new JLabel("联系电话",JLabel.CENTER);
+    	l_phoneNumber.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	
     	t_id = new JTextField();
+    	t_id.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	t_name = new JTextField();
-    	t_password = new JTextField();
+    	t_name.setFont(new Font("TimesNewRoman",Font.BOLD,20));
+    	t_password = new JPasswordField();
+    	t_name.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	t_dormitoryId = new JTextField();
+    	t_dormitoryId.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	t_phoneNumber = new JTextField();
-    	
-    	
+    	t_phoneNumber.setFont(new Font("TimesNewRoman",Font.BOLD,20));
     	
     	ButtonGroup bg = new ButtonGroup();
     	r_male = new JRadioButton("男");

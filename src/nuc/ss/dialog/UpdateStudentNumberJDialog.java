@@ -23,7 +23,7 @@ public class UpdateStudentNumberJDialog extends JDialog {
 		//super(frame, title, modal);
 		this.setTitle("修改联系方式");
 		this.setSize(250, 150);
-		this.setLocation(300,200);
+		this.setLocationRelativeTo(null);
 		init(username);
 		this.setVisible(true);
 	}

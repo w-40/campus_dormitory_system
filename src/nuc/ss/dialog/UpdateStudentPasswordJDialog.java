@@ -30,7 +30,7 @@ public class UpdateStudentPasswordJDialog extends JDialog {
 		//super(frame, title, modal);
 		this.setTitle("修改密码");
 		this.setSize(250, 150);
-		this.setLocation(300,200);
+		this.setLocationRelativeTo(null);
 		init(username);
 		this.setVisible(true);
 	}

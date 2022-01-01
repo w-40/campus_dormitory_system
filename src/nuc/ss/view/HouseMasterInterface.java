@@ -10,23 +10,17 @@ import nuc.ss.component.StudentViolatinOfDisciplineComponent;
 import nuc.ss.component.VisitorComponent;
 import nuc.ss.informationtable.AdminTable;
 
-import java.awt.*;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Vector;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
 
 
 public class HouseMasterInterface {
@@ -121,13 +115,16 @@ public class HouseMasterInterface {
 
         Color color = new Color(135, 206, 235);
         tree.setBackground(new Color(135, 206, 235));
-        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
-        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
-        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
+//        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
+//        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
+//        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
+        MyRenderer myRenderer=new MyRenderer();
+        myRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
+        myRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
         tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
 
         tree.setBounds(0, 0, 350, 428);
-        tree.setCellRenderer(cellRenderer);
+        tree.setCellRenderer(myRenderer);
 
         JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
         rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
@@ -171,5 +168,41 @@ public class HouseMasterInterface {
 
         frame.add(sp);
         frame.setVisible(true);
+    }
+    public  class MyRenderer extends DefaultTreeCellRenderer{
+        private ImageIcon rootIcon = new ImageIcon("images/2.root.png");
+        private ImageIcon studentViolatinOfDisciplineManageIcon =new ImageIcon("images/2.违纪.png");
+        private ImageIcon visitorInformationManageIcon = new ImageIcon("images/2.信息.png");
+        private ImageIcon studentMessageManageIcon = new ImageIcon("images/2.留言.png");
+        private ImageIcon individualAccountManage =new ImageIcon("images/2.账户.png");
+
+
+        //当绘制树的每个结点时，都会调用这个方法
+        @Override
+        public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+            //使用默认绘制
+            super.getTreeCellRendererComponent(tree,value,sel,expanded,leaf,row,hasFocus);
+
+            ImageIcon image = null;
+            switch (row){
+                case 0:
+                    image = rootIcon;
+                    break;
+                case 1:
+                    image = studentViolatinOfDisciplineManageIcon;
+                    break;
+                case 2:
+                    image = visitorInformationManageIcon;
+                    break;
+                case 3:
+                    image = studentMessageManageIcon;
+                    break;
+                case 4:
+                    image = individualAccountManage;
+                    break;
+            }
+            this.setIcon(image);
+            return this;
+        }
     }
 }

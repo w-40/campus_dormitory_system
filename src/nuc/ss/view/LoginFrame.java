@@ -141,8 +141,6 @@ public class LoginFrame {
                             return;
                         } else {
                             JOptionPane.showMessageDialog(frame, "登录失败，账号或密码错误");
-                            frame.dispose();
-                            new LoginFrame();
                             return;
                         }
                     }
@@ -163,8 +161,6 @@ public class LoginFrame {
 
                         } else {
                             JOptionPane.showMessageDialog(frame, "登录失败，账号或密码错误");
-                            frame.dispose();
-                            new LoginFrame();
                             return;
                         }
                     }
@@ -193,8 +189,6 @@ public class LoginFrame {
                             return;
                         } else {
                             JOptionPane.showMessageDialog(frame, "登录失败，账号或密码错误");
-                            frame.dispose();
-                            new LoginFrame();
                             return;
                         }
 
@@ -212,7 +206,6 @@ public class LoginFrame {
         frame.getContentPane().add(L_0);
 
         JLabel L_bg = new JLabel("");
-        //L_bg.setIcon(new ImageIcon(LoginFrame.class.getResource("images/MWD$5ASB4]%BN`K%4AY7XO7.jpg")));
         L_bg.setIcon(new ImageIcon(("images/背景图片.jpg")));
         L_bg.setBounds(0, 0, 856, 616);
         frame.getContentPane().add(L_bg);

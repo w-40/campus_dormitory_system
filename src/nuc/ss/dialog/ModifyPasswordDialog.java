@@ -26,7 +26,6 @@ public class ModifyPasswordDialog extends JDialog{
     public ModifyPasswordDialog(Frame frame, String title, boolean modal,String id) {
 		this.setTitle("修改密码");
 		this.setSize(350, 350);
-		this.setLocation(300,200);
 		this.setLocationRelativeTo(null);
 		init(id);
 		this.setVisible(true);

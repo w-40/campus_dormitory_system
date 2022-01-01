@@ -4,6 +4,7 @@ import nuc.ss.controller.SystemController_StudentManage_Controller;
 import nuc.ss.controller.SystemController_StudentServiceManage_Controller;
 import nuc.ss.dao.SystemController_StudentManage_JDBC;
 import nuc.ss.dialog.AddStudentJDialog;
+import nuc.ss.dialog.AllocateDormitoryJDialog;
 import nuc.ss.domain.Student;
 import nuc.ss.informationtable.StudentTable;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
@@ -102,7 +103,17 @@ public class StudentServiceComponentRight extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //待写
+                try {
+                	int row = studentTable.getSelectedRow();
+                    int col = studentTable.getSelectedColumn();
+                    String username = studentData.get(row).get(col);
+                    new AllocateDormitoryJDialog(this , true, username).setVisible(true);
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+                }
+                
+                
+                
             }
         });
         JButton b3 = new JButton("刷新");
@@ -153,7 +164,7 @@ public class StudentServiceComponentRight extends Box {
                     record.add(students.get(i).getSex() + "");
                     record.add(students.get(i).getDormitoryId());
                     record.add(students.get(i).getApartmentId());
-                    record.add(students.get(i).getBed() + "");
+                    record.add(students.get(i).getBed() + " ");
                 }
                 studentData.add(record);
             }

@@ -26,7 +26,6 @@ public class AddDormitoryJDialog extends JDialog{
 		//super(frame, title, modal);
 		this.setTitle("添加宿舍楼信息");
 		this.setSize(350, 450);
-		this.setLocation(300,200);
 		this.setLocationRelativeTo(null);
 		init();
 		this.setVisible(true);
