@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.swing.*;
 
@@ -25,7 +28,7 @@ public class AddVisitorJDialog extends JDialog{
     public AddVisitorJDialog(Frame frame, String title, boolean modal) {
 		//super(frame, title, modal);
 		this.setTitle("添加访客信息");
-		this.setSize(350, 450);
+		this.setSize(550, 450);
 		this.setLocationRelativeTo(null);
 		init();
 		this.setVisible(true);
@@ -41,15 +44,17 @@ public class AddVisitorJDialog extends JDialog{
     	l_visitMatters = new JLabel("来访事宜",JLabel.CENTER);
     	l_identity = new JLabel("身份",JLabel.CENTER);
     	l_time  = new JLabel("来访时间",JLabel.CENTER);
-    	
+
+
     	
     	t_tel = new JTextField();
     	t_name = new JTextField();
     	t_visitMatters = new JTextField();
     	t_identity = new JTextField();
     	t_time = new JTextField();
-
-
+    	t_time.setFont(new Font("TimesNewRoman",Font.BOLD,20));
+		t_time.setText(String.valueOf(LocalDateTime.now()));
+		t_time.setEnabled(false);
 
     	
     	b_add = new JButton("添加");

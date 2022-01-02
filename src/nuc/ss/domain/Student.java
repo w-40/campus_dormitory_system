@@ -9,7 +9,7 @@ public class Student {
     private String id;//学号
     private String password; //密码
     private String name;//姓名
-    private char sex;//性别
+    private Character sex;//性别
     private String grade;//年级
     private String apartmentId;//楼号
     private String dormitoryId;//宿舍号

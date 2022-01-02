@@ -9,7 +9,7 @@ public class HouseMaster {
     private String id;  //工号
     private String password;
     private String name; //姓名
-    private char sex; //性别
+    private Character sex; //性别
     private String dormitoryId; //管理的宿舍楼号
     private String phoneNumber; //联系电话
 

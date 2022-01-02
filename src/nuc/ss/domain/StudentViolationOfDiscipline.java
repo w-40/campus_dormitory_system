@@ -11,7 +11,7 @@ public class StudentViolationOfDiscipline {
 
 	private String id; //学号
 	private String name; //姓名
-	private int dormId; //宿舍号
+	private Integer dormId; //宿舍号
 	private String content; //违纪内容
 	private String time; //违纪时间
 	
