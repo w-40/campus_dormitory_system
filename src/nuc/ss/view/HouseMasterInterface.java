@@ -34,14 +34,6 @@ public class HouseMasterInterface {
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
 
 
-
-    /**
-     * Create the application.
-     */
-    /*public HouseMasterInterface() {
-        initialize();
-    }*/
-
     public HouseMasterInterface(String username) {
         initialize(username);
     }
