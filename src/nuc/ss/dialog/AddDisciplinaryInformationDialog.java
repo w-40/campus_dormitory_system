@@ -48,10 +48,11 @@ public class AddDisciplinaryInformationDialog extends JDialog {
         t_content = new JTextField();
         t_id.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
         t_content.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
-        t_content.setText(String.valueOf(LocalDateTime.now()));
-        t_content.setEditable(false);
+
         t_time = new JTextField();
         t_time.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
+        t_time.setText(String.valueOf(LocalDateTime.now()));
+        t_time.setEditable(false);
 
         b_add = new JButton("添加");
         b_add.addActionListener(new ActionListener() {
