@@ -25,7 +25,7 @@ public class AddDormitoryJDialog extends JDialog{
     public AddDormitoryJDialog(Frame frame, String title, boolean modal) {
 		//super(frame, title, modal);
 		this.setTitle("添加宿舍楼信息");
-		this.setSize(350, 450);
+		this.setSize(350, 250);
 		this.setLocationRelativeTo(null);
 		init();
 		this.setVisible(true);
@@ -34,7 +34,7 @@ public class AddDormitoryJDialog extends JDialog{
     
     
     public void init() {
-    	this.setLayout(new GridLayout(7,2,5,5));
+    	this.setLayout(new GridLayout(3,2,5,5));
     	
     	l_id = new JLabel("宿舍楼号",JLabel.CENTER);
     	l_name = new JLabel("宿舍楼名称",JLabel.CENTER);

@@ -142,36 +142,36 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         });
 
 
-        JButton b3 = new JButton("修改");
-        b3.setFont(new Font("宋体", Font.BOLD, 25));
-
-        b3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int row = studentViolatinOfDisciplineTable.getSelectedRow();//获取选中的行
-                int column = 0;
-                String val = "";
-                try {
-                    column = studentViolatinOfDisciplineTable.getSelectedColumn();//获取选中的列
-                    val = studentViolatinOfDisciplineData.get(row).get(column);//被选中的列的值
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
-                }
-                boolean flag = false;
-                try {
-                    String tid = studentViolatinOfDisciplineData.get(row).get(0);//取得tid
-                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
-                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
-                }
-                if (flag) {
-                    JOptionPane.showMessageDialog(frame, "修改成功");
-                }
-            }
-        });
+//        JButton b3 = new JButton("修改");
+//        b3.setFont(new Font("宋体", Font.BOLD, 25));
+//
+//        b3.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                int row = studentViolatinOfDisciplineTable.getSelectedRow();//获取选中的行
+//                int column = 0;
+//                String val = "";
+//                try {
+//                    column = studentViolatinOfDisciplineTable.getSelectedColumn();//获取选中的列
+//                    val = studentViolatinOfDisciplineData.get(row).get(column);//被选中的列的值
+//                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+//                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+//                }
+//                boolean flag = false;
+//                try {
+//                    String tid = studentViolatinOfDisciplineData.get(row).get(0);//取得tid
+//                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
+//                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+//
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                } catch (ClassNotFoundException classNotFoundException) {
+//                    classNotFoundException.printStackTrace();
+//                }
+//                if (flag) {
+//                    JOptionPane.showMessageDialog(frame, "修改成功");
+//                }
+//            }
+//        });
 
 
         JButton b4 = new JButton("删除");
@@ -218,8 +218,8 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b2);
         vBox.add(Box.createVerticalStrut(80));
-        vBox.add(b3);
-        vBox.add(Box.createVerticalStrut(80));
+//        vBox.add(b3);
+//        vBox.add(Box.createVerticalStrut(80));
         vBox.add(b4);
         btnPanel.add(vBox);
 

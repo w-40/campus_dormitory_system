@@ -19,18 +19,22 @@ public class SystemController_VisitorManage_JDBC {
         String identity = null; //身份
 
         Visitor vd = null;
+        Connection con = null;
+        Statement stat = null;
+        ResultSet rs = null;
         // 1.导入jar包
         // 2.注册驱动
+        try {
         Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
 
         // 4.获取执行者对象
-        Statement stat = con.createStatement();
+        stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
         String sql = "SELECT * FROM 访客信息表";
-        ResultSet rs = stat.executeQuery(sql);
+        rs = stat.executeQuery(sql);
         // 6.处理结果
         while (rs.next()) {
             name = rs.getString("姓名");
@@ -41,12 +45,27 @@ public class SystemController_VisitorManage_JDBC {
             vd = new Visitor(name,tel, time,visitMatters,identity);
             visitorslist.add(vd);
         }
-        // 7.释放资源
-        con.close();
-        stat.close();
-        rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 7.释放资源
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (stat != null) {
+                    stat.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
         return visitorslist;
     }
+        
 
 //    public static boolean deleteVisitor(String tid) throws SQLException, ClassNotFoundException {
 //        ArrayList<Visitor> visitorslist = new ArrayList<Visitor>();
@@ -70,15 +89,31 @@ public class SystemController_VisitorManage_JDBC {
 //    }
 
     public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+    	Connection conn = null;
+    	PreparedStatement pstmt = null;
+    	try {
+    	Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
+        conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 访客信息表 SET " + tableHeadList.get(column) + " = ? WHERE 姓名 = ?";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, val);
         pstmt.setString(2, tid);
         pstmt.executeUpdate();
-        conn.close();
+    	} catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+        	throwables.printStackTrace();
+        } finally {
+            // 释放资源
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
         return true;
     }
 
@@ -88,18 +123,37 @@ public class SystemController_VisitorManage_JDBC {
         String name = Visitor.getName();
         String identity = Visitor.getIdentity();
         String time = Visitor.getTime();
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        
+        try {
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
+        conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "insert into 访客信息表 values(?,?,?,?,?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, name);
         pstmt.setString(2, tel);
         pstmt.setString(3, time);
         pstmt.setString(4, visitMatters);
         pstmt.setString(5, identity);
         pstmt.executeUpdate();
-        conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+        	throwables.printStackTrace();
+        } finally {
+            // 释放资源
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
         return true;
     }
 }
