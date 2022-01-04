@@ -50,7 +50,7 @@ public class Student {
         this.apartmentId = apartmentId;
     }
 
-    public Student(String id, String password, String name, char sex, String grade, String dormitoryId, String apartmentId, int bed, String phoneNumber) {
+    public Student(String id, String password, String name, char sex, String grade, String apartmentId,String dormitoryId,  int bed, String phoneNumber) {
         this.id = id;
         this.password = password;
         this.name = name;
