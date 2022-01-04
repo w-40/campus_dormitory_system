@@ -125,7 +125,6 @@ public class AllocateDormitory_JDBC {
 
             }
         }
-
         return false;
     }
 }
