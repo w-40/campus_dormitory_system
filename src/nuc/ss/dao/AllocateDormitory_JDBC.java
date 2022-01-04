@@ -76,7 +76,6 @@ public class AllocateDormitory_JDBC {
                 throwables.printStackTrace();
             }
         }
-
         return true;
     }
 
@@ -122,7 +121,7 @@ public class AllocateDormitory_JDBC {
                     rs.close();
                 }
             } catch (SQLException throwables) {
-
+                throwables.printStackTrace();
             }
         }
         return false;
