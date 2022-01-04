@@ -32,7 +32,6 @@ import javax.swing.tree.TreePath;
 
 public class ManageInterface {
     private JFrame frame;
-    ;
 
     //手工添加
     private ArrayList<String> tableHeadList;
