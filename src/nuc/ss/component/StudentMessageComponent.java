@@ -22,9 +22,7 @@ import java.util.Vector;
 
 import static nuc.ss.informationtable.StudentViolatinOfDisciplineTable.studentViolatinOfDisciplineModel;
 
-
 public class StudentMessageComponent extends Box {
-
 
     private JFrame frame;
     public static JPanel tablepanel = new JPanel();//创建一个JPanel,放置显示数据的表格

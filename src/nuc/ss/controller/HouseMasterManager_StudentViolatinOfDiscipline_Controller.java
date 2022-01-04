@@ -1,10 +1,8 @@
 package nuc.ss.controller;
-
 /**
  * @author 籍乃博
  * @description 学生违纪管理控制层，王志凯修复bug
  */
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 

@@ -3,7 +3,6 @@ package nuc.ss.controller;
 import nuc.ss.domain.HouseMaster;
 import nuc.ss.domain.Visitor;
 import nuc.ss.service.SystemController_VisitorManage_Service;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 

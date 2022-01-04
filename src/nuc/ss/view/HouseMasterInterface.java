@@ -3,7 +3,6 @@ package nuc.ss.view;
  * @author 籍乃博，王志凯重构
  * @description 宿舍管理员主页面
  */
-
 import nuc.ss.component.HouseMasterSelfComponent;
 import nuc.ss.component.StudentMessageComponent;
 import nuc.ss.component.StudentViolatinOfDisciplineComponent;
@@ -21,8 +20,6 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
-
-
 public class HouseMasterInterface {
 
     private JFrame frame;

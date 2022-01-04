@@ -3,7 +3,6 @@ package nuc.ss.component;
  * @author 王志凯
  * @description 学生违纪管理页面
  */
-
 import nuc.ss.controller.HouseMasterManager_StudentViolatinOfDiscipline_Controller;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.StudentViolationOfDiscipline;
@@ -25,8 +24,6 @@ import static nuc.ss.informationtable.StudentViolatinOfDisciplineTable.studentVi
 
 
 public class StudentViolatinOfDisciplineComponent extends Box {
-
-
     private JFrame frame;
     public static JPanel tablepanel = new JPanel();//创建一个JPanel,放置显示数据的表格
     public static JScrollPane tablePane = null;

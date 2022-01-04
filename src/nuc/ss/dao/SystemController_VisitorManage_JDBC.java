@@ -1,13 +1,12 @@
 package nuc.ss.dao;
-
+/**
+ * @author 娄靖彬
+ */
 import nuc.ss.domain.Visitor;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * @author 娄靖彬
- */
 public class SystemController_VisitorManage_JDBC {
     public static ArrayList searchVisitor() throws SQLException, ClassNotFoundException {
         ArrayList<Visitor> visitorslist = new ArrayList<Visitor>();
