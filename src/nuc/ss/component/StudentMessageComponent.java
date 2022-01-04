@@ -33,15 +33,15 @@ public class StudentMessageComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> studentMessageData = new Vector<Vector<String>>();
 
-    public StudentMessageComponent(JFrame frame) {
+    public StudentMessageComponent(JFrame frame,String username) {
         super(BoxLayout.X_AXIS);
-        init();
+        init(username);
     }
 
-    private void getMessageInfo() {//获取数据
+    private void getMessageInfo(String username) {//获取数据
         try {
             studentMessageData.clear();
-            ArrayList<Student> stllist = HouseMasterManager_StudentMessage_Controller.searchStudentMessage();
+            ArrayList<Student> stllist = HouseMasterManager_StudentMessage_Controller.searchStudentMessage(username);
             for (int i = 0; i < stllist.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 3; j++) {
@@ -60,7 +60,7 @@ public class StudentMessageComponent extends Box {
     }
 
 
-    public void init() {
+    public void init(String username) {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
@@ -109,7 +109,7 @@ public class StudentMessageComponent extends Box {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getMessageInfo();
+                getMessageInfo(username);
             }
         });
 

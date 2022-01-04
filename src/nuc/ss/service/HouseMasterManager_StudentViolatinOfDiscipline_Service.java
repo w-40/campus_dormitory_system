@@ -10,10 +10,10 @@ import nuc.ss.dao.HouseMasterManager_StudentViolatinOfDiscipline_JDBC;
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_Service {
-    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline() {
+    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline(String username) {
         ArrayList<StudentViolationOfDiscipline> svod = new ArrayList<StudentViolationOfDiscipline>();
         try {
-            svod = HouseMasterManager_StudentViolatinOfDiscipline_JDBC.searchStudentViolatinOfDiscipline();
+            svod = HouseMasterManager_StudentViolatinOfDiscipline_JDBC.searchStudentViolatinOfDiscipline(username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

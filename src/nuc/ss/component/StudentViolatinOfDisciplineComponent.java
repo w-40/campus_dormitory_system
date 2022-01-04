@@ -33,15 +33,15 @@ public class StudentViolatinOfDisciplineComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> studentViolatinOfDisciplineData = new Vector<Vector<String>>();
 
-    public StudentViolatinOfDisciplineComponent(JFrame frame) {
+    public StudentViolatinOfDisciplineComponent(JFrame frame,String username) {
         super(BoxLayout.X_AXIS);
-        init();
+        init(username);
     }
 
-    private void getDisciplinaryInfo() {//获取数据
+    private void getDisciplinaryInfo(String username) {//获取数据
         try {
             studentViolatinOfDisciplineData.clear();
-            ArrayList<StudentViolationOfDiscipline> svodlist = HouseMasterManager_StudentViolatinOfDiscipline_Controller.searchStudentViolatinOfDiscipline();
+            ArrayList<StudentViolationOfDiscipline> svodlist = HouseMasterManager_StudentViolatinOfDiscipline_Controller.searchStudentViolatinOfDiscipline(username);
             for (int i = 0; i < svodlist.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 6; j++) {
@@ -63,7 +63,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         studentViolatinOfDisciplineTable.updateUI();
     }
 
-    public void init() {
+    public void init(String username) {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
@@ -119,7 +119,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getDisciplinaryInfo();
+                getDisciplinaryInfo(username);
             }
         });
 

@@ -9,10 +9,10 @@ import nuc.ss.dao.HouseMasterManager_StudentMessage_JDBC;
 import nuc.ss.domain.Student;
 
 public class HouseMasterManager_StudentMessage_Service {
-    public static ArrayList<Student> searchStudentMessage() {
+    public static ArrayList<Student> searchStudentMessage(String username) {
         ArrayList<Student> stl = new ArrayList<Student>();
         try {
-            stl = HouseMasterManager_StudentMessage_JDBC.searchStudentMessage();
+            stl = HouseMasterManager_StudentMessage_JDBC.searchStudentMessage(username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -36,9 +36,9 @@ import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 public class VisitorComponent extends Box {
 
-    public VisitorComponent(JFrame frame) {
+    public VisitorComponent(JFrame frame,String username) {
         super(BoxLayout.X_AXIS);
-        init();
+        init(username);
     }
 
     private JFrame frame;
@@ -50,7 +50,7 @@ public class VisitorComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> visitorData = new Vector<Vector<String>>();
 
-    public void init() {
+    public void init(String username) {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
@@ -105,7 +105,7 @@ public class VisitorComponent extends Box {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getVisitorInfo();
+                getVisitorInfo(username);
             }
         });
 
@@ -179,10 +179,10 @@ public class VisitorComponent extends Box {
         this.repaint();
     }
 
-    private void getVisitorInfo() {//获取数据
+    private void getVisitorInfo(String username) {//获取数据
         try {
             visitorData.clear();
-            ArrayList<Visitor> visitors = SystemController_VisitorManage_JDBC.searchVisitor();
+            ArrayList<Visitor> visitors = SystemController_VisitorManage_JDBC.searchVisitor(username);
             for (int i = 0; i < visitors.size(); i++) {
                 Vector<String> record = new Vector<String>();
                 for (int j = 0; j < 9; j++) {

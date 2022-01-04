@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SystemController_VisitorManage_Controller {
-    public static ArrayList<Visitor> searchVisitorMaster() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Visitor> searchVisitorMaster(String username) throws SQLException, ClassNotFoundException {
         ArrayList<Visitor> visitorsArrayList = new ArrayList<Visitor>();
-        visitorsArrayList = SystemController_VisitorManage_Service.searchVisitor();
+        visitorsArrayList = SystemController_VisitorManage_Service.searchVisitor(username);
         return visitorsArrayList;
     }
 

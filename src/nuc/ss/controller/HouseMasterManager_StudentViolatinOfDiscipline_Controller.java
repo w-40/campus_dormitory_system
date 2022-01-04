@@ -9,9 +9,9 @@ import nuc.ss.domain.StudentViolationOfDiscipline;
 import nuc.ss.service.HouseMasterManager_StudentViolatinOfDiscipline_Service;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_Controller {
-    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline() throws SQLException, ClassNotFoundException {
+    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline(String username) throws SQLException, ClassNotFoundException {
         ArrayList<StudentViolationOfDiscipline> svod = new ArrayList<StudentViolationOfDiscipline>();
-        svod = HouseMasterManager_StudentViolatinOfDiscipline_Service.searchStudentViolatinOfDiscipline();
+        svod = HouseMasterManager_StudentViolatinOfDiscipline_Service.searchStudentViolatinOfDiscipline(username);
         return svod;
     }
 

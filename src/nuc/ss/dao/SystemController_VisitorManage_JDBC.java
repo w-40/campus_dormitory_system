@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SystemController_VisitorManage_JDBC {
-    public static ArrayList searchVisitor() throws SQLException, ClassNotFoundException {
+    public static ArrayList searchVisitor(String username) throws SQLException, ClassNotFoundException {
         ArrayList<Visitor> visitorslist = new ArrayList<Visitor>();
         String visitMatters = null;//来访事宜
         String tel = null;//联系方式
@@ -26,8 +26,12 @@ public class SystemController_VisitorManage_JDBC {
         Statement stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
-        String sql = "SELECT * FROM 访客信息表 ORDER BY 来访时间";
-        ResultSet rs = stat.executeQuery(sql);
+        String sql = "SELECT `姓名`,联系方式,来访时间,来访事宜,身份\n"
+        		+ "FROM `访客信息表`\n"
+        		+ "WHERE 来访楼号 = (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ?) ORDER BY 来访时间";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
         // 6.处理结果
         while (rs.next()) {
             name = rs.getString("姓名");

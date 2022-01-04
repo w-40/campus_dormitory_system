@@ -124,17 +124,17 @@ public class HouseMasterInterface {
                 //得到当前选中的结点对象
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
                 if (studentViolatinOfDisciplineManage.equals(lastPathComponent)) {
-                    sp.setRightComponent(new StudentViolatinOfDisciplineComponent(frame));
+                    sp.setRightComponent(new StudentViolatinOfDisciplineComponent(frame,username));
                     sp.setDividerLocation(350);
                 } else if (visitorInformationManage.equals(lastPathComponent)) {
                     //JLabel rightLabel = new JLabel("访客信息管理", JLabel.CENTER);
                     //rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(new VisitorComponent(frame));
+                    sp.setRightComponent(new VisitorComponent(frame,username));
                     sp.setDividerLocation(350);
                 } else if (studentMessageManage.equals(lastPathComponent)) {
                     //JLabel rightLabel = new JLabel("学生留言管理", JLabel.CENTER);
                     //rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
-                    sp.setRightComponent(new StudentMessageComponent(frame));
+                    sp.setRightComponent(new StudentMessageComponent(frame,username));
                     sp.setDividerLocation(350);
                 } else if (individualAccountManage.equals(lastPathComponent)) {
                     try {

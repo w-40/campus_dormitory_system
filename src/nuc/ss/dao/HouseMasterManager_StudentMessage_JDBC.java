@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import nuc.ss.domain.Student;
 
 public class HouseMasterManager_StudentMessage_JDBC {
-    public static ArrayList searchStudentMessage() throws SQLException, ClassNotFoundException {
+    public static ArrayList searchStudentMessage(String username) throws SQLException, ClassNotFoundException {
         ArrayList<Student> stl = new ArrayList<Student>();
 
         String id = null;//学号
@@ -30,8 +30,12 @@ public class HouseMasterManager_StudentMessage_JDBC {
         Statement stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
-        String sql = "SELECT * FROM 留言管理";
-        ResultSet rs = stat.executeQuery(sql);
+        String sql = "SELECT 学号,留言\n"
+        		+ "FROM `留言管理`\n"
+        		+ "WHERE 宿舍楼号 = (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ?)";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
         // 6.处理结果
         while (rs.next()) {
             id = rs.getString("学号");  //学号

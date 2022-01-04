@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
-    public static ArrayList searchStudentViolatinOfDiscipline() throws SQLException, ClassNotFoundException {
+    public static ArrayList searchStudentViolatinOfDiscipline(String username) throws SQLException, ClassNotFoundException {
         ArrayList<StudentViolationOfDiscipline> svodlist = new ArrayList<StudentViolationOfDiscipline>();
 
         String id = null;//学号
@@ -33,10 +33,12 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
         Statement stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
-        String sql = "SELECT 学生基本信息.`学号`,姓名,宿舍号,违纪内容,违纪时间\r\n"
-                + "FROM 学生基本信息, 学生违纪信息表 \r\n"
-                + "WHERE 学生基本信息.`学号`  = `学生违纪信息表`.`学号`";
-        ResultSet rs = stat.executeQuery(sql);
+        String sql = "SELECT 学生基本信息.`学号`,姓名,宿舍号,违纪内容,违纪时间\n"
+        		+ "FROM 学生基本信息, 学生违纪信息表 \n"
+        		+ "WHERE 学生基本信息.`学号`  = `学生违纪信息表`.`学号`AND `学生违纪信息表`.`宿舍楼号` = (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ?) ";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, username);
+        ResultSet rs = pstmt.executeQuery();
         // 6.处理结果
         while (rs.next()) {
             id = rs.getString("学号");  //学号
