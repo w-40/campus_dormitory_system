@@ -27,8 +27,6 @@ import java.util.Vector;
 
 import static javax.swing.BoxLayout.*;
 import static nuc.ss.informationtable.DormTable.DormModel;
-
-
 public class DormManageComponent extends Box {
 
     public DormManageComponent(JFrame frame) {
@@ -43,7 +41,6 @@ public class DormManageComponent extends Box {
     public static JPanel tablepanel = new JPanel();//创建一个JPanel,放置显示数据的表格
     public static JScrollPane tablePane = null;
     private Vector<Vector<String>> DormTableData = new Vector<Vector<String>>();
-
 
     public void init() {
         JSplitPane jsp = new JSplitPane();

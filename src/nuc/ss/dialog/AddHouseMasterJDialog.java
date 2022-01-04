@@ -3,7 +3,6 @@ package nuc.ss.dialog;
  * @author 段福泉，王志凯
  * @description 添加宿舍管理员对话框
  */
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

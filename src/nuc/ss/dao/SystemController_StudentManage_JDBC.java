@@ -1,15 +1,13 @@
 package nuc.ss.dao;
-
-import nuc.ss.domain.HouseMaster;
+/**
+ * @author hsystart
+ * @create 2021-12-27 16:20
+ */
 import nuc.ss.domain.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * @author hsystart
- * @create 2021-12-27 16:20
- */
 public class SystemController_StudentManage_JDBC {
     public static ArrayList searchStudent() throws SQLException, ClassNotFoundException {
         ArrayList<Student> studentslist = new ArrayList<Student>();

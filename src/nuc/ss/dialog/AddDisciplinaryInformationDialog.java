@@ -72,7 +72,6 @@ public class AddDisciplinaryInformationDialog extends JDialog {
                     JOptionPane.showMessageDialog(frame, "添加失败");
                 }
             }
-
         });
 
         b_reset = new JButton("重置");
@@ -83,9 +82,7 @@ public class AddDisciplinaryInformationDialog extends JDialog {
                 t_id.setText("");
                 t_content.setText("");
                 t_time.setText("");
-
             }
-
         });
 
         this.add(l_id);
@@ -99,7 +96,6 @@ public class AddDisciplinaryInformationDialog extends JDialog {
 
         this.add(b_add);
         this.add(b_reset);
-
     }
 
     public boolean addStudentViolationOfDiscipline() {

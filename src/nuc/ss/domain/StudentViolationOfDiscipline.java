@@ -1,5 +1,4 @@
 package nuc.ss.domain;
-
 /**
  * @author 籍乃博
  * @description 学生违纪信息：
@@ -22,7 +21,6 @@ public class StudentViolationOfDiscipline {
         this.content = content;
         this.time = time;
     }
-
 
     public StudentViolationOfDiscipline(String id, String name, int dormId, String content, String time) {
         super();
@@ -79,5 +77,4 @@ public class StudentViolationOfDiscipline {
         return "StudentViolationOfDiscipline [id=" + id + ", name=" + name + ", dormitoryId=" + dormId
                 + ", content=" + content + ", time=" + time + "]";
     }
-
 }

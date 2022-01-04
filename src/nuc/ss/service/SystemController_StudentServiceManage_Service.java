@@ -32,8 +32,4 @@ public class SystemController_StudentServiceManage_Service {
         }
         return NotHaveDormStudent;
     }
-
-//    public static void updateStudentDrom(String val, String tid, int column) {
-//        SystemController_StudentServiceManage_JDBC.updateStudentDrom(val, tid, column);
-//    }
 }

@@ -4,11 +4,6 @@ package nuc.ss.informationtable;
  * @description 定义系统管理员表格
  */
 
-import nuc.ss.domain.HouseMaster;
-
-import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;

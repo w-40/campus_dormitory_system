@@ -2,7 +2,6 @@ package nuc.ss.dao;
 
 import nuc.ss.domain.Dorm;
 import nuc.ss.domain.Student;
-
 import java.sql.*;
 import java.util.ArrayList;
 

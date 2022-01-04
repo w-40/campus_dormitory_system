@@ -45,7 +45,6 @@ public class SystemController_StudentManage_Service {
         return true;
     }
 
-
     public static boolean addStudent(Student Student) {
         try {
             SystemController_StudentManage_JDBC.addStudent(Student);

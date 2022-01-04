@@ -7,9 +7,7 @@ package nuc.ss.service;
  * updateDormitory(String val,String tid, ArrayList<String> tableHeadList,int column)：接收宿舍管理控制层界面数据，传递到数据访问层
  * addDormitory(Dormitory dormitory)：接收宿舍管理控制层界面数据，传递到数据访问层
  */
-
 import nuc.ss.dao.SystemController_DormitoryManage_JDBC;
-import nuc.ss.controller.SystemController_DormitoryManage_Controller;
 import nuc.ss.domain.Dormitory;
 
 import java.sql.SQLException;

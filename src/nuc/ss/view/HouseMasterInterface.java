@@ -32,7 +32,6 @@ public class HouseMasterInterface {
     public HouseMasterInterface(String username) {
         initialize(username);
     }
-
     /**
      * Initialize the contents of the frame.
      */
@@ -86,7 +85,6 @@ public class HouseMasterInterface {
         sp.setContinuousLayout(true);
         sp.setDividerLocation(350);
         sp.setDividerSize(7);
-
 
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("宿舍管理员");
         DefaultMutableTreeNode studentViolatinOfDisciplineManage = new DefaultMutableTreeNode("学生违纪管理");
@@ -163,7 +161,6 @@ public class HouseMasterInterface {
         private ImageIcon visitorInformationManageIcon = new ImageIcon("images/2.信息.png");
         private ImageIcon studentMessageManageIcon = new ImageIcon("images/2.留言.png");
         private ImageIcon individualAccountManage = new ImageIcon("images/2.账户.png");
-
 
         //当绘制树的每个结点时，都会调用这个方法
         @Override

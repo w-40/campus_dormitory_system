@@ -33,7 +33,6 @@ public class StudentMessageComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> studentMessageData = new Vector<Vector<String>>();
 
-
     public StudentMessageComponent(JFrame frame) {
         super(BoxLayout.X_AXIS);
         init();
@@ -51,7 +50,6 @@ public class StudentMessageComponent extends Box {
                 }
                 studentMessageData.add(record);
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException c) {
@@ -63,7 +61,6 @@ public class StudentMessageComponent extends Box {
 
 
     public void init() {
-
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
@@ -76,7 +73,6 @@ public class StudentMessageComponent extends Box {
         tableHeadList.add("留言");
 
         Vector<String> titles = new Vector<>(tableHeadList);//创建存放表头的Vector
-
 
         //adminTable = new AdminTable(tableData, titles);//初始化整个数据表格
         studentViolatinOfDisciplineModel = new DefaultTableModel(studentMessageData, titles);
@@ -107,10 +103,8 @@ public class StudentMessageComponent extends Box {
 
         JPanel btnPanel = new JPanel();
 
-
         JButton b1 = new JButton("查询");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
-
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -119,11 +113,10 @@ public class StudentMessageComponent extends Box {
             }
         });
 
+        JButton b2 = new JButton("删除");
+        b2.setFont(new Font("宋体", Font.BOLD, 25));
 
-        JButton b4 = new JButton("删除");
-        b4.setFont(new Font("宋体", Font.BOLD, 25));
-
-        b4.addActionListener(new ActionListener() {
+        b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int row = studentMessageTable.getSelectedRow();//获取被选中的行
                 String tid;
@@ -156,12 +149,11 @@ public class StudentMessageComponent extends Box {
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
         vBox.add(Box.createVerticalStrut(80));
-        vBox.add(b4);
+        vBox.add(b2);
         btnPanel.add(vBox);
 
         jsp.setDividerLocation(900);
         studentMessageTable.setBounds(350, 70, 900, 775);
-
 
         tablepanel.add(studentMessageTable.getTableHeader());//将表头放到Jpanel里
         tablePane = new JScrollPane(studentMessageTable);

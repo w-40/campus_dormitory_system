@@ -4,7 +4,6 @@ package nuc.ss.informationtable;
  * @description 籍乃博
  * @description 定义学生违纪信息表格
  */
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;

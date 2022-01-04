@@ -3,11 +3,8 @@ package nuc.ss.view;
  * @author 王志凯、韩思远，王志凯重构
  * @description 系统管理员主页面
  */
-
-
 import nuc.ss.component.*;
 import nuc.ss.informationtable.AdminTable;
-
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -21,14 +18,10 @@ import javax.swing.event.TreeSelectionListener;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
-
-//import static nuc.ss.informationtable.AdminTable.tableData;
-
 
 public class ManageInterface {
     private JFrame frame;
@@ -37,7 +30,6 @@ public class ManageInterface {
     private ArrayList<String> tableHeadList;
     private AdminTable adminTable;
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
-
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -51,7 +43,6 @@ public class ManageInterface {
             }
         });
     }
-
 
     public ManageInterface() {
         initialize();
@@ -127,7 +118,6 @@ public class ManageInterface {
         root.add(dormManage);
         JTree tree = new JTree(root);
 
-
         expandAll(tree, new TreePath(root), true);//默认展开JTree所有结点
 
         tree.setBackground(new Color(135, 206, 235));
@@ -197,7 +187,6 @@ public class ManageInterface {
         private ImageIcon dormManageIcon = new ImageIcon("images/tag.png");
         private ImageIcon roomManageIcon = new ImageIcon("images/favorites.png");
         private ImageIcon studentServiceManageIcon = new ImageIcon("images/game.png");
-
 
         //当绘制树的每个结点时，都会调用这个方法
         @Override

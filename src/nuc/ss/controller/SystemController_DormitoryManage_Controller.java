@@ -7,12 +7,8 @@ package nuc.ss.controller;
  * updateHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column)：接收图形化用户界面数据，传递到宿舍管理业务层
  * addHouseMaster(HouseMaster houseMaster)：接收图形化用户界面数据，传递到宿舍管理业务层
  */
-
-import nuc.ss.dao.SystemController_DormitoryManage_JDBC;
 import nuc.ss.domain.Dormitory;
 import nuc.ss.service.SystemController_DormitoryManage_Service;
-
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -22,7 +18,6 @@ public class SystemController_DormitoryManage_Controller {
         dormitoryArrayList = SystemController_DormitoryManage_Service.searchDormitory();
         return dormitoryArrayList;
     }
-
 
     public static boolean deleteDormitory(String tid) throws SQLException, ClassNotFoundException {
         SystemController_DormitoryManage_Service.deleteDormitory(tid);

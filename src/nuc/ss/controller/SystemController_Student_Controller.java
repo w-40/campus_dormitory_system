@@ -2,10 +2,8 @@ package nuc.ss.controller;
 /**
  * @author 段福泉
  */
-
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import nuc.ss.dao.SystemController_Student_JDBC;
 import nuc.ss.domain.Student;
 import nuc.ss.domain.StudentViolationOfDiscipline;
@@ -42,5 +40,4 @@ public class SystemController_Student_Controller {
         SystemController_Student_Service.updateNum(username, num);
         return true;
     }
-
 }

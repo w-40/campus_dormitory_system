@@ -5,7 +5,6 @@ import nuc.ss.domain.Dormitory;
 
 import java.sql.*;
 import java.util.ArrayList;
-
 /**
  * @author hsystart
  * @create 2021-12-28 18:33

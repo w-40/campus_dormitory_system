@@ -1,14 +1,13 @@
 package nuc.ss.informationtable;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
 /**
  * @author hsystart
  * @create 2021-12-27 20:45
  * @description 定义宿舍楼信息表格
  */
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 public class DormitoryTable extends JTable {
     public static DefaultTableModel dormitoryModel;
 

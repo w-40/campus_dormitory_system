@@ -3,7 +3,6 @@ package nuc.ss.component;
  * @author 王志凯
  * @description 宿管管理页面
  */
-
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;
 import nuc.ss.dialog.AddHouseMasterJDialog;
@@ -86,12 +85,10 @@ public class HouseMasterManageComponent extends Box {
         thr.setHorizontalAlignment(JLabel.CENTER);
         adminTable.getTableHeader().setDefaultRenderer(thr);
 
-
         JPanel btnPanel = new JPanel();
 
         JButton b1 = new JButton("查询");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
-
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -109,7 +106,6 @@ public class HouseMasterManageComponent extends Box {
                 new AddHouseMasterJDialog(frame, "添加宿管", true).setVisible(true);
             }
         });
-
 
         JButton b3 = new JButton("修改");
         b3.setBounds(1320, 270, 200, 50);
@@ -219,7 +215,6 @@ public class HouseMasterManageComponent extends Box {
         vBox.add(b5);
         btnPanel.add(vBox);
 
-
         jsp.setDividerLocation(900);
         adminTable.setBounds(350, 70, 900, 775);
 
@@ -264,5 +259,4 @@ public class HouseMasterManageComponent extends Box {
         adminTable.validate();
         adminTable.updateUI();
     }
-
 }

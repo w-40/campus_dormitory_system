@@ -2,7 +2,6 @@ package nuc.ss.dao;
 /**
  * @author 段福泉
  */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,7 +39,6 @@ public class AllocateDormitory_JDBC {
         return true;
     }
 
-
     public static boolean searchDormitory(String l1, String l2, String l3) throws SQLException, ClassNotFoundException {
         // 1.导入jar包
         // 2.注册驱动
@@ -65,5 +63,4 @@ public class AllocateDormitory_JDBC {
             return false;
         }
     }
-
 }

@@ -1,5 +1,4 @@
 package nuc.ss.domain;
-
 /**
  * @author 王志凯
  * @description 宿舍楼基本信息：宿舍楼名称，宿舍楼号

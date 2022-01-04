@@ -1,9 +1,8 @@
 package nuc.ss.dialog;
-
-import java.awt.Font;
 /**
  * @author 段福泉
  */
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +30,6 @@ public class AllocateDormitoryJDialog extends JDialog {
         init(username);
         this.setVisible(true);
     }
-
 
     public void init(String username) {
         this.setLayout(new GridLayout(4, 2, 5, 5));
@@ -83,10 +81,7 @@ public class AllocateDormitoryJDialog extends JDialog {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-
-
             }
-
         });
 
         b_reset = new JButton("重置");
@@ -98,12 +93,8 @@ public class AllocateDormitoryJDialog extends JDialog {
                 t_Num1.setText("");
                 t_Num2.setText("");
                 t_Num3.setText("");
-
-
             }
-
         });
-
 
         this.add(l_1);
         this.add(t_Num1);
@@ -128,7 +119,6 @@ public class AllocateDormitoryJDialog extends JDialog {
         JOptionPane.showMessageDialog(this, "分配成功",
                 "提示", JOptionPane.CANCEL_OPTION);
     }
-
 }
 	
 

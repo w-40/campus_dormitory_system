@@ -7,12 +7,10 @@ package nuc.ss.dao;
  * updateHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column)：修改数据库中的数据
  * addHouseMaster(HouseMaster houseMaster) 利用得到的宿管对象添加宿管信息
  */
-
 import nuc.ss.domain.HouseMaster;
 
 import java.sql.*;
 import java.util.ArrayList;
-
 
 public class SystemController_HouseMasterManage_JDBC {
     public static ArrayList searchHouseMaster() throws SQLException, ClassNotFoundException {

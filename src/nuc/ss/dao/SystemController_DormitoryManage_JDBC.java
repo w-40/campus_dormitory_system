@@ -7,12 +7,10 @@ package nuc.ss.dao;
  * updateHouseMaster(String val, String tid, ArrayList<String> dorimitoryList, int column)：修改数据库中的数据
  * addHouseMaster(HouseMaster houseMaster)
  */
-
 import nuc.ss.domain.Dormitory;
 
 import java.sql.*;
 import java.util.ArrayList;
-
 
 public class SystemController_DormitoryManage_JDBC {
     public static ArrayList searchDormitory() throws SQLException, ClassNotFoundException {

@@ -1,7 +1,6 @@
 package nuc.ss.domain;
 
 import java.util.Calendar;
-
 /**
  * @author 籍乃博
  * @description 访客信息：

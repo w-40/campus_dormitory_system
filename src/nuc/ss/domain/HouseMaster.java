@@ -1,5 +1,4 @@
 package nuc.ss.domain;
-
 /**
  * @author 王志凯
  * @description 宿管基本信息：

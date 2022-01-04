@@ -119,7 +119,6 @@ public class VisitorComponent extends Box {
             }
         });
 
-
         JButton b3 = new JButton("修改");
         b3.setFont(new Font("宋体", Font.BOLD, 25));
 
@@ -151,7 +150,6 @@ public class VisitorComponent extends Box {
             }
         });
 
-
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
@@ -161,7 +159,6 @@ public class VisitorComponent extends Box {
         vBox.add(b3);
 
         btnPanel.add(vBox);
-
 
         jsp.setDividerLocation(900);
         visitorTable.setBounds(350, 70, 900, 775);

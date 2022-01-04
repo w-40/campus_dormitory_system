@@ -1,7 +1,6 @@
 package nuc.ss.service;
 
 import java.sql.SQLException;
-
 import nuc.ss.dao.HouseMasterManager_HouseMasterSelf_JDBC;
 import nuc.ss.domain.HouseMaster;
 

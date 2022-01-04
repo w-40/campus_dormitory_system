@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import nuc.ss.domain.Student;
 
 public class HouseMasterManager_StudentMessage_JDBC {

@@ -1,7 +1,5 @@
 package nuc.ss.service;
-
 import java.sql.SQLException;
-
 import nuc.ss.dao.AllocateDormitory_JDBC;
 
 public class AllocateDormitory_Service {

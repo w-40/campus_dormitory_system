@@ -3,7 +3,6 @@ package nuc.ss.component;
  * @author 籍乃博
  * @description 个人账户管理界面
  */
-
 import nuc.ss.controller.HouseMasterManager_HouseMasterSelf_Controller;
 
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
@@ -94,7 +93,6 @@ public class HouseMasterSelfComponent extends Box {
         id_name.add(lname);
         id_name.add(Box.createHorizontalStrut(240));
 
-
         Box sex_dormitory = Box.createHorizontalBox();
         sex_dormitory.add(l_sex);
         sex_dormitory.add(Box.createHorizontalStrut(20));
@@ -115,7 +113,6 @@ public class HouseMasterSelfComponent extends Box {
         bbutton.add(b_modify);
         bbutton.add(Box.createHorizontalStrut(750));
 
-
         Box bigBox = Box.createVerticalBox();
         bigBox.add(id_name);
         bigBox.add(sex_dormitory);
@@ -124,7 +121,5 @@ public class HouseMasterSelfComponent extends Box {
         bigBox.add(Box.createVerticalStrut(400));
 
         this.add(bigBox);
-
-
     }
 }

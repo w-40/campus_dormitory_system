@@ -33,7 +33,6 @@ public class StudentViolatinOfDisciplineComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> studentViolatinOfDisciplineData = new Vector<Vector<String>>();
 
-
     public StudentViolatinOfDisciplineComponent(JFrame frame) {
         super(BoxLayout.X_AXIS);
         init();
@@ -64,9 +63,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         studentViolatinOfDisciplineTable.updateUI();
     }
 
-
     public void init() {
-
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
         //支持连续布局
@@ -82,7 +79,6 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         tableHeadList.add("违纪时间");
 
         Vector<String> titles = new Vector<>(tableHeadList);//创建存放表头的Vector
-
 
         //adminTable = new AdminTable(tableData, titles);//初始化整个数据表格
         studentViolatinOfDisciplineModel = new DefaultTableModel(studentViolatinOfDisciplineData, titles);
@@ -119,7 +115,6 @@ public class StudentViolatinOfDisciplineComponent extends Box {
 
         JButton b1 = new JButton("查询");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
-
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +195,6 @@ public class StudentViolatinOfDisciplineComponent extends Box {
                 } else {
                     JOptionPane.showMessageDialog(frame, "删除失败");
                 }
-
 
                 //更新整个表格数据，删掉的那条记录将不再显示
                 studentViolatinOfDisciplineTable.validate();

@@ -5,7 +5,6 @@ package nuc.ss.controller;
  */
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import nuc.ss.domain.StudentViolationOfDiscipline;
 import nuc.ss.service.HouseMasterManager_StudentViolatinOfDiscipline_Service;
 

@@ -1,9 +1,10 @@
 package nuc.ss.dialog;
-
+/**
+ * @author hsystart
+ * @create 2021-12-28 18:34
+ */
 import nuc.ss.controller.SystemController_DormManage_Controller;
-import nuc.ss.controller.SystemController_DormitoryManage_Controller;
 import nuc.ss.domain.Dorm;
-import nuc.ss.domain.Dormitory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,10 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-/**
- * @author hsystart
- * @create 2021-12-28 18:34
- */
 public class AddDormJDialog extends JDialog {
     private JLabel l_id, l_dormitoryId, l_num;
     private JTextField t_id, t_dormitoryId, t_num;
@@ -77,8 +74,6 @@ public class AddDormJDialog extends JDialog {
                 t_id.setText("");
                 t_dormitoryId.setText("");
                 t_num.setText("");
-
-
             }
 
         });
@@ -94,7 +89,6 @@ public class AddDormJDialog extends JDialog {
 
         this.add(b_add);
         this.add(b_reset);
-
     }
 
     public boolean addHouseMaster() {

@@ -3,7 +3,6 @@ package nuc.ss.informationtable;
  * @author 卫黎明
  * @description 学生留言表
  */
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;

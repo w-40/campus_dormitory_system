@@ -3,12 +3,10 @@ package nuc.ss.dialog;
  * @author 卫黎明，王志凯
  * @description 添加宿舍楼对话框
  */
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
 import javax.swing.*;
 
 import nuc.ss.controller.SystemController_DormitoryManage_Controller;
@@ -21,7 +19,6 @@ public class AddDormitoryJDialog extends JDialog {
     private JButton b_add, b_reset;
     Frame frame;
 
-
     public AddDormitoryJDialog(Frame frame, String title, boolean modal) {
         //super(frame, title, modal);
         this.setTitle("添加宿舍楼信息");
@@ -30,7 +27,6 @@ public class AddDormitoryJDialog extends JDialog {
         init();
         this.setVisible(true);
     }
-
 
     public void init() {
         this.setLayout(new GridLayout(3, 2, 5, 5));
@@ -56,26 +52,20 @@ public class AddDormitoryJDialog extends JDialog {
                 if (flag == true) {
                     JOptionPane.showMessageDialog(frame, "添加成功，请点击查询按钮刷新表格");
                     dispose();
-
                 } else {
                     JOptionPane.showMessageDialog(frame, "添加失败");
                 }
             }
-
         });
 
         b_reset = new JButton("重置");
         b_reset.setFont(font);
         b_reset.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 t_id.setText("");
                 t_name.setText("");
-
-
             }
-
         });
 
         this.add(l_id);

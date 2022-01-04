@@ -1,25 +1,18 @@
 package nuc.ss.dialog;
 
-import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
-import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
+import javax.swing.JPasswordField;
+
 import nuc.ss.controller.SystemController_Student_Controller;
-import nuc.ss.dao.SystemController_Student_JDBC;
-import nuc.ss.domain.HouseMaster;
 
 public class UpdateStudentPasswordJDialog extends JDialog {
     private JLabel l_password1, l_password2;

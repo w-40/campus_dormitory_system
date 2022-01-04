@@ -19,7 +19,6 @@ public class SystemController_DormManage_Controller {
         return DormArrayList;
     }
 
-
     public static boolean deleteDorm(String tid) throws SQLException, ClassNotFoundException {
         SystemController_DormManage_Service.deleteDorm(tid);
         return true;

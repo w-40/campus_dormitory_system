@@ -3,12 +3,8 @@ package nuc.ss.view;
  * @author 韩思远，王志凯
  * @description 登录界面
  */
-
 import nuc.ss.controller.Login_Controller;
 import nuc.ss.controller.SystemController_Student_Controller;
-import nuc.ss.domain.Student;
-
-import java.awt.EventQueue;
 
 import javax.swing.*;
 import java.awt.Font;
@@ -18,14 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
-
 public class LoginFrame {
 
     private JFrame frame;
     private JTextField usernameField;
     private JTextField passwordField;
-
 
     /**
      * Create the application.
@@ -191,7 +184,6 @@ public class LoginFrame {
                             JOptionPane.showMessageDialog(frame, "登录失败，账号或密码错误");
                             return;
                         }
-
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, "请选择身份！");

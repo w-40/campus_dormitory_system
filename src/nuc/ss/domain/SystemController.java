@@ -1,5 +1,4 @@
 package nuc.ss.domain;
-
 /**
  * @author 王志凯
  */

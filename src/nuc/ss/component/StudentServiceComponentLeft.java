@@ -32,7 +32,6 @@ public class StudentServiceComponentLeft extends Box {
     public static JScrollPane tablePane = null;
     private Vector<Vector<String>> DormTableData = new Vector<Vector<String>>();
 
-
     public void init() {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
@@ -131,7 +130,6 @@ public class StudentServiceComponentLeft extends Box {
                 }
                 DormTableData.add(record);
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -3,14 +3,11 @@ package nuc.ss.dialog;
  * @author 娄靖彬，王志凯
  * @description 添加访客信息
  */
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.swing.*;
@@ -25,7 +22,6 @@ public class AddVisitorJDialog extends JDialog {
     private JButton b_add, b_reset;
     Frame frame;
 
-
     public AddVisitorJDialog(Frame frame, String title, boolean modal) {
         //super(frame, title, modal);
         this.setTitle("添加访客信息");
@@ -35,7 +31,6 @@ public class AddVisitorJDialog extends JDialog {
         this.setVisible(true);
     }
 
-
     public void init() {
         this.setLayout(new GridLayout(6, 2, 5, 5));
 
@@ -44,7 +39,6 @@ public class AddVisitorJDialog extends JDialog {
         l_visitMatters = new JLabel("来访事宜", JLabel.CENTER);
         l_identity = new JLabel("身份", JLabel.CENTER);
         l_time = new JLabel("来访时间", JLabel.CENTER);
-
 
         t_tel = new JTextField();
         t_name = new JTextField();
@@ -81,14 +75,11 @@ public class AddVisitorJDialog extends JDialog {
                 if (flag == true) {
                     JOptionPane.showMessageDialog(frame, "添加成功，请点击查询按钮刷新表格");
                     dispose();
-
                 } else {
                     JOptionPane.showMessageDialog(frame, "添加失败");
                 }
             }
-
         });
-
         b_reset = new JButton("重置");
         b_reset.setFont(font);
         b_reset.addActionListener(new ActionListener() {
@@ -112,18 +103,14 @@ public class AddVisitorJDialog extends JDialog {
         this.add(l_time);
         this.add(t_time);
 
-
         this.add(l_visitMatters);
         this.add(t_visitMatters);
-
 
         this.add(l_identity);
         this.add(t_identity);
 
-
         this.add(b_add);
         this.add(b_reset);
-
     }
 
     public boolean addVisitor() {

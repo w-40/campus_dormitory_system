@@ -2,7 +2,6 @@ package nuc.ss.informationtable;
 /**
  * @author 娄靖彬
  */
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;

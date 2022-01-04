@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {

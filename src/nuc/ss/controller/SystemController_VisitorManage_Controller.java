@@ -1,14 +1,12 @@
 package nuc.ss.controller;
-
-import nuc.ss.domain.HouseMaster;
+/**
+ * @author 娄靖彬
+ */
 import nuc.ss.domain.Visitor;
 import nuc.ss.service.SystemController_VisitorManage_Service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- * @author 娄靖彬
- */
 public class SystemController_VisitorManage_Controller {
     public static ArrayList<Visitor> searchVisitorMaster() throws SQLException, ClassNotFoundException {
         ArrayList<Visitor> visitorsArrayList = new ArrayList<Visitor>();

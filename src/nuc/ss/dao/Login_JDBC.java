@@ -7,12 +7,7 @@ package nuc.ss.dao;
  * studentLogin(String username, String password)：查询并校验学生账号密码数据
  * 并将执行结果返回到登录业务层
  */
-
 import java.sql.*;
-import java.util.ArrayList;
-
-import nuc.ss.domain.HouseMaster;
-import nuc.ss.domain.Student;
 
 public class Login_JDBC {
     public static boolean systemControllerLogin(String username, String password) throws Exception {

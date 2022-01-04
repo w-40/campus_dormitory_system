@@ -1,10 +1,14 @@
 package nuc.ss.controller;
+/**
+ * @author 段福泉
+ * @description 分配宿舍—Controller层
+ */
 
 import java.sql.SQLException;
 
 import nuc.ss.service.AllocateDormitory_Service;
 
-//调service
+
 public class AllocateDormitory_Controller {
     public static boolean allocateDormitory(String username, String l1, String l2, String l3) throws SQLException, ClassNotFoundException {
         AllocateDormitory_Service.allocateDormitory(username, l1, l2, l3);

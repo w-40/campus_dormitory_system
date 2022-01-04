@@ -3,8 +3,6 @@ package nuc.ss.view;
  * @author 段福泉，籍乃博
  * @description 展示学生登录后，与自己有关的所有信息
  */
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -17,10 +15,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
 
 import nuc.ss.controller.SystemController_Student_Controller;
-import nuc.ss.dao.SystemController_Student_JDBC;
 import nuc.ss.dialog.UpdateStudentNumberJDialog;
 import nuc.ss.dialog.UpdateStudentPasswordJDialog;
 import nuc.ss.domain.Student;

@@ -5,7 +5,6 @@ package nuc.ss.service;
  */
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import nuc.ss.dao.HouseMasterManager_StudentMessage_JDBC;
 import nuc.ss.domain.Student;
 

@@ -3,7 +3,6 @@ package nuc.ss.dialog;
  * @author 娄靖彬，王志凯
  * @description 添加宿舍管理员对话框
  */
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,6 @@ public class AddStudentJDialog extends JDialog {
     private JButton b_add, b_reset;
     Frame frame;
 
-
     public AddStudentJDialog(Frame frame, String title, boolean modal) {
         //super(frame, title, modal);
         this.setTitle("添加学生信息");
@@ -31,7 +29,6 @@ public class AddStudentJDialog extends JDialog {
         init();
         this.setVisible(true);
     }
-
 
     public void init() {
         this.setLayout(new GridLayout(10, 2, 5, 5));
@@ -87,7 +84,6 @@ public class AddStudentJDialog extends JDialog {
         p.add(r_male);
         p.add(r_female);
 
-
         b_add = new JButton("添加");
         b_add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -100,7 +96,6 @@ public class AddStudentJDialog extends JDialog {
                     JOptionPane.showMessageDialog(frame, "添加失败");
                 }
             }
-
         });
         b_add.setFont(font);
 

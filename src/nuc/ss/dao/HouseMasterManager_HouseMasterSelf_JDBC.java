@@ -1,5 +1,8 @@
 package nuc.ss.dao;
-
+/**
+ * @author 籍乃博
+ * @description 宿舍管理员——个人账户管理数据访问层
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,10 +13,6 @@ import java.util.ArrayList;
 
 import nuc.ss.domain.HouseMaster;
 
-/**
- * @author 籍乃博
- * @description 宿舍管理员——个人账户管理数据访问层
- */
 public class HouseMasterManager_HouseMasterSelf_JDBC {
 
     public static HouseMaster searchStudentMessage(String tid) throws SQLException, ClassNotFoundException {

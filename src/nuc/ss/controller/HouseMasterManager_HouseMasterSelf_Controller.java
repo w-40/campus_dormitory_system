@@ -3,7 +3,6 @@ package nuc.ss.controller;
  * @author 籍乃博
  * @description
  */
-
 import java.sql.SQLException;
 
 import nuc.ss.domain.HouseMaster;
@@ -21,5 +20,4 @@ public class HouseMasterManager_HouseMasterSelf_Controller {
         HouseMasterManager_HouseMasterSelf_Service.updateHouseMasterPassWord(id, passWord);
         return true;
     }
-
 }

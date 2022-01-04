@@ -1,4 +1,7 @@
 package nuc.ss.dialog;
+/**
+ * @author 段福泉
+ */
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

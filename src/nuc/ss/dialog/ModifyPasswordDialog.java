@@ -1,5 +1,7 @@
 package nuc.ss.dialog;
-
+/**
+ * @author 段分区
+ */
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -14,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import nuc.ss.controller.HouseMasterManager_HouseMasterSelf_Controller;
-import nuc.ss.domain.HouseMaster;
 
 public class ModifyPasswordDialog extends JDialog {
 
@@ -22,7 +23,6 @@ public class ModifyPasswordDialog extends JDialog {
     private JTextField t_oldPassword, t_newPassword;
     private JButton b_modify, b_reset;
     Frame frame;
-
 
     public ModifyPasswordDialog(Frame frame, String title, boolean modal, String id) {
         this.setTitle("修改密码");
@@ -48,7 +48,6 @@ public class ModifyPasswordDialog extends JDialog {
         t_oldPassword.setFont(font);
         t_newPassword.setFont(font);
 
-
         JButton b_modify = new JButton("修改");
         b_modify.setFont(font);
         b_modify.addActionListener(new ActionListener() {
@@ -59,8 +58,6 @@ public class ModifyPasswordDialog extends JDialog {
                 String oldPassword = t_oldPassword.getText();
                 String newPassword = t_newPassword.getText();
                 String password = null;
-//				System.out.println(oldPassword);
-//				System.out.println(password);
                 try {
                     password = HouseMasterManager_HouseMasterSelf_Controller.searchHouseMasterSelf(id).getPassword();
                     if (oldPassword.equals(password)) {
@@ -78,9 +75,7 @@ public class ModifyPasswordDialog extends JDialog {
                     e1.printStackTrace();
                 }
             }
-
         });
-
 
         JButton b_reset = new JButton("重置");
         b_reset.setFont(font);
@@ -92,7 +87,6 @@ public class ModifyPasswordDialog extends JDialog {
                 t_oldPassword.setText("");
                 t_newPassword.setText("");
             }
-
         });
 
         this.add(l_oldPassword);

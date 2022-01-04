@@ -39,7 +39,6 @@ public class StudentManageComponent extends Box {
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> studentData = new Vector<Vector<String>>();
 
-
     public void init() {
         JSplitPane jsp = new JSplitPane();
         jsp.setEnabled(false);
@@ -60,7 +59,6 @@ public class StudentManageComponent extends Box {
         tableHeadList.add("联系电话");
 
         Vector<String> titles = new Vector<>(tableHeadList);//创建存放表头的Vector
-
 
         //adminTable = new AdminTable(tableData, titles);//初始化整个数据表格
         studentModel = new DefaultTableModel(studentData, titles);
@@ -101,7 +99,6 @@ public class StudentManageComponent extends Box {
         JButton b1 = new JButton("查询");
         b1.setFont(new Font("宋体", Font.BOLD, 25));
 
-
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,7 +115,6 @@ public class StudentManageComponent extends Box {
                 new AddStudentJDialog(frame, "添加学生", true).setVisible(true);
             }
         });
-
 
         JButton b3 = new JButton("修改");
         b3.setFont(new Font("宋体", Font.BOLD, 25));
@@ -157,7 +153,6 @@ public class StudentManageComponent extends Box {
                 }
             }
         });
-
 
         JButton b4 = new JButton("删除");
         b4.setFont(new Font("宋体", Font.BOLD, 25));
@@ -231,7 +226,6 @@ public class StudentManageComponent extends Box {
         vBox.add(b5);
         btnPanel.add(vBox);
 
-
         jsp.setDividerLocation(900);
         studentTable.setBounds(350, 70, 900, 775);
 
@@ -270,7 +264,6 @@ public class StudentManageComponent extends Box {
                 }
                 studentData.add(record);
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException c) {

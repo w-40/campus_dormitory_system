@@ -2,7 +2,6 @@ package nuc.ss.service;
 /**
  * @author 段福泉
  */
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -80,5 +79,4 @@ public class SystemController_Student_Service {
         }
         return true;
     }
-
 }

@@ -2,7 +2,6 @@ package nuc.ss.dao;
 /**
  * @author 段福泉
  */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -61,7 +60,6 @@ public class SystemController_Student_JDBC {
         stat.close();
         rs.close();
         return st;
-
     }
 
     public static ArrayList studentViolation(String username) throws SQLException, ClassNotFoundException {
@@ -94,7 +92,6 @@ public class SystemController_Student_JDBC {
             stlist.add(st);
 
         }
-
         // 7.释放资源
         con.close();
         stat.close();
@@ -142,6 +139,4 @@ public class SystemController_Student_JDBC {
         conn.close();
         return true;
     }
-
-
 }

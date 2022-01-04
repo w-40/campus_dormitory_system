@@ -1,5 +1,8 @@
 package nuc.ss.service;
-
+/**
+ * @author hsystart，王志凯
+ * @create 2021-12-28 18:34
+ */
 import nuc.ss.dao.SystemController_DormManage_JDBC;
 import nuc.ss.dao.SystemController_DormitoryManage_JDBC;
 import nuc.ss.domain.Dorm;
@@ -8,10 +11,6 @@ import nuc.ss.domain.Dormitory;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- * @author hsystart，王志凯
- * @create 2021-12-28 18:34
- */
 public class SystemController_DormManage_Service {
     public static ArrayList<Dorm> searchDorm() {
         ArrayList<Dorm> DormArrayList = new ArrayList<Dorm>();
@@ -57,6 +56,4 @@ public class SystemController_DormManage_Service {
         }
         return true;
     }
-
-
 }
