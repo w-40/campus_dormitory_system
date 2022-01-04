@@ -2,7 +2,6 @@ package nuc.ss;
 /**
  * @author 王志凯
  * @description 程序主入口
- * @
  */
 import nuc.ss.view.LoginFrame;
 import java.awt.*;
