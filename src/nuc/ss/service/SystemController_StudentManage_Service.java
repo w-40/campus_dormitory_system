@@ -21,16 +21,18 @@ public class SystemController_StudentManage_Service {
         SystemController_StudentManage_JDBC.deleteStudent(tid);
         return tid;
     }
+
     public static boolean updateStudent(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_StudentManage_JDBC.updateStudent(val,tid,tableHeadList,column);
-        return true;
-    }
-    public static boolean updateSet(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_StudentManage_JDBC.updateStudent(val,tid,tableHeadList,column);
+        SystemController_StudentManage_JDBC.updateStudent(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addStudent(Student Student) throws SQLException, ClassNotFoundException{
+    public static boolean updateSet(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_StudentManage_JDBC.updateStudent(val, tid, tableHeadList, column);
+        return true;
+    }
+
+    public static boolean addStudent(Student Student) throws SQLException, ClassNotFoundException {
         SystemController_StudentManage_JDBC.addStudent(Student);
         return true;
     }

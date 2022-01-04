@@ -1,4 +1,5 @@
 package nuc.ss.component;
+
 import static nuc.ss.informationtable.VisitorTable.visitorModel;
 /**
  * @author 娄靖彬，王志凯修复bug
@@ -151,7 +152,6 @@ public class VisitorComponent extends Box {
         });
 
 
-  
         Box vBox = Box.createVerticalBox();
         vBox.add(Box.createVerticalStrut(80));
         vBox.add(b1);
@@ -184,7 +184,7 @@ public class VisitorComponent extends Box {
 
     private void getVisitorInfo() {//获取数据
         try {
-        	visitorData.clear();
+            visitorData.clear();
             ArrayList<Visitor> visitors = SystemController_VisitorManage_JDBC.searchVisitor();
             for (int i = 0; i < visitors.size(); i++) {
                 Vector<String> record = new Vector<String>();

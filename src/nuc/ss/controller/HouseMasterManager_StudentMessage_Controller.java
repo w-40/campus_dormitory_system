@@ -2,6 +2,7 @@ package nuc.ss.controller;
 /**
  * @author 籍乃博，王志凯修复bug
  */
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class HouseMasterManager_StudentMessage_Controller {
         return stl;
     }
 
-    public static void deleteStudentMessage(String tid,String message) throws SQLException, ClassNotFoundException {
-    	HouseMasterManager_StudentMessage_Service.deleteStudentMessage(tid,message);
+    public static void deleteStudentMessage(String tid, String message) throws SQLException, ClassNotFoundException {
+        HouseMasterManager_StudentMessage_Service.deleteStudentMessage(tid, message);
     }
 }

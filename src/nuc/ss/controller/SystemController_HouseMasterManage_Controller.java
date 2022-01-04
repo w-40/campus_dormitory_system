@@ -27,16 +27,18 @@ public class SystemController_HouseMasterManage_Controller {
         SystemController_HouseMasterManage_Service.deleteHouseMaster(tid);
         return true;
     }
-    public static boolean updateHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_Service.updateHouseMaster(val,tid,tableHeadList,column);
-        return true;
-    }
-    public static boolean updateSetHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_Service.updateHouseMaster(val,tid,tableHeadList,column);
+
+    public static boolean updateHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_HouseMasterManage_Service.updateHouseMaster(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException{
+    public static boolean updateSetHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_HouseMasterManage_Service.updateHouseMaster(val, tid, tableHeadList, column);
+        return true;
+    }
+
+    public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException {
         SystemController_HouseMasterManage_Service.addHouseMaster(houseMaster);
         return true;
     }

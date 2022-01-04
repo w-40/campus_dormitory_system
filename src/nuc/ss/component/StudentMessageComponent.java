@@ -1,7 +1,8 @@
 package nuc.ss.component;
+
 import nuc.ss.controller.HouseMasterManager_StudentMessage_Controller;
 /**
- * @author 王志凯,卫黎明
+ * @author 王志凯, 卫黎明
  * @description 学生留言查看页面
  */
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
@@ -42,7 +43,7 @@ public class StudentMessageComponent extends Box {
 
     private void getMessageInfo() {//获取数据
         try {
-        	studentMessageData.clear();
+            studentMessageData.clear();
             ArrayList<Student> stllist = HouseMasterManager_StudentMessage_Controller.searchStudentMessage();
             for (int i = 0; i < stllist.size(); i++) {
                 Vector<String> record = new Vector<String>();
@@ -132,18 +133,18 @@ public class StudentMessageComponent extends Box {
                 try {
                     tid = studentMessageData.get(row).get(0);//获得第1列，也就是tid
                     message = studentMessageData.get(row).get(1);//获得第2列，也就是留言内容，按tid和留言内容执行删除
-                    HouseMasterManager_StudentMessage_Controller.deleteStudentMessage(tid,message);
+                    HouseMasterManager_StudentMessage_Controller.deleteStudentMessage(tid, message);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {
                     classNotFoundException.printStackTrace();
-                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                    JOptionPane.showMessageDialog(frame,"请选择一个项目");
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选择一个项目");
                 }
 
                 try {
-                	studentMessageData.remove(row);//从表格中移出一行
-                }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    studentMessageData.remove(row);//从表格中移出一行
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 }
                 //更新整个表格数据，删掉的那条记录将不再显示

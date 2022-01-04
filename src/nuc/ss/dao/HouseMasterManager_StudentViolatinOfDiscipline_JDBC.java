@@ -110,7 +110,7 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
     }
 
     public static boolean updateStudentViolationOfDiscipline(String val, String
-            tid, ArrayList<String> tableHeadList, int column)  {
+            tid, ArrayList<String> tableHeadList, int column) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try {
@@ -126,7 +126,7 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             try {
                 if (conn != null) {
                     conn.close();
@@ -161,7 +161,7 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             try {
                 if (conn != null) {
                     conn.close();

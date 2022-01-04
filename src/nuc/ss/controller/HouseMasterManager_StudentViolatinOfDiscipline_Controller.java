@@ -7,6 +7,7 @@ package nuc.ss.controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import nuc.ss.domain.StudentViolationOfDiscipline;
 import nuc.ss.service.HouseMasterManager_StudentViolatinOfDiscipline_Service;
 
@@ -18,16 +19,17 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Controller {
     }
 
     public static boolean deleteStudentViolatinOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
-    	HouseMasterManager_StudentViolatinOfDiscipline_Service.deleteStudentViolatinOfDiscipline(tid);
-        return true;
-    }
-    public static boolean updateStudentViolatinOfDiscipline(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-    	HouseMasterManager_StudentViolatinOfDiscipline_Service.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
+        HouseMasterManager_StudentViolatinOfDiscipline_Service.deleteStudentViolatinOfDiscipline(tid);
         return true;
     }
 
-    public static boolean addHouseMaster(StudentViolationOfDiscipline svod) throws SQLException, ClassNotFoundException{
-    	HouseMasterManager_StudentViolatinOfDiscipline_Service.addStudentViolatinOfDiscipline(svod);
+    public static boolean updateStudentViolatinOfDiscipline(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        HouseMasterManager_StudentViolatinOfDiscipline_Service.updateStudentViolatinOfDiscipline(val, tid, tableHeadList, column);
+        return true;
+    }
+
+    public static boolean addHouseMaster(StudentViolationOfDiscipline svod) throws SQLException, ClassNotFoundException {
+        HouseMasterManager_StudentViolatinOfDiscipline_Service.addStudentViolatinOfDiscipline(svod);
         return true;
     }
 }

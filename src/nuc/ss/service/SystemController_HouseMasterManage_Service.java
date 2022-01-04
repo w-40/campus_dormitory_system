@@ -7,6 +7,7 @@ package nuc.ss.service;
  * updateHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column)：接收宿舍管理控制层界面数据，传递到数据访问层
  * addHouseMaster(HouseMaster houseMaster)：接收宿舍管理控制层界面数据，传递到数据访问层
  */
+
 import nuc.ss.dao.SystemController_HouseMasterManage_JDBC;
 import nuc.ss.controller.SystemController_HouseMasterManage_Controller;
 import nuc.ss.domain.HouseMaster;
@@ -24,18 +25,20 @@ public class SystemController_HouseMasterManage_Service {
 
     public static String deleteHouseMaster(String tid) throws SQLException, ClassNotFoundException {
         SystemController_HouseMasterManage_JDBC.deleteHouseMaster(tid);
-    	return tid;
+        return tid;
     }
-    public static boolean updateHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val,tid,tableHeadList,column);
-        return true;
-    }
-    public static boolean updateSetHouseMaster(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val,tid,tableHeadList,column);
+
+    public static boolean updateHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException{
+    public static boolean updateSetHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val, tid, tableHeadList, column);
+        return true;
+    }
+
+    public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException {
         SystemController_HouseMasterManage_JDBC.addHouseMaster(houseMaster);
         return true;
     }

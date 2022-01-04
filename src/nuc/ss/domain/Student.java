@@ -30,15 +30,15 @@ public class Student {
     }
 
     public Student(String id, String message) {
-    	this.id = id;
-    	this.message = message;
+        this.id = id;
+        this.message = message;
     }
 
     public Student(String name) {
         this.name = name;
     }
 
-    public Student(String grade, String id, String name, String password, char sex, String dormitoryId, String apartmentId,int bed, String phoneNumber) {
+    public Student(String grade, String id, String name, String password, char sex, String dormitoryId, String apartmentId, int bed, String phoneNumber) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -47,7 +47,7 @@ public class Student {
         this.dormitoryId = dormitoryId;
         this.bed = bed;
         this.phoneNumber = phoneNumber;
-        this.apartmentId=apartmentId;
+        this.apartmentId = apartmentId;
     }
 
     public Student(String id, String password, String name, char sex, String grade, String dormitoryId, String apartmentId, int bed, String phoneNumber) {

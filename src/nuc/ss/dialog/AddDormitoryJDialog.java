@@ -14,93 +14,93 @@ import javax.swing.*;
 import nuc.ss.controller.SystemController_DormitoryManage_Controller;
 import nuc.ss.domain.Dormitory;
 
-public class AddDormitoryJDialog extends JDialog{
-	
-	private JLabel l_id, l_name;
+public class AddDormitoryJDialog extends JDialog {
+
+    private JLabel l_id, l_name;
     private JTextField t_id, t_name;
-    private JButton b_add,b_reset;
-	Frame frame;
+    private JButton b_add, b_reset;
+    Frame frame;
 
-    
+
     public AddDormitoryJDialog(Frame frame, String title, boolean modal) {
-		//super(frame, title, modal);
-		this.setTitle("添加宿舍楼信息");
-		this.setSize(350, 250);
-		this.setLocationRelativeTo(null);
-		init();
-		this.setVisible(true);
-	}
-    
-    
-    
+        //super(frame, title, modal);
+        this.setTitle("添加宿舍楼信息");
+        this.setSize(350, 250);
+        this.setLocationRelativeTo(null);
+        init();
+        this.setVisible(true);
+    }
+
+
     public void init() {
-    	this.setLayout(new GridLayout(3,2,5,5));
-    	
-    	l_id = new JLabel("宿舍楼号",JLabel.CENTER);
-    	l_name = new JLabel("宿舍楼名称",JLabel.CENTER);
-    	
-    	t_id = new JTextField();
-    	t_name = new JTextField();
-    	
-    	Font font = new Font("TimesNewRoman", Font.BOLD, 20);
-    	l_id.setFont(font);
-    	l_name.setFont(font);
-    	
-    	t_id.setFont(font);
-    	t_name.setFont(font);
-    	
-    	b_add = new JButton("添加");
-    	b_add.setFont(font);
-    	b_add.addActionListener(new ActionListener() {
-    		public void actionPerformed(ActionEvent arg0) {
-				boolean flag = addHouseMaster();
-				if (flag == true){
-					JOptionPane.showMessageDialog(frame,"添加成功，请点击查询按钮刷新表格");
-					dispose();
+        this.setLayout(new GridLayout(3, 2, 5, 5));
 
-				}else {
-					JOptionPane.showMessageDialog(frame,"添加失败");
-				}
-    		}
-    		
-        });                              
-    	
-    	b_reset = new JButton("重置");
-    	b_reset.setFont(font);
-    	b_reset.addActionListener(new ActionListener() {
+        l_id = new JLabel("宿舍楼号", JLabel.CENTER);
+        l_name = new JLabel("宿舍楼名称", JLabel.CENTER);
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				t_id.setText("");
-				t_name.setText("");
+        t_id = new JTextField();
+        t_name = new JTextField();
 
-				
-			}
-    		
-    	});
-    	
-    	this.add(l_id);
-    	this.add(t_id);
-    	
-    	this.add(l_name);
-    	this.add(t_name);
-    	
-    	this.add(b_add);
-    	this.add(b_reset);
+        Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+        l_id.setFont(font);
+        l_name.setFont(font);
+
+        t_id.setFont(font);
+        t_name.setFont(font);
+
+        b_add = new JButton("添加");
+        b_add.setFont(font);
+        b_add.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                boolean flag = addHouseMaster();
+                if (flag == true) {
+                    JOptionPane.showMessageDialog(frame, "添加成功，请点击查询按钮刷新表格");
+                    dispose();
+
+                } else {
+                    JOptionPane.showMessageDialog(frame, "添加失败");
+                }
+            }
+
+        });
+
+        b_reset = new JButton("重置");
+        b_reset.setFont(font);
+        b_reset.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                t_id.setText("");
+                t_name.setText("");
+
+
+            }
+
+        });
+
+        this.add(l_id);
+        this.add(t_id);
+
+        this.add(l_name);
+        this.add(t_name);
+
+        this.add(b_add);
+        this.add(b_reset);
 
     }
+
     public boolean addHouseMaster() {
-    	String id = t_id.getText();
-		String name = t_name.getText();
-		
-		Dormitory dormitory = new Dormitory(id, name);
-		try {
-			SystemController_DormitoryManage_Controller.addDormitory(dormitory);
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return true;
-	}
+        String id = t_id.getText();
+        String name = t_name.getText();
+
+        Dormitory dormitory = new Dormitory(id, name);
+        try {
+            SystemController_DormitoryManage_Controller.addDormitory(dormitory);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

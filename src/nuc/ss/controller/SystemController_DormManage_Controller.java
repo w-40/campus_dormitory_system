@@ -16,7 +16,7 @@ public class SystemController_DormManage_Controller {
     public static ArrayList<Dorm> searchDorm() throws SQLException, ClassNotFoundException {
         ArrayList<Dorm> DormArrayList = new ArrayList<Dorm>();
         DormArrayList = SystemController_DormManage_Service.searchDorm();
-        return DormArrayList ;
+        return DormArrayList;
     }
 
 
@@ -24,12 +24,13 @@ public class SystemController_DormManage_Controller {
         SystemController_DormManage_Service.deleteDorm(tid);
         return true;
     }
+
     public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_DormManage_Service.updateDorm(val,tid,tableHeadList,column);
+        SystemController_DormManage_Service.updateDorm(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException{
+    public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException {
         SystemController_DormManage_Service.addDorm(Dorm);
         return true;
     }

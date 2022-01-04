@@ -15,14 +15,15 @@ import javax.swing.table.TableModel;
 
 public class AdminTable extends JTable {
 
-	public static DefaultTableModel adminModel;
-	public AdminTable(TableModel dm) {
-		super(dm);
-	}
+    public static DefaultTableModel adminModel;
 
-	public boolean isCellEditable(int row, int column){
-		if (column==0) return false;//防止主键被更改
-		else return true;
-	}
-	
+    public AdminTable(TableModel dm) {
+        super(dm);
+    }
+
+    public boolean isCellEditable(int row, int column) {
+        if (column == 0) return false;//防止主键被更改
+        else return true;
+    }
+
 }

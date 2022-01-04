@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SystemController_DormManage_JDBC {
     public static ArrayList searchDorm() {
         ArrayList<Dorm> Dormlist = new ArrayList<Dorm>();
-        int id ;//宿舍号
+        int id;//宿舍号
         String dormitory = null; //宿舍楼名称
         int num;
 
@@ -21,38 +21,38 @@ public class SystemController_DormManage_JDBC {
         Connection con = null;
         Statement stat = null;
         ResultSet rs = null;
-        
+
         // 1.导入jar包
         // 2.注册驱动
         try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
 
-	        // 4.获取执行者对象
-	        stat = con.createStatement();
-	
-	        // 5. 执行sql语句，并且接收结果
-	        String sql = "SELECT * FROM 宿舍信息表";
-	        rs = stat.executeQuery(sql);
-	        // 6.处理结果
-	        while (rs.next()) {
-	            id = rs.getInt("宿舍号");  //宿舍号
-	            dormitory = rs.getString("宿舍楼号");//宿舍楼名称
-	            num=rs.getInt("人数");
-	            hs = new Dorm(id,dormitory,num);
-	            Dormlist.add(hs);
-	        }
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}//MySQL5版本后可以省略注册步骤
+            // 4.获取执行者对象
+            stat = con.createStatement();
+
+            // 5. 执行sql语句，并且接收结果
+            String sql = "SELECT * FROM 宿舍信息表";
+            rs = stat.executeQuery(sql);
+            // 6.处理结果
+            while (rs.next()) {
+                id = rs.getInt("宿舍号");  //宿舍号
+                dormitory = rs.getString("宿舍楼号");//宿舍楼名称
+                num = rs.getInt("人数");
+                hs = new Dorm(id, dormitory, num);
+                Dormlist.add(hs);
+            }
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-          catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (con != null) {
+        catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                if (con != null) {
                     con.close();
                 }
                 if (stat != null) {
@@ -61,16 +61,16 @@ public class SystemController_DormManage_JDBC {
                 if (rs != null) {
                     rs.close();
                 }
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
+            } catch (Exception e2) {
+                // TODO: handle exception
+            }
+        }
         return Dormlist;
     }
 
     public static boolean deleteDorm(String tid) {
         ArrayList<Dorm> Dormlist = new ArrayList<Dorm>();
-        int id ;//宿舍号
+        int id;//宿舍号
         String dormitory = null; //宿舍楼名称
         int num;
 
@@ -78,93 +78,93 @@ public class SystemController_DormManage_JDBC {
         Connection con = null;
         // 2.注册驱动
         try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-	        con = DriverManager.getConnection(url, "wzk", "2013040431");
-	        String sql = "DELETE FROM 宿舍信息表 WHERE 宿舍号=?";
-	        PreparedStatement pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, tid);
-	        pstmt.executeUpdate();//执行删除SQL语句，数据库中即删掉一条记录
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (con != null) {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+            con = DriverManager.getConnection(url, "wzk", "2013040431");
+            String sql = "DELETE FROM 宿舍信息表 WHERE 宿舍号=?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, tid);
+            pstmt.executeUpdate();//执行删除SQL语句，数据库中即删掉一条记录
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                if (con != null) {
                     con.close();
                 }
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
+            } catch (Exception e2) {
+                // TODO: handle exception
+            }
+        }
         return true;
     }
 
     public static boolean updateDorm(String val, String tid, ArrayList<String> dorimitoryList, int column) {
-    	Connection conn = null;
+        Connection conn = null;
         try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-	        conn = DriverManager.getConnection(url, "wzk", "2013040431");
-	        String sql = "UPDATE 宿舍信息表 SET " + dorimitoryList.get(column) + " = ? WHERE 宿舍号 = ?";
-	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, val);
-	        pstmt.setString(2, tid);
-	        pstmt.executeUpdate();
-	        
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (conn != null) {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+            conn = DriverManager.getConnection(url, "wzk", "2013040431");
+            String sql = "UPDATE 宿舍信息表 SET " + dorimitoryList.get(column) + " = ? WHERE 宿舍号 = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, val);
+            pstmt.setString(2, tid);
+            pstmt.executeUpdate();
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
                     conn.close();
                 }
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
-        
+            } catch (Exception e2) {
+                // TODO: handle exception
+            }
+        }
+
         return true;
     }
 
     public static boolean addDorm(Dorm Dorm) {
-    	Connection conn = null;
+        Connection conn = null;
         int id = Dorm.getId();
         String dormitory = Dorm.getDormitoryId(); //宿舍楼号
-        int num=Dorm.getNum();
+        int num = Dorm.getNum();
         try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-	        conn = DriverManager.getConnection(url, "wzk", "2013040431");
-	        String sql = "insert into 宿舍信息表 values(?,?,?)";
-	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, id);
-	        pstmt.setString(2, dormitory);
-	        pstmt.setInt(3, num);
-	        pstmt.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (conn != null) {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+            conn = DriverManager.getConnection(url, "wzk", "2013040431");
+            String sql = "insert into 宿舍信息表 values(?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, dormitory);
+            pstmt.setInt(3, num);
+            pstmt.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
                     conn.close();
                 }
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
+            } catch (Exception e2) {
+                // TODO: handle exception
+            }
+        }
         return true;
     }
 }

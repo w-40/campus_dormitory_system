@@ -135,7 +135,7 @@ public class ManageInterface {
 //        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
 //        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
 //        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
-        MyRenderer myRenderer=new MyRenderer();
+        MyRenderer myRenderer = new MyRenderer();
         myRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
         myRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
         tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
@@ -144,13 +144,13 @@ public class ManageInterface {
         tree.setCellRenderer(myRenderer);
         tree.setSelectionRow(2);
 
-        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统",JLabel.CENTER);
+        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统", JLabel.CENTER);
         JLabel bottomLabel = new JLabel("  请从左侧JTree进行业务选择", JLabel.CENTER);
         topLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
         bottomLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 
         Box vBox = Box.createVerticalBox();
-        vBox.setBackground(new Color(50,250,50));
+        vBox.setBackground(new Color(50, 250, 50));
         vBox.add(Box.createVerticalStrut(180));
         vBox.add(topLabel);
         vBox.add(Box.createVerticalStrut(180));

@@ -4,6 +4,7 @@ package nuc.ss.component;
  * @create 2021-12-28 18:32
  * @description 宿舍房间管理
  */
+
 import nuc.ss.controller.SystemController_DormManage_Controller;
 import nuc.ss.controller.SystemController_DormitoryManage_Controller;
 import nuc.ss.dialog.AddDormJDialog;
@@ -179,7 +180,6 @@ public class DormManageComponent extends Box {
                 DormTable.updateUI();
             }
         });
-
 
 
         Box vBox = Box.createVerticalBox();

@@ -155,11 +155,10 @@ public class DormitoryManageComponent extends Box {
                     classNotFoundException.printStackTrace();
                 }
                 if (flag) {
-                    JOptionPane.showMessageDialog(frame,"删除成功");
-                }else {
-                    JOptionPane.showMessageDialog(frame,"删除失败");
+                    JOptionPane.showMessageDialog(frame, "删除成功");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "删除失败");
                 }
-
 
 
                 dormitoryTableData.remove(row);//从表格中移出一行
@@ -199,6 +198,7 @@ public class DormitoryManageComponent extends Box {
         this.validate();
         this.repaint();
     }
+
     private void getDormitoryInfo() {//获取数据
         try {
             dormitoryTableData.clear();

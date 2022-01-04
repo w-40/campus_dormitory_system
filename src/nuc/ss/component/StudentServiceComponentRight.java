@@ -103,15 +103,15 @@ public class StudentServiceComponentRight extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                     try {
-                int row = studentTable.getSelectedRow();
-                //int col = studentTable.getSelectedColumn();
-                String col = studentData.get(row).get(0);
-                String id = col;
-                new AllocateDormitoryJDialog(this, true, id).setVisible(true);
-                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                        JOptionPane.showMessageDialog(frame, "请选中一个条目");
-                   }
+                try {
+                    int row = studentTable.getSelectedRow();
+                    //int col = studentTable.getSelectedColumn();
+                    String col = studentData.get(row).get(0);
+                    String id = col;
+                    new AllocateDormitoryJDialog(this, true, id).setVisible(true);
+                } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                    JOptionPane.showMessageDialog(frame, "请选中一个条目");
+                }
             }
         });
         JButton b3 = new JButton("刷新");

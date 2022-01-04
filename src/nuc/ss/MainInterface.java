@@ -12,14 +12,14 @@ import java.awt.*;
 
 public class MainInterface {
     public static void main(String[] args) {
-            EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    try {
-                        LoginFrame window = new LoginFrame();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    LoginFrame window = new LoginFrame();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            });
+            }
+        });
     }
 }

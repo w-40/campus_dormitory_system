@@ -27,12 +27,10 @@ public class HouseMasterInterface {
 
     private JFrame frame;
 
-
     //手工添加
     private AdminTable adminTable;
     private ArrayList<String> tableHeadList;
     private Vector<Vector<String>> tableData = new Vector<Vector<String>>();
-
 
     public HouseMasterInterface(String username) {
         initialize(username);
@@ -110,7 +108,7 @@ public class HouseMasterInterface {
 //        DefaultTreeCellRenderer cellRenderer = new DefaultTreeCellRenderer();
 //        cellRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
 //        cellRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
-        MyRenderer myRenderer=new MyRenderer();
+        MyRenderer myRenderer = new MyRenderer();
         myRenderer.setBackgroundNonSelectionColor(new Color(135, 206, 235));
         myRenderer.setBackgroundSelectionColor(new Color(135, 206, 235));
         tree.setFont(new Font("TimesNewRoman", Font.PLAIN, 30));
@@ -161,22 +159,23 @@ public class HouseMasterInterface {
         frame.add(sp);
         frame.setVisible(true);
     }
-    public  class MyRenderer extends DefaultTreeCellRenderer{
+
+    public class MyRenderer extends DefaultTreeCellRenderer {
         private ImageIcon rootIcon = new ImageIcon("images/2.root.png");
-        private ImageIcon studentViolatinOfDisciplineManageIcon =new ImageIcon("images/2.违纪.png");
+        private ImageIcon studentViolatinOfDisciplineManageIcon = new ImageIcon("images/2.违纪.png");
         private ImageIcon visitorInformationManageIcon = new ImageIcon("images/2.信息.png");
         private ImageIcon studentMessageManageIcon = new ImageIcon("images/2.留言.png");
-        private ImageIcon individualAccountManage =new ImageIcon("images/2.账户.png");
+        private ImageIcon individualAccountManage = new ImageIcon("images/2.账户.png");
 
 
         //当绘制树的每个结点时，都会调用这个方法
         @Override
         public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
             //使用默认绘制
-            super.getTreeCellRendererComponent(tree,value,sel,expanded,leaf,row,hasFocus);
+            super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
 
             ImageIcon image = null;
-            switch (row){
+            switch (row) {
                 case 0:
                     image = rootIcon;
                     break;

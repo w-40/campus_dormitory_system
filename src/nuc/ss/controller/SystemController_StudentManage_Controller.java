@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @author hsystart,王志凯修改
+ * @author hsystart, 王志凯修改
  * @create 2021-12-27 19:38
  */
 public class SystemController_StudentManage_Controller {
@@ -24,16 +24,18 @@ public class SystemController_StudentManage_Controller {
         SystemController_StudentManage_Service.deleteStudent(tid);
         return true;
     }
+
     public static boolean updateStudent(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_StudentManage_Service.updateStudent(val,tid,tableHeadList,column);
-        return true;
-    }
-    public static boolean updateSet(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_StudentManage_Service.updateStudent(val,tid,tableHeadList,column);
+        SystemController_StudentManage_Service.updateStudent(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addStudent(Student Student) throws SQLException, ClassNotFoundException{
+    public static boolean updateSet(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_StudentManage_Service.updateStudent(val, tid, tableHeadList, column);
+        return true;
+    }
+
+    public static boolean addStudent(Student Student) throws SQLException, ClassNotFoundException {
         SystemController_StudentManage_Service.addStudent(Student);
         return true;
     }

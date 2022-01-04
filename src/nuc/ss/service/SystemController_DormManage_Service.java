@@ -23,12 +23,13 @@ public class SystemController_DormManage_Service {
         SystemController_DormManage_JDBC.deleteDorm(tid);
         return tid;
     }
-    public static boolean updateDorm(String val,String tid, ArrayList<String> tableHeadList,int column) throws SQLException, ClassNotFoundException {
-        SystemController_DormManage_JDBC.updateDorm(val,tid,tableHeadList,column);
+
+    public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
+        SystemController_DormManage_JDBC.updateDorm(val, tid, tableHeadList, column);
         return true;
     }
 
-    public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException{
+    public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException {
         SystemController_DormManage_JDBC.addDorm(Dorm);
         return true;
     }
