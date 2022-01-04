@@ -103,8 +103,9 @@ public class AllocateDormitory_JDBC {
             pstmt.setString(2, l2);
             pstmt.setString(3, l3);
             rs = pstmt.executeQuery();//执行SQL查询语句
-            //6.处理结果
-
+            if (rs.next()) {
+                return true;
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
@@ -119,9 +120,6 @@ public class AllocateDormitory_JDBC {
                 }
                 if (rs != null) {
                     rs.close();
-                }
-                if (rs.next()) {
-                    return true;
                 }
             } catch (SQLException throwables) {
 
