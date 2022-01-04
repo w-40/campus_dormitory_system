@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -49,9 +50,14 @@ public class AddDisciplinaryInformationDialog extends JDialog {
         t_id.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
         t_content.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
 
+        long now = System.currentTimeMillis();
+        Date date = new Date();
+        date.setTime(now);
+
         t_time = new JTextField();
         t_time.setFont(new Font("TimesNewRoman", Font.BOLD, 20));
-        t_time.setText(String.valueOf(LocalDateTime.now()));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        t_time.setText(sdf.format(date));
         t_time.setEditable(false);
 
         b_add = new JButton("添加");

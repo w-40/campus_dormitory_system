@@ -71,7 +71,7 @@ public class AddVisitorJDialog extends JDialog {
         t_tel.setFont(font);
         t_name.setFont(font);
         t_visitMatters.setFont(font);
-
+        t_identity.setFont(font);
 
         b_add = new JButton("添加");
         b_add.setFont(font);
