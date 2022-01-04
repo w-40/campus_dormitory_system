@@ -28,7 +28,7 @@ public class SystemController_VisitorManage_JDBC {
         Statement stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
-        String sql = "SELECT * FROM 访客信息表";
+        String sql = "SELECT * FROM 访客信息表 ORDER BY 来访时间";
         ResultSet rs = stat.executeQuery(sql);
         // 6.处理结果
         while (rs.next()) {
