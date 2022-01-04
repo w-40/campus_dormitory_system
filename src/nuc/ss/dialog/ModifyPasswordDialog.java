@@ -1,5 +1,6 @@
 package nuc.ss.dialog;
 
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,7 @@ public class ModifyPasswordDialog extends JDialog{
     
     public ModifyPasswordDialog(Frame frame, String title, boolean modal,String id) {
 		this.setTitle("修改密码");
-		this.setSize(350, 350);
+		this.setSize(450, 300);
 		this.setLocationRelativeTo(null);
 		init(id);
 		this.setVisible(true);
@@ -40,7 +41,16 @@ public class ModifyPasswordDialog extends JDialog{
     	JTextField t_oldPassword = new JTextField();
     	JTextField t_newPassword = new JTextField();
     	
+       	Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+       	l_oldPassword.setFont(font);
+       	l_newPassword.setFont(font);
+       	
+       	t_oldPassword.setFont(font);
+       	t_newPassword.setFont(font);
+       	
+    	
     	JButton b_modify = new JButton("修改");
+    	b_modify.setFont(font);
     	b_modify.addActionListener(new ActionListener() {
 
 			@Override
@@ -73,6 +83,7 @@ public class ModifyPasswordDialog extends JDialog{
     	
     	
     	JButton b_reset = new JButton("重置");
+    	b_reset.setFont(font);
     	b_reset.addActionListener(new ActionListener() {
 
 			@Override

@@ -56,8 +56,22 @@ public class AddVisitorJDialog extends JDialog{
 		t_time.setText(String.valueOf(LocalDateTime.now()));
 		t_time.setEnabled(false);
 
+		Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+		
+    	l_tel.setFont(font);
+    	l_name.setFont(font);
+    	l_visitMatters.setFont(font);
+    	l_identity.setFont(font);
+    	l_time.setFont(font);
+    	
+    	t_tel.setFont(font);
+    	t_name.setFont(font);
+    	t_visitMatters.setFont(font);
+		
+       	
     	
     	b_add = new JButton("添加");
+    	b_add.setFont(font);
     	b_add.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent arg0) {
 				boolean flag = addVisitor();
@@ -73,6 +87,7 @@ public class AddVisitorJDialog extends JDialog{
         });                              
     	
     	b_reset = new JButton("重置");
+    	b_reset.setFont(font);
     	b_reset.addActionListener(new ActionListener() {
 
 			@Override

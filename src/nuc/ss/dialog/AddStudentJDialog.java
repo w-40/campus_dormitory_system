@@ -56,12 +56,33 @@ public class AddStudentJDialog extends JDialog{
     	t_bed = new JTextField();
     	t_apartmentId = new JTextField();
     	
+    	Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+    	l_id.setFont(font);
+    	l_name.setFont(font);
+    	l_password.setFont(font);
+    	l_sex.setFont(font);
+    	l_dormitoryId.setFont(font);
+    	l_phoneNumber.setFont(font);
+    	l_grade.setFont(font);
+    	l_bed.setFont(font);
+    	l_apartmentId.setFont(font);
+    	
+    	t_id.setFont(font);
+    	t_name.setFont(font);
+    	t_password.setFont(font);
+    	t_dormitoryId.setFont(font);
+    	t_phoneNumber.setFont(font);
+    	t_grade.setFont(font);
+    	t_bed.setFont(font);
+    	t_apartmentId.setFont(font);
     	
     	
     	
     	ButtonGroup bg = new ButtonGroup();
     	r_male = new JRadioButton("男");
     	r_female = new JRadioButton("女");
+    	r_male.setFont(font);
+    	r_female.setFont(font);
     	bg.add(r_male);
     	bg.add(r_female);
     	JPanel p = new JPanel();
@@ -83,8 +104,10 @@ public class AddStudentJDialog extends JDialog{
     		}
     		
         });                              
+    	b_add.setFont(font);
     	
     	b_reset = new JButton("重置");
+    	b_reset.setFont(font);
     	b_reset.addActionListener(new ActionListener() {
 
 			@Override
@@ -98,6 +121,7 @@ public class AddStudentJDialog extends JDialog{
 		    	t_apartmentId.setText("");
 		    	t_grade.setText("");
 			}
+			
     		
     	});
     	

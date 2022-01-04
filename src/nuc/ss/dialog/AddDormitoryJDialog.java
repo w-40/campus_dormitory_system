@@ -42,9 +42,15 @@ public class AddDormitoryJDialog extends JDialog{
     	t_id = new JTextField();
     	t_name = new JTextField();
     	
+    	Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+    	l_id.setFont(font);
+    	l_name.setFont(font);
     	
+    	t_id.setFont(font);
+    	t_name.setFont(font);
     	
     	b_add = new JButton("添加");
+    	b_add.setFont(font);
     	b_add.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent arg0) {
 				boolean flag = addHouseMaster();
@@ -60,6 +66,7 @@ public class AddDormitoryJDialog extends JDialog{
         });                              
     	
     	b_reset = new JButton("重置");
+    	b_reset.setFont(font);
     	b_reset.addActionListener(new ActionListener() {
 
 			@Override

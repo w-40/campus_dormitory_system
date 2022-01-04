@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
@@ -165,6 +166,10 @@ public class StudentLoginFrame extends JFrame{
             table.setRowHeight(100);
             table.setFont(font);
 	    	table.setFillsViewportHeight(true);
+	    	
+	        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+	        tcr.setHorizontalAlignment(JLabel.CENTER);
+	        table.setDefaultRenderer(Object.class, tcr);
 	    	
 	    	JScrollPane jsp = new JScrollPane(table);
 	    	

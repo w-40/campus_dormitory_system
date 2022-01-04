@@ -1,4 +1,5 @@
 package nuc.ss.dialog;
+import java.awt.Font;
 /**
  * @author 段福泉
  */
@@ -43,7 +44,18 @@ public class AllocateDormitoryJDialog extends JDialog {
         t_Num2 = new JTextField();
         t_Num3 = new JTextField();
     	
+        Font font = new Font("TimesNewRoman", Font.BOLD, 20);
+        
+        l_1.setFont(font);
+        l_2.setFont(font);
+        l_3.setFont(font);
+        
+        t_Num1.setFont(font);
+        t_Num2.setFont(font);
+        t_Num3.setFont(font);
+        
     	b_update = new JButton("分配");
+    	b_update.setFont(font);
     	b_update.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent arg0) {
     			String l_1 = new String(t_Num1.getText());
@@ -79,6 +91,7 @@ public class AllocateDormitoryJDialog extends JDialog {
         });                              
     	
     	b_reset = new JButton("重置");
+    	b_reset.setFont(font);
     	b_reset.addActionListener(new ActionListener() {
 
 			@Override
