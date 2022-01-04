@@ -10,18 +10,37 @@ import java.sql.SQLException;
 
 
 public class Login_Service {
-    public static boolean systemControllerLogin(String username, String password) throws Exception {
-        boolean flag = Login_JDBC.systemControllerLogin(username, password);
+    public static boolean systemControllerLogin(String username, String password) {
+        boolean flag = false;
+        try {
+            flag = Login_JDBC.systemControllerLogin(username, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return flag;
     }
 
-    public static boolean dormitoryControllerLogin(String username, String password) throws SQLException, ClassNotFoundException {
-        boolean flag = Login_JDBC.dormitoryControllerLogin(username, password);
+    public static boolean dormitoryControllerLogin(String username, String password) {
+        boolean flag = false;
+        try {
+            flag = Login_JDBC.dormitoryControllerLogin(username, password);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return flag;
     }
 
-    public static boolean studentLogin(String username, String password) throws SQLException, ClassNotFoundException {
-        boolean flag = Login_JDBC.studentLogin(username, password);
+    public static boolean studentLogin(String username, String password) {
+        boolean flag = false;
+        try {
+            flag = Login_JDBC.studentLogin(username, password);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return flag;
     }
 }

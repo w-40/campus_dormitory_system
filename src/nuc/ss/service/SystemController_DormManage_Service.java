@@ -13,24 +13,48 @@ import java.util.ArrayList;
  * @create 2021-12-28 18:34
  */
 public class SystemController_DormManage_Service {
-    public static ArrayList<Dorm> searchDorm() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Dorm> searchDorm() {
         ArrayList<Dorm> DormArrayList = new ArrayList<Dorm>();
-        DormArrayList = SystemController_DormManage_JDBC.searchDorm();
+        try {
+            DormArrayList = SystemController_DormManage_JDBC.searchDorm();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return DormArrayList;
     }
 
-    public static String deleteDorm(String tid) throws SQLException, ClassNotFoundException {
-        SystemController_DormManage_JDBC.deleteDorm(tid);
+    public static String deleteDorm(String tid) {
+        try {
+            SystemController_DormManage_JDBC.deleteDorm(tid);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return tid;
     }
 
-    public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_DormManage_JDBC.updateDorm(val, tid, tableHeadList, column);
+    public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column) {
+        try {
+            SystemController_DormManage_JDBC.updateDorm(val, tid, tableHeadList, column);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
-    public static boolean addDorm(Dorm Dorm) throws SQLException, ClassNotFoundException {
-        SystemController_DormManage_JDBC.addDorm(Dorm);
+    public static boolean addDorm(Dorm Dorm) {
+        try {
+            SystemController_DormManage_JDBC.addDorm(Dorm);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

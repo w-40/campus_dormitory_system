@@ -86,7 +86,7 @@ public class StudentManageComponent extends Box {
         studentTable.getColumnModel().getColumn(5).setPreferredWidth(700);
         studentTable.getColumnModel().getColumn(6).setPreferredWidth(500);
         studentTable.getColumnModel().getColumn(7).setPreferredWidth(300);
-        studentTable.getColumnModel().getColumn(8).setPreferredWidth(700);
+        studentTable.getColumnModel().getColumn(8).setPreferredWidth(800);
         //表格内容居中
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(JLabel.CENTER);

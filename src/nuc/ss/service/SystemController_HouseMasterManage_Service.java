@@ -17,29 +17,48 @@ import java.util.ArrayList;
 
 public class SystemController_HouseMasterManage_Service {
 
-    public static ArrayList<HouseMaster> searchHouseMaster() throws SQLException, ClassNotFoundException {
+    public static ArrayList<HouseMaster> searchHouseMaster() {
         ArrayList<HouseMaster> houseMasterArrayList = new ArrayList<HouseMaster>();
-        houseMasterArrayList = SystemController_HouseMasterManage_JDBC.searchHouseMaster();
+        try {
+            houseMasterArrayList = SystemController_HouseMasterManage_JDBC.searchHouseMaster();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return houseMasterArrayList;
     }
 
-    public static String deleteHouseMaster(String tid) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.deleteHouseMaster(tid);
+    public static String deleteHouseMaster(String tid) {
+        try {
+            SystemController_HouseMasterManage_JDBC.deleteHouseMaster(tid);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return tid;
     }
 
-    public static boolean updateHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val, tid, tableHeadList, column);
+    public static boolean updateHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column)  {
+        try {
+            SystemController_HouseMasterManage_JDBC.updateHouseMaster(val, tid, tableHeadList, column);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
-    public static boolean updateSetHouseMaster(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.updateHouseMaster(val, tid, tableHeadList, column);
-        return true;
-    }
-
-    public static boolean addHouseMaster(HouseMaster houseMaster) throws SQLException, ClassNotFoundException {
-        SystemController_HouseMasterManage_JDBC.addHouseMaster(houseMaster);
+    public static boolean addHouseMaster(HouseMaster houseMaster) {
+        try {
+            SystemController_HouseMasterManage_JDBC.addHouseMaster(houseMaster);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 }

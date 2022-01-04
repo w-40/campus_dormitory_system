@@ -17,24 +17,48 @@ import java.util.ArrayList;
 
 public class SystemController_DormitoryManage_Service {
 
-    public static ArrayList<Dormitory> searchDormitory() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Dormitory> searchDormitory() {
         ArrayList<Dormitory> dormitoryArrayList = new ArrayList<Dormitory>();
-        dormitoryArrayList = SystemController_DormitoryManage_JDBC.searchDormitory();
+        try {
+            dormitoryArrayList = SystemController_DormitoryManage_JDBC.searchDormitory();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return dormitoryArrayList;
     }
 
-    public static String deleteDormitory(String tid) throws SQLException, ClassNotFoundException {
-        SystemController_DormitoryManage_JDBC.deleteDormitory(tid);
+    public static String deleteDormitory(String tid) {
+        try {
+            SystemController_DormitoryManage_JDBC.deleteDormitory(tid);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return tid;
     }
 
-    public static boolean updateDormitory(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_DormitoryManage_JDBC.updateDormitory(val, tid, tableHeadList, column);
+    public static boolean updateDormitory(String val, String tid, ArrayList<String> tableHeadList, int column) {
+        try {
+            SystemController_DormitoryManage_JDBC.updateDormitory(val, tid, tableHeadList, column);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
-    public static boolean addDormitory(Dormitory dormitory) throws SQLException, ClassNotFoundException {
-        SystemController_DormitoryManage_JDBC.addDormitory(dormitory);
+    public static boolean addDormitory(Dormitory dormitory) {
+        try {
+            SystemController_DormitoryManage_JDBC.addDormitory(dormitory);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 }

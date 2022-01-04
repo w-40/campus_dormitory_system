@@ -11,24 +11,48 @@ import nuc.ss.dao.HouseMasterManager_StudentViolatinOfDiscipline_JDBC;
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_Service {
-    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline() throws SQLException, ClassNotFoundException {
+    public static ArrayList<StudentViolationOfDiscipline> searchStudentViolatinOfDiscipline() {
         ArrayList<StudentViolationOfDiscipline> svod = new ArrayList<StudentViolationOfDiscipline>();
-        svod = HouseMasterManager_StudentViolatinOfDiscipline_JDBC.searchStudentViolatinOfDiscipline();
+        try {
+            svod = HouseMasterManager_StudentViolatinOfDiscipline_JDBC.searchStudentViolatinOfDiscipline();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return svod;
     }
 
-    public static String deleteStudentViolatinOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_StudentViolatinOfDiscipline_JDBC.deleteStudentViolationOfDiscipline(tid);
+    public static String deleteStudentViolatinOfDiscipline(String tid) {
+        try {
+            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.deleteStudentViolationOfDiscipline(tid);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return tid;
     }
 
-    public static boolean updateStudentViolatinOfDiscipline(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_StudentViolatinOfDiscipline_JDBC.updateStudentViolationOfDiscipline(val, tid, tableHeadList, column);
+    public static boolean updateStudentViolatinOfDiscipline(String val, String tid, ArrayList<String> tableHeadList, int column) {
+        try {
+            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.updateStudentViolationOfDiscipline(val, tid, tableHeadList, column);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
-    public static boolean addStudentViolatinOfDiscipline(StudentViolationOfDiscipline svod) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_StudentViolatinOfDiscipline_JDBC.addStudentViolationOfDiscipline(svod);
+    public static boolean addStudentViolatinOfDiscipline(StudentViolationOfDiscipline svod) {
+        try {
+            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.addStudentViolationOfDiscipline(svod);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 }

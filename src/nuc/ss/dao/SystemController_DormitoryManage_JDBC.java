@@ -31,7 +31,7 @@ public class SystemController_DormitoryManage_JDBC {
         Statement stat = con.createStatement();
 
         // 5. 执行sql语句，并且接收结果
-        String sql = "SELECT * FROM 宿舍楼信息表";
+        String sql = "SELECT * FROM 宿舍楼信息表 ORDER BY 宿舍楼号 ASC ";
         ResultSet rs = stat.executeQuery(sql);
         // 6.处理结果
         while (rs.next()) {

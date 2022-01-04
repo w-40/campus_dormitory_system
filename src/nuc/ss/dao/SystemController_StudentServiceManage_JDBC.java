@@ -82,8 +82,4 @@ public class SystemController_StudentServiceManage_JDBC {
         rs.close();
         return NotHaveDormStudent;
     }
-
-    public static void updateStudentDrom(String val, String tid, int column) {
-
-    }
 }

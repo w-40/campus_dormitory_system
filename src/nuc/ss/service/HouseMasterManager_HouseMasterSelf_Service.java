@@ -7,14 +7,26 @@ import nuc.ss.domain.HouseMaster;
 
 public class HouseMasterManager_HouseMasterSelf_Service {
 
-    public static HouseMaster searchHouseMasterSelf(String id) throws SQLException, ClassNotFoundException {
+    public static HouseMaster searchHouseMasterSelf(String id) {
         HouseMaster hm = new HouseMaster();
-        hm = HouseMasterManager_HouseMasterSelf_JDBC.searchStudentMessage(id);
+        try {
+            hm = HouseMasterManager_HouseMasterSelf_JDBC.searchStudentMessage(id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return hm;
     }
 
-    public static boolean updateHouseMasterPassWord(String tid, String newPassWord) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_HouseMasterSelf_JDBC.updateHouseMasterPassWord(tid, newPassWord);
+    public static boolean updateHouseMasterPassWord(String tid, String newPassWord) {
+        try {
+            HouseMasterManager_HouseMasterSelf_JDBC.updateHouseMasterPassWord(tid, newPassWord);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
 
     }

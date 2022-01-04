@@ -9,19 +9,31 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SystemController_StudentServiceManage_Service {
-    public static ArrayList<Dorm> searchNotFullDorm() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Dorm> searchNotFullDorm() {
         ArrayList<Dorm> NotFullDormArrayList = new ArrayList<Dorm>();
-        NotFullDormArrayList = SystemController_StudentServiceManage_JDBC.searchNotFullDorm();
+        try {
+            NotFullDormArrayList = SystemController_StudentServiceManage_JDBC.searchNotFullDorm();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return NotFullDormArrayList;
     }
 
-    public static ArrayList<Student> searchNotHaveDormStudent() throws SQLException, ClassNotFoundException {
+    public static ArrayList<Student> searchNotHaveDormStudent() {
         ArrayList<Student> NotHaveDormStudent = new ArrayList<Student>();
-        NotHaveDormStudent = SystemController_StudentServiceManage_JDBC.searchNotHaveDormStudent();
+        try {
+            NotHaveDormStudent = SystemController_StudentServiceManage_JDBC.searchNotHaveDormStudent();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return NotHaveDormStudent;
     }
 
-    public static void updateStudentDrom(String val, String tid, int column) {
-        SystemController_StudentServiceManage_JDBC.updateStudentDrom(val, tid, column);
-    }
+//    public static void updateStudentDrom(String val, String tid, int column) {
+//        SystemController_StudentServiceManage_JDBC.updateStudentDrom(val, tid, column);
+//    }
 }
