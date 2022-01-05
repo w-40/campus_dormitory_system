@@ -261,6 +261,4 @@ public class StudentLoginFrame extends JFrame {
         }
         return true;
     }
-
-
 }
