@@ -34,7 +34,7 @@ public class LoginFrame {
         frame = new JFrame();
         //frame.setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("images/宿舍图片.jpg")));
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(("images/宿舍图片.jpg")));
-        frame.setTitle("校园宿舍管理系统——登录页面");
+        frame.setTitle("校园宿舍管理系统_登录页面");
         frame.setBounds(100, 100, 878, 672);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

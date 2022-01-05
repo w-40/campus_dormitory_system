@@ -22,7 +22,6 @@ public class AddStudentJDialog extends JDialog {
     Frame frame;
 
     public AddStudentJDialog(Frame frame, String title, boolean modal) {
-        //super(frame, title, modal);
         this.setTitle("添加学生信息");
         this.setSize(500, 450);
         this.setLocationRelativeTo(null);
