@@ -129,7 +129,7 @@ public class StudentViolatinOfDisciplineComponent extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddDisciplinaryInformationDialog(frame, "添加违纪信息", true).setVisible(true);
+                new AddDisciplinaryInformationDialog(frame, "添加违纪信息", true,username).setVisible(true);
             }
         });
 

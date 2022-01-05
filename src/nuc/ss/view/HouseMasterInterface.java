@@ -112,10 +112,19 @@ public class HouseMasterInterface {
         tree.setBounds(0, 0, 350, 428);
         tree.setCellRenderer(myRenderer);
 
-        JLabel rightLabel = new JLabel("请从左侧JTree进行业务选择", JLabel.CENTER);
-        rightLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+        JLabel topLabel = new JLabel("              欢迎来到校园宿舍管理系统", JLabel.CENTER);
+        JLabel bottomLabel = new JLabel("  请从左侧JTree进行业务选择", JLabel.CENTER);
+        topLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
+        bottomLabel.setFont(new Font("TimesNewRoman", Font.PLAIN, 60));
 
-        sp.setRightComponent(rightLabel);
+        Box vBox = Box.createVerticalBox();
+        vBox.setBackground(new Color(50, 250, 50));
+        vBox.add(Box.createVerticalStrut(180));
+        vBox.add(topLabel);
+        vBox.add(Box.createVerticalStrut(180));
+        vBox.add(bottomLabel);
+
+        sp.setRightComponent(vBox);
         sp.setDividerLocation(350);
 
         tree.addTreeSelectionListener(new TreeSelectionListener() {

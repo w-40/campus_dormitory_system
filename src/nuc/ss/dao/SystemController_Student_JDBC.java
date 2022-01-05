@@ -105,11 +105,17 @@ public class SystemController_Student_JDBC {
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
-        String sql = "insert into 留言管理 values(?,?)";
+        String sql = "INSERT INTO `留言管理` (`学号`, `留言`) VALUES (?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, message);
         pstmt.executeUpdate();
+        String sql2 = "UPDATE `留言管理` SET `宿舍楼号`= (SELECT 宿舍楼号 FROM `学生基本信息` WHERE 学号 = ? ) WHERE (`学号`=?) AND (`留言`=?) AND (`宿舍楼号`='') ";
+        PreparedStatement pstmt1 = conn.prepareStatement(sql2);
+        pstmt1.setString(1, id);
+        pstmt1.setString(2, id);
+        pstmt1.setString(3, message);
+        pstmt1.executeUpdate();
         conn.close();
         return true;
     }

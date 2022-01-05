@@ -83,19 +83,26 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
         return true;
     }
 
-    public static boolean addStudentViolationOfDiscipline(StudentViolationOfDiscipline svod) throws SQLException, ClassNotFoundException {
+    public static boolean addStudentViolationOfDiscipline(StudentViolationOfDiscipline svod,String username) throws SQLException, ClassNotFoundException {
         String id = svod.getId();
         String content = svod.getContent();
         String time = svod.getTime();
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "jnb", "2013040432");
-        String sql = "insert into 学生违纪信息表 values(?,?,?)";
+        String sql = "INSERT INTO `学生违纪信息表` (`学号`, `违纪内容`, `违纪时间`) VALUES (?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, content);
         pstmt.setString(3, time);
         pstmt.executeUpdate();
+        String sql2 = "UPDATE `学生违纪信息表` SET 宿舍楼号 = (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ? ) WHERE 学号 = ? and 违纪内容 = ? AND 违纪时间 = ? ";
+        PreparedStatement pstmt1 = conn.prepareStatement(sql2);
+        pstmt1.setString(1, username);
+        pstmt1.setString(2, id);
+        pstmt1.setString(3, content);
+        pstmt1.setString(4, time);
+        pstmt1.executeUpdate();
         conn.close();
         return true;
     }

@@ -22,16 +22,16 @@ public class AddVisitorJDialog extends JDialog {
     private JButton b_add, b_reset;
     Frame frame;
 
-    public AddVisitorJDialog(Frame frame, String title, boolean modal) {
+    public AddVisitorJDialog(Frame frame, String title, boolean modal,String username) {
         //super(frame, title, modal);
         this.setTitle("添加访客信息");
         this.setSize(550, 450);
         this.setLocationRelativeTo(null);
-        init();
+        init(username);
         this.setVisible(true);
     }
 
-    public void init() {
+    public void init(String username) {
         this.setLayout(new GridLayout(6, 2, 5, 5));
 
         l_tel = new JLabel("联系方式", JLabel.CENTER);
@@ -71,7 +71,7 @@ public class AddVisitorJDialog extends JDialog {
         b_add.setFont(font);
         b_add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                boolean flag = addVisitor();
+                boolean flag = addVisitor(username);
                 if (flag == true) {
                     JOptionPane.showMessageDialog(frame, "添加成功，请点击查询按钮刷新表格");
                     dispose();
@@ -113,7 +113,7 @@ public class AddVisitorJDialog extends JDialog {
         this.add(b_reset);
     }
 
-    public boolean addVisitor() {
+    public boolean addVisitor(String username) {
         String name = t_name.getText();
         String tel = t_tel.getText();
         String time = t_time.getText();
@@ -122,7 +122,7 @@ public class AddVisitorJDialog extends JDialog {
 
         Visitor visitor = new Visitor(name, tel, time, visitMatters, identity);
         try {
-            SystemController_VisitorManage_Controller.addVisitor(visitor);
+            SystemController_VisitorManage_Controller.addVisitor(visitor,username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

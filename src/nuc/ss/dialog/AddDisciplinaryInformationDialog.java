@@ -20,20 +20,21 @@ import nuc.ss.domain.StudentViolationOfDiscipline;
 public class AddDisciplinaryInformationDialog extends JDialog {
     private JLabel l_id, l_content, l_time;
     private JTextField t_id, t_content, t_time;
+    private JRadioButton r_male, r_female;
     private JButton b_add, b_reset;
     Frame frame;
 
 
-    public AddDisciplinaryInformationDialog(Frame frame, String title, boolean modal) {
+    public AddDisciplinaryInformationDialog(Frame frame, String title, boolean modal,String username) {
         //super(frame, title, modal);
         this.setTitle("添加违纪信息");
         this.setSize(550, 350);
         this.setLocationRelativeTo(null);
-        init();
+        init(username);
         this.setVisible(true);
     }
 
-    public void init() {
+    public void init(String username) {
         this.setLayout(new GridLayout(4, 2, 5, 5));
 
         l_id = new JLabel("学号", JLabel.CENTER);
@@ -62,7 +63,7 @@ public class AddDisciplinaryInformationDialog extends JDialog {
         b_add = new JButton("添加");
         b_add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                boolean flag = addStudentViolationOfDiscipline();
+                boolean flag = addStudentViolationOfDiscipline(username);
                 if (flag == true) {
                     JOptionPane.showMessageDialog(frame, "添加成功，请点击查询按钮刷新表格");
                     dispose();
@@ -97,7 +98,7 @@ public class AddDisciplinaryInformationDialog extends JDialog {
         this.add(b_reset);
     }
 
-    public boolean addStudentViolationOfDiscipline() {
+    public boolean addStudentViolationOfDiscipline(String username) {
         String id = t_id.getText();
         String content = t_content.getText();
         String time = t_time.getText();
@@ -105,7 +106,7 @@ public class AddDisciplinaryInformationDialog extends JDialog {
         StudentViolationOfDiscipline svod = new StudentViolationOfDiscipline(id, content, time);
 
         try {
-            HouseMasterManager_StudentViolatinOfDiscipline_Controller.addHouseMaster(svod);
+            HouseMasterManager_StudentViolatinOfDiscipline_Controller.addHouseMaster(svod,username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

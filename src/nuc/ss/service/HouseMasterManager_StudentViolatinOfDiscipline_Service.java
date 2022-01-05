@@ -44,9 +44,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Service {
         return true;
     }
 
-    public static boolean addStudentViolatinOfDiscipline(StudentViolationOfDiscipline svod) {
+    public static boolean addStudentViolatinOfDiscipline(StudentViolationOfDiscipline svod,String username) {
         try {
-            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.addStudentViolationOfDiscipline(svod);
+            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.addStudentViolationOfDiscipline(svod,username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

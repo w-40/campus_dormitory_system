@@ -19,8 +19,8 @@ public class SystemController_VisitorManage_Controller {
         return true;
     }
 
-    public static boolean addVisitor(Visitor Visitor) throws SQLException, ClassNotFoundException {
-        SystemController_VisitorManage_Service.addVisitor(Visitor);
+    public static boolean addVisitor(Visitor Visitor,String username) throws SQLException, ClassNotFoundException {
+        SystemController_VisitorManage_Service.addVisitor(Visitor,username);
         return true;
     }
 }

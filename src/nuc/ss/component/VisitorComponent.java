@@ -115,7 +115,7 @@ public class VisitorComponent extends Box {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddVisitorJDialog(frame, "添加访客", true).setVisible(true);
+                new AddVisitorJDialog(frame, "添加访客", true,username).setVisible(true);
             }
         });
 

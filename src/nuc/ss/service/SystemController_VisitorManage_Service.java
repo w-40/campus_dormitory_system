@@ -31,9 +31,9 @@ public class SystemController_VisitorManage_Service {
         return true;
     }
 
-    public static boolean addVisitor(Visitor Visitor) {
+    public static boolean addVisitor(Visitor Visitor,String username) {
         try {
-            SystemController_VisitorManage_JDBC.addVisitor(Visitor);
+            SystemController_VisitorManage_JDBC.addVisitor(Visitor,username);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -25,8 +25,8 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Controller {
         return true;
     }
 
-    public static boolean addHouseMaster(StudentViolationOfDiscipline svod) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_StudentViolatinOfDiscipline_Service.addStudentViolatinOfDiscipline(svod);
+    public static boolean addHouseMaster(StudentViolationOfDiscipline svod,String username) throws SQLException, ClassNotFoundException {
+        HouseMasterManager_StudentViolatinOfDiscipline_Service.addStudentViolatinOfDiscipline(svod,username);
         return true;
     }
 }

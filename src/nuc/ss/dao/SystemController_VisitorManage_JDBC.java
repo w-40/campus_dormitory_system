@@ -83,7 +83,7 @@ public class SystemController_VisitorManage_JDBC {
         return true;
     }
 
-    public static boolean addVisitor(Visitor Visitor) throws SQLException, ClassNotFoundException {
+    public static boolean addVisitor(Visitor Visitor,String username) throws SQLException, ClassNotFoundException {
         String tel = Visitor.getTel();
         String visitMatters = Visitor.getVisitMatters();
         String name = Visitor.getName();
@@ -92,7 +92,7 @@ public class SystemController_VisitorManage_JDBC {
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
-        String sql = "insert into 访客信息表 values(?,?,?,?,?)";
+        String sql = "INSERT INTO `访客信息表` (`姓名`, `联系方式`, `来访时间`, `来访事宜`, `身份`) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, name);
         pstmt.setString(2, tel);
@@ -100,6 +100,10 @@ public class SystemController_VisitorManage_JDBC {
         pstmt.setString(4, visitMatters);
         pstmt.setString(5, identity);
         pstmt.executeUpdate();
+        String sql2 = "UPDATE `访客信息表` SET `来访楼号`= (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ? ) WHERE (`姓名`='籍乃博') AND (`来访时间`='2021-12-08 16:04') AND (`来访事宜`='hhhh')";
+        PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+        pstmt2.setString(1, username);
+        pstmt2.executeUpdate();
         conn.close();
         return true;
     }

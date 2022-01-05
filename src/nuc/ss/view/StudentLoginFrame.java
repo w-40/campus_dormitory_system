@@ -183,7 +183,6 @@ public class StudentLoginFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 addMessage();
                 JOptionPane.showMessageDialog(add, "提交成功");
-                dispose();
             }
         });
 
@@ -261,4 +260,6 @@ public class StudentLoginFrame extends JFrame {
         }
         return true;
     }
+
+
 }
