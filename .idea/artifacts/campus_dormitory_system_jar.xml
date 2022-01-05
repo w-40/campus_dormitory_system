@@ -2,9 +2,6 @@
   <artifact type="jar" name="campus_dormitory_system:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/campus_dormitory_system_jar</output-path>
     <root id="archive" name="campus_dormitory_system.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="campus_dormitory_system" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/mysql-connector-java-5.1.37-bin.jar" path-in-jar="/" />
     </root>

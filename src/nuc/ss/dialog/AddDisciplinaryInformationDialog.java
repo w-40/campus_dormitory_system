@@ -20,7 +20,6 @@ import nuc.ss.domain.StudentViolationOfDiscipline;
 public class AddDisciplinaryInformationDialog extends JDialog {
     private JLabel l_id, l_content, l_time;
     private JTextField t_id, t_content, t_time;
-    private JRadioButton r_male, r_female;
     private JButton b_add, b_reset;
     Frame frame;
 

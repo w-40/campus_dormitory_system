@@ -38,6 +38,7 @@ public class HouseMasterInterface {
     private void initialize(String username) {
 
         frame = new JFrame();
+        frame.repaint();
         frame.setTitle("校园宿舍管理系统_宿舍管理员主界面");
         frame.getContentPane().setBackground(new Color(135, 206, 235));
         frame.setBounds(100, 100, 1600, 915);
@@ -60,7 +61,7 @@ public class HouseMasterInterface {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                new LoginFrame();
+                LoginFrame loginFrame = new LoginFrame();
             }
         });
 
