@@ -1,6 +1,6 @@
 package nuc.ss.component;
 /**
- * @author hsystart，王志凯
+ * @author hsystart，王志凯，籍乃博
  * @create 2021-12-28 18:32
  * @description 宿舍房间管理
  */
@@ -133,7 +133,8 @@ public class DormManageComponent extends Box {
                 boolean flag = false;
                 try {
                     String tid = DormTableData.get(row).get(0);//取得tid
-                    flag = SystemController_DormManage_Controller.updateDorm(val, tid, tableHeadList, column);
+                    String dormitoryId = DormTableData.get(row).get(1);
+                    flag = SystemController_DormManage_Controller.updateDorm(val, tid, tableHeadList, column,dormitoryId);
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 } catch (SQLException throwables) {
@@ -156,9 +157,10 @@ public class DormManageComponent extends Box {
             public void actionPerformed(ActionEvent e) {
                 int row = DormTable.getSelectedRow();//获取被选中的行
                 String tid = DormTableData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
+                String dormitoryId = DormTableData.get(row).get(1);
                 boolean flag = false;
                 try {
-                    flag = SystemController_DormManage_Controller.deleteDorm(tid);
+                    flag = SystemController_DormManage_Controller.deleteDorm(tid,dormitoryId);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {

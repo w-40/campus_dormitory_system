@@ -1,6 +1,6 @@
 package nuc.ss.service;
 /**
- * @author hsystart，王志凯
+ * @author hsystart，王志凯,籍乃博
  * @create 2021-12-28 18:34
  */
 import nuc.ss.dao.SystemController_DormManage_JDBC;
@@ -24,9 +24,9 @@ public class SystemController_DormManage_Service {
         return DormArrayList;
     }
 
-    public static String deleteDorm(String tid) {
+    public static String deleteDorm(String tid,String dormitoryId) {
         try {
-            SystemController_DormManage_JDBC.deleteDorm(tid);
+            SystemController_DormManage_JDBC.deleteDorm(tid,dormitoryId);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -35,9 +35,9 @@ public class SystemController_DormManage_Service {
         return tid;
     }
 
-    public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column) {
+    public static boolean updateDorm(String val, String tid, ArrayList<String> tableHeadList, int column,String dormitoryId) {
         try {
-            SystemController_DormManage_JDBC.updateDorm(val, tid, tableHeadList, column);
+            SystemController_DormManage_JDBC.updateDorm(val, tid, tableHeadList, column,dormitoryId);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
