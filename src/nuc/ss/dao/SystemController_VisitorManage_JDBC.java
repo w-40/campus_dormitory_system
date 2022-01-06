@@ -100,9 +100,12 @@ public class SystemController_VisitorManage_JDBC {
         pstmt.setString(4, visitMatters);
         pstmt.setString(5, identity);
         pstmt.executeUpdate();
-        String sql2 = "UPDATE `访客信息表` SET `来访楼号`= (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ? ) WHERE (`姓名`='籍乃博') AND (`来访时间`='2021-12-08 16:04') AND (`来访事宜`='hhhh')";
+        String sql2 = "UPDATE `访客信息表` SET `来访楼号`= (SELECT 管理宿舍楼号 FROM `宿管信息表` WHERE 工号 = ? ) WHERE (`姓名`= ?) AND (`来访时间`= ?) AND (`来访事宜`=?)";
         PreparedStatement pstmt2 = conn.prepareStatement(sql2);
         pstmt2.setString(1, username);
+        pstmt2.setString(2, name);
+        pstmt2.setString(3, time);
+        pstmt2.setString(4, visitMatters);
         pstmt2.executeUpdate();
         conn.close();
         return true;
