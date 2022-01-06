@@ -116,7 +116,7 @@ public class AllocateDormitoryJDialog extends JDialog {
     }
 
     public void showMessage2() {
-        JOptionPane.showMessageDialog(this, "分配成功",
+        JOptionPane.showMessageDialog(this, "分配成功，请点击刷新按钮刷新",
                 "提示", JOptionPane.CANCEL_OPTION);
     }
 }
