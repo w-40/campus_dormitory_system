@@ -7,6 +7,15 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SystemController_VisitorManage_JDBC {
+    public static String url;
+    static{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
     public static ArrayList searchVisitor(String username) throws SQLException, ClassNotFoundException {
         ArrayList<Visitor> visitorslist = new ArrayList<Visitor>();
         String visitMatters = null;//来访事宜
@@ -18,9 +27,9 @@ public class SystemController_VisitorManage_JDBC {
         Visitor vd = null;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -71,8 +80,8 @@ public class SystemController_VisitorManage_JDBC {
 //    }
 
     public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 访客信息表 SET " + tableHeadList.get(column) + " = ? WHERE 姓名 = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -89,8 +98,8 @@ public class SystemController_VisitorManage_JDBC {
         String name = Visitor.getName();
         String identity = Visitor.getIdentity();
         String time = Visitor.getTime();
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+       //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "INSERT INTO `访客信息表` (`姓名`, `联系方式`, `来访时间`, `来访事宜`, `身份`) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);

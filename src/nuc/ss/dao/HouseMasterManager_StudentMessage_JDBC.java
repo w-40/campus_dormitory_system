@@ -13,6 +13,16 @@ import java.util.ArrayList;
 import nuc.ss.domain.Student;
 
 public class HouseMasterManager_StudentMessage_JDBC {
+    public static String url;
+    static{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
+
     public static ArrayList searchStudentMessage(String username) throws SQLException, ClassNotFoundException {
         ArrayList<Student> stl = new ArrayList<Student>();
 
@@ -22,9 +32,9 @@ public class HouseMasterManager_StudentMessage_JDBC {
         Student st = null;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "jnb", "2013040432");
+        Connection con = DriverManager.getConnection(url, "jnb", "2013040432");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -52,8 +62,8 @@ public class HouseMasterManager_StudentMessage_JDBC {
 
     public static boolean deleteStudentMessage(String tid, String message) throws SQLException, ClassNotFoundException {
         // 注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+       // Class.forName("com.mysql.jdbc.Driver");
+       // String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection con = DriverManager.getConnection(url, "jnb", "2013040432");
         //String sql = "DELETE FROM 留言管理 WHERE 学号=?";
         String sql = "DELETE FROM 留言管理 WHERE 学号=? AND 留言=?";

@@ -7,15 +7,27 @@ package nuc.ss.dao;
  * studentLogin(String username, String password)：查询并校验学生账号密码数据
  * 并将执行结果返回到登录业务层
  */
+
 import java.sql.*;
 
 public class Login_JDBC {
+    public static String url;
+
+    static {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
+
     public static boolean systemControllerLogin(String username, String password) throws Exception {
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -40,9 +52,9 @@ public class Login_JDBC {
     public static boolean dormitoryControllerLogin(String username, String password) throws SQLException, ClassNotFoundException {
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        // Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -67,9 +79,9 @@ public class Login_JDBC {
     public static boolean studentLogin(String username, String password) throws SQLException, ClassNotFoundException {
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -94,9 +106,9 @@ public class Login_JDBC {
         String name = null;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "dfq", "2013040428");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -110,12 +122,10 @@ public class Login_JDBC {
         while (rs.next()) {
             name = rs.getString("姓名");
         }
-
         // 7.释放资源
         con.close();
         stat.close();
         rs.close();
         return name;
-
     }
 }

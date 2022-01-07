@@ -14,6 +14,16 @@ import nuc.ss.domain.Student;
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class SystemController_Student_JDBC {
+    public static String url;
+    static{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
+
     public static Student student(String username) throws SQLException, ClassNotFoundException {
 
         Student st = null;
@@ -29,9 +39,9 @@ public class SystemController_Student_JDBC {
         String phoneNumber;//联系电话
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+       // Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "dfq", "2013040428");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -71,9 +81,9 @@ public class SystemController_Student_JDBC {
         String time;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory", "dfq", "2013040428");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -102,9 +112,9 @@ public class SystemController_Student_JDBC {
     public static boolean addMessage(Student st) throws SQLException, ClassNotFoundException {
         String id = st.getId();
         String message = st.getMessage();
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "INSERT INTO `留言管理` (`学号`, `留言`) VALUES (?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
@@ -121,9 +131,9 @@ public class SystemController_Student_JDBC {
     }
 
     public static boolean updatePassword(String username, String password) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 学生基本信息 SET 密码 = ? WHERE 学号 = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, password);
@@ -134,9 +144,9 @@ public class SystemController_Student_JDBC {
     }
 
     public static boolean updateNum(String username, String num) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "dfq", "2013040428");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 学生基本信息 SET 联系电话 = ? WHERE 学号 = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, num);

@@ -13,6 +13,16 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SystemController_DormitoryManage_JDBC {
+    public static String url;
+    static{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
+
     public static ArrayList searchDormitory() throws SQLException, ClassNotFoundException {
         ArrayList<Dormitory> dormitorylist = new ArrayList<Dormitory>();
         String id = null;//宿舍楼号
@@ -21,9 +31,9 @@ public class SystemController_DormitoryManage_JDBC {
         Dormitory hs = null;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "wzk", "2013040431");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -52,8 +62,8 @@ public class SystemController_DormitoryManage_JDBC {
 
         Dormitory hs = null;
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+       // Class.forName("com.mysql.jdbc.Driver");
+       // String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "DELETE FROM 宿舍楼信息表 WHERE 宿舍楼号=?";
         PreparedStatement pstmt = con.prepareStatement(sql);
@@ -65,8 +75,8 @@ public class SystemController_DormitoryManage_JDBC {
     }
 
     public static boolean updateDormitory(String val, String tid, ArrayList<String> dorimitoryList, int column) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+      //  Class.forName("com.mysql.jdbc.Driver");
+      //  String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 宿舍楼信息表 SET " + dorimitoryList.get(column) + " = ? WHERE 宿舍楼号 = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -80,8 +90,8 @@ public class SystemController_DormitoryManage_JDBC {
     public static boolean addDormitory(Dormitory dormitory) throws SQLException, ClassNotFoundException {
         String id = dormitory.getId();
         String name = dormitory.getName();
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+      //  Class.forName("com.mysql.jdbc.Driver");
+     //  String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "insert into 宿舍楼信息表 values(?,?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);

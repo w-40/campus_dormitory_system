@@ -13,6 +13,15 @@ import java.util.ArrayList;
 import nuc.ss.domain.StudentViolationOfDiscipline;
 
 public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
+    public static String url;
+    static{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+    }
     public static ArrayList searchStudentViolatinOfDiscipline(String username) throws SQLException, ClassNotFoundException {
         ArrayList<StudentViolationOfDiscipline> svodlist = new ArrayList<StudentViolationOfDiscipline>();
 
@@ -25,9 +34,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
         StudentViolationOfDiscipline svod = null;
         // 1.导入jar包
         // 2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
+        //Class.forName("com.mysql.jdbc.Driver");//MySQL5版本后可以省略注册步骤
         // 3.获取连接
-        Connection con = DriverManager.getConnection("jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8", "jnb", "2013040432");
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
 
         // 4.获取执行者对象
         Statement stat = con.createStatement();
@@ -58,9 +67,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
 
     public static boolean deleteStudentViolationOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
         // 注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection con = DriverManager.getConnection(url, "jnb", "2013040432");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "DELETE FROM 学生违纪信息表 WHERE 学号=?";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, tid);
@@ -71,9 +80,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
     }
 
     public static boolean updateStudentViolationOfDiscipline(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "jnb", "2013040432");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "UPDATE 学生违纪信息表 SET " + tableHeadList.get(column) + " = ? WHERE 学号 = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, val);
@@ -87,9 +96,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
         String id = svod.getId();
         String content = svod.getContent();
         String time = svod.getTime();
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
-        Connection conn = DriverManager.getConnection(url, "jnb", "2013040432");
+        //Class.forName("com.mysql.jdbc.Driver");
+        //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
+        Connection conn = DriverManager.getConnection(url, "wzk", "2013040431");
         String sql = "INSERT INTO `学生违纪信息表` (`学号`, `违纪内容`, `违纪时间`) VALUES (?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
