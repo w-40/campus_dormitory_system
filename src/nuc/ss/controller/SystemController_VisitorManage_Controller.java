@@ -14,8 +14,8 @@ public class SystemController_VisitorManage_Controller {
         return visitorsArrayList;
     }
 
-    public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column) throws SQLException, ClassNotFoundException {
-        SystemController_VisitorManage_Service.updateVisitor(val, tid, tableHeadList, column);
+    public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column,String time) throws SQLException, ClassNotFoundException {
+        SystemController_VisitorManage_Service.updateVisitor(val, tid, tableHeadList, column,time);
         return true;
     }
 

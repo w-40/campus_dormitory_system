@@ -173,10 +173,12 @@ public class StudentViolatinOfDisciplineComponent extends Box {
             public void actionPerformed(ActionEvent e) {
                 int row = studentViolatinOfDisciplineTable.getSelectedRow();//获取被选中的行
                 String tid;
+                String time;
                 boolean flag = false;
                 try {
                     tid = studentViolatinOfDisciplineData.get(row).get(0);//获得第1列，也就是tid，按tid执行删除
-                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.deleteStudentViolatinOfDiscipline(tid);
+                    time = studentViolatinOfDisciplineData.get(row).get(4);
+                    flag = HouseMasterManager_StudentViolatinOfDiscipline_Controller.deleteStudentViolatinOfDiscipline(tid,time);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException classNotFoundException) {

@@ -65,14 +65,15 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_JDBC {
         return svodlist;
     }
 
-    public static boolean deleteStudentViolationOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
+    public static boolean deleteStudentViolationOfDiscipline(String tid,String time) throws SQLException, ClassNotFoundException {
         // 注册驱动
         //Class.forName("com.mysql.jdbc.Driver");
         //String url = "jdbc:mysql://182.42.117.228:3306/campus_dormitory?useUnicode=true&characterEncoding=utf-8";
         Connection con = DriverManager.getConnection(url, "wzk", "2013040431");
-        String sql = "DELETE FROM 学生违纪信息表 WHERE 学号=?";
+        String sql = "DELETE FROM 学生违纪信息表 WHERE 学号=? and 违纪时间 = ?";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, tid);
+        pstmt.setString(2, time);
         pstmt.executeUpdate();//执行删除SQL语句，数据库中即删掉一条记录
         // 释放资源
         con.close();

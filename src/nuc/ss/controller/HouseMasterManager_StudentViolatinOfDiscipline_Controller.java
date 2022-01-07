@@ -15,8 +15,8 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Controller {
         return svod;
     }
 
-    public static boolean deleteStudentViolatinOfDiscipline(String tid) throws SQLException, ClassNotFoundException {
-        HouseMasterManager_StudentViolatinOfDiscipline_Service.deleteStudentViolatinOfDiscipline(tid);
+    public static boolean deleteStudentViolatinOfDiscipline(String tid,String time) throws SQLException, ClassNotFoundException {
+        HouseMasterManager_StudentViolatinOfDiscipline_Service.deleteStudentViolatinOfDiscipline(tid,time);
         return true;
     }
 

@@ -22,9 +22,9 @@ public class HouseMasterManager_StudentViolatinOfDiscipline_Service {
         return svod;
     }
 
-    public static String deleteStudentViolatinOfDiscipline(String tid) {
+    public static String deleteStudentViolatinOfDiscipline(String tid,String time) {
         try {
-            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.deleteStudentViolationOfDiscipline(tid);
+            HouseMasterManager_StudentViolatinOfDiscipline_JDBC.deleteStudentViolationOfDiscipline(tid,time);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

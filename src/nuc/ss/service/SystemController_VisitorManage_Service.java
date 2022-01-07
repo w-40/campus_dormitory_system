@@ -20,9 +20,9 @@ public class SystemController_VisitorManage_Service {
         return visitorsArrayList;
     }
 
-    public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column) {
+    public static boolean updateVisitor(String val, String tid, ArrayList<String> tableHeadList, int column,String time) {
         try {
-            SystemController_VisitorManage_JDBC.updateVisitor(val, tid, tableHeadList, column);
+            SystemController_VisitorManage_JDBC.updateVisitor(val, tid, tableHeadList, column,time);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

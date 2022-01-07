@@ -136,7 +136,8 @@ public class VisitorComponent extends Box {
                 boolean flag = false;
                 try {
                     String tid = visitorData.get(row).get(0);//取得tid
-                    flag = SystemController_VisitorManage_Controller.updateVisitor(val, tid, tableHeadList, column);
+                    String time = visitorData.get(row).get(2);
+                    flag = SystemController_VisitorManage_Controller.updateVisitor(val, tid, tableHeadList, column,time);
                 } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
 
                 } catch (SQLException throwables) {
