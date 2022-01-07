@@ -35,6 +35,7 @@ public class StudentLoginFrame extends JFrame {
         this.setSize(1600, 915);
         this.setLocationRelativeTo(null);
         init(username);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 

@@ -4,6 +4,7 @@
     <root id="archive" name="campus_dormitory_system.jar">
       <element id="module-output" name="campus_dormitory_system" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/mysql-connector-java-5.1.37-bin.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/images" />
     </root>
   </artifact>
 </component>
