@@ -1,4 +1,8 @@
 package nuc.ss.component;
+/**
+ * @author 王志凯
+ * @description 学生服务管理
+ */
 
 import nuc.ss.controller.SystemController_StudentServiceManage_Controller;
 import nuc.ss.domain.Dorm;
